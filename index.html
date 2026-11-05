@@ -8,7 +8,11 @@
 <title>TOKOCPS | Kebutuhan CPS</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 body{
   font-family:Arial,Helvetica,sans-serif;
@@ -131,16 +135,35 @@ h1 span{color:#ffd34e}
   min-width:0;
 }
 
+/* FIX UKURAN LOGO */
 .product-icon{
   width:66px;
   height:66px;
-  display:grid;
-  place-items:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   flex-shrink:0;
+  overflow:hidden;
+  position:relative;
   border-radius:17px;
   background:#102e68;
   border:1px solid #527bc1;
-  font-size:39px;
+}
+
+.product-icon img{
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  padding:5px;
+}
+
+.product-info{
+  flex:1;
+  min-width:0;
+  overflow:hidden;
 }
 
 .product-name{
@@ -218,59 +241,70 @@ h1 span{color:#ffd34e}
   margin-top:4px;
 }
 
-.arrow{
-  width:48px;
-  height:48px;
-  display:grid;
-  place-items:center;
-  border-radius:15px;
-  background:#07874e;
-  font-size:25px;
-  flex-shrink:0;
-}
+/* AI SLIDER */
 
 .ai-banner{
+  position:relative;
   margin-top:20px;
   width:100%;
+  height:76px;
   display:flex;
   align-items:center;
-  gap:14px;
-  padding:14px;
+  padding:8px;
   border-radius:50px;
   border:2px solid #6384ff;
   background:#10245c;
   color:white;
-  text-align:left;
   box-shadow:0 0 18px #487aff33;
+  overflow:hidden;
+  user-select:none;
+  -webkit-user-select:none;
+  touch-action:pan-y;
 }
 
-.ai-logo{
-  width:60px;
-  height:60px;
-  flex-shrink:0;
+.ai-swipe-knob{
+  position:absolute;
+  left:7px;
+  top:50%;
+  transform:translateY(-50%);
+  width:52px;
+  height:52px;
   display:grid;
   place-items:center;
-  border:3px solid #568bff;
   border-radius:50%;
-  font-size:27px;
+  border:3px solid #568bff;
+  background:linear-gradient(145deg,#426eff,#182f87);
+  color:white;
+  font-size:25px;
+  font-weight:bold;
+  box-shadow:0 0 15px #568bff66;
+  z-index:2;
+  cursor:grab;
+  touch-action:none;
 }
+
+.ai-swipe-knob:active{cursor:grabbing}
 
 .ai-label{
   flex:1;
-  min-width:0;
+  text-align:center;
+  pointer-events:none;
 }
 
-.ai-label strong{font-size:16px}
+.ai-label strong{font-size:14px}
 
 .ai-label small{
   display:block;
-  margin-top:5px;
+  margin-top:4px;
   color:#b8c9ff;
+  font-size:10px;
 }
 
 .ai-arrow{
-  font-size:24px;
+  font-size:20px;
   color:#b8c9ff;
+  padding-right:7px;
+  pointer-events:none;
 }
 
 .footer{
@@ -280,13 +314,11 @@ h1 span{color:#ffd34e}
   font-size:12px;
 }
 
-/* =========================
-   TOKOCPS AI CHAT
-========================= */
+/* AI CHAT */
 
 .ai-panel{
   position:fixed;
-  z-index:999;
+  z-index:2500;
   bottom:20px;
   right:18px;
   width:min(370px,calc(100% - 36px));
@@ -410,9 +442,7 @@ h1 span{color:#ffd34e}
   font-size:19px;
 }
 
-/* =========================
-   DISCORD POPUP
-========================= */
+/* DISCORD POPUP */
 
 #tokocpsDiscordPopup{
   position:fixed;
@@ -422,13 +452,11 @@ h1 span{color:#ffd34e}
   align-items:center;
   justify-content:center;
   padding:16px;
-  background:rgba(0,0,0,0.2);
+  background:rgba(0,0,0,.2);
   pointer-events:none;
 }
 
-#tokocpsDiscordPopup.show{
-  display:flex;
-}
+#tokocpsDiscordPopup.show{display:flex}
 
 .discord-card{
   width:100%;
@@ -563,9 +591,7 @@ h1 span{color:#ffd34e}
   font-weight:bold;
 }
 
-/* =========================
-   UKURAN MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:440px){
 
@@ -628,8 +654,9 @@ h1 span{color:#ffd34e}
     width:43px;
     height:43px;
     border-radius:13px;
-    font-size:25px;
   }
+
+  .product-icon img{padding:3px}
 
   .product-name{font-size:11px}
 
@@ -637,7 +664,7 @@ h1 span{color:#ffd34e}
     margin-top:5px;
     font-size:clamp(15px,4.7vw,22px);
     letter-spacing:-.8px;
-    overflow-wrap:normal;
+    overflow-wrap:anywhere;
   }
 
   .per{font-size:10px}
@@ -671,35 +698,26 @@ h1 span{color:#ffd34e}
     font-size:11px;
   }
 
-  .arrow{
-    width:36px;
-    height:36px;
-    border-radius:12px;
-    font-size:19px;
-  }
-
   .ai-banner{
     margin-top:15px;
-    padding:10px;
-    gap:10px;
-    border-radius:40px;
+    height:65px;
+    padding:7px;
   }
 
-  .ai-logo{
+  .ai-swipe-knob{
     width:45px;
     height:45px;
-    border-width:2px;
-    font-size:21px;
+    font-size:22px;
   }
 
-  .ai-label strong{font-size:13px}
+  .ai-label strong{font-size:12px}
 
   .ai-label small{
     margin-top:3px;
-    font-size:10px;
+    font-size:9px;
   }
 
-  .ai-arrow{font-size:19px}
+  .ai-arrow{font-size:18px}
 
   .footer{
     padding:19px 0 8px;
@@ -722,15 +740,18 @@ h1 span{color:#ffd34e}
   .discord-title{font-size:19px}
 }
 
-/* LAYAR SANGAT KECIL */
 @media(max-width:350px){
+
   .product{padding:8px}
   .product-head{gap:6px}
+
   .product-icon{
     width:37px;
     height:37px;
-    font-size:21px;
   }
+
+  .product-icon img{padding:2px}
+
   .product-name{font-size:10px}
   .price{font-size:15px}
   .buy{font-size:10px}
@@ -740,10 +761,9 @@ h1 span{color:#ffd34e}
 
 <body>
 
-<!-- HALAMAN UTAMA TOKOCPS -->
+<!-- HALAMAN TOKOCPS -->
 
 <main class="page">
-
 <section class="hero">
 
   <div class="top-label">
@@ -770,18 +790,20 @@ h1 span{color:#ffd34e}
 
   <div class="products">
 
+    <!-- PRODUK BLACK -->
     <article class="product">
       <div class="product-head">
-<div class="product-icon">
 
-  <img src="logo-bgl-black.png" alt="BGL">
+        <div class="product-icon">
+          <img src="black.png" alt="Black Gem Lock">
+        </div>
 
-</div>
-        <div>
+        <div class="product-info">
           <div class="product-name">Black Gem Lock</div>
           <div class="price" id="blackPrice">Hubungi Admin</div>
           <div class="per">per BLACK</div>
         </div>
+
       </div>
 
       <button class="buy" onclick="buyProduct('BLACK')">
@@ -789,17 +811,20 @@ h1 span{color:#ffd34e}
       </button>
     </article>
 
+    <!-- PRODUK BGL -->
     <article class="product">
       <div class="product-head">
-<div class="product-icon">
 
-  <img src="black.png" alt="BLACK">
+        <div class="product-icon">
+          <img src="logo-bgl-black.png" alt="Blue Gem Lock">
+        </div>
 
-</div>
+        <div class="product-info">
           <div class="product-name">Blue Gem Lock</div>
           <div class="price" id="bglPrice">Hubungi Admin</div>
           <div class="per">per BGL</div>
         </div>
+
       </div>
 
       <button class="buy" onclick="buyProduct('BGL')">
@@ -820,35 +845,38 @@ h1 span{color:#ffd34e}
     <div class="arrow">→</div>
   </a>
 
-  <button class="ai-banner" onclick="toggleAI()">
-    <div class="ai-logo">✦</div>
+  <!-- SLIDER TOKOCPS AI -->
+
+  <div class="ai-banner" id="aiSwipe">
+
+    <div class="ai-swipe-knob" id="aiSwipeKnob">
+      →
+    </div>
 
     <div class="ai-label">
       <strong>GESER UNTUK CHAT<br>TOKOCPS AI</strong>
-      <small>Asisten virtual TOKOCPS</small>
+      <small>Geser bulatan ke kanan</small>
     </div>
 
     <span class="ai-arrow">▤</span>
-  </button>
+
+  </div>
 
 </section>
 
 <div class="footer">
   © 2026 TOKOCPS · Marketplace CPS
 </div>
-
 </main>
 
-<!-- =========================
-     POPUP JOIN DISCORD
-========================= -->
+<!-- POPUP DISCORD -->
 
 <div id="tokocpsDiscordPopup">
 
   <div class="discord-card">
 
     <div class="discord-icon">
-      <svg viewBox="0 0 127.14 96.36" aria-label="Discord">
+      <svg viewBox="0 0 127.14 96.36">
         <path d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.08 0A72.37 72.37 0 0 0 45.67 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.7 56.6.54 80.21a105.73 105.73 0 0 0 32.1 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.17c.91-.67 1.8-1.37 2.66-2.09a75.6 75.6 0 0 0 64.2 0c.87.72 1.75 1.42 2.67 2.09a68.68 68.68 0 0 1-10.87 5.18 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.1-16.14c2.64-27.37-4.52-51.1-18.63-72.15ZM42.45 65.69c-6.26 0-11.43-5.73-11.43-12.78s5.05-12.79 11.43-12.79 11.54 5.78 11.43 12.79c-.11 7.05-5.05 12.78-11.43 12.78Zm42.24 0c-6.27 0-11.43-5.73-11.43-12.78s5.05-12.79 11.43-12.79 11.54 5.78 11.43 12.79c-.11 7.05-5.05 12.78-11.43 12.78Z"/>
       </svg>
     </div>
@@ -912,14 +940,10 @@ h1 span{color:#ffd34e}
       </button>
 
     </div>
-
   </div>
-
 </div>
 
-<!-- =========================
-     TOKOCPS AI CHAT
-========================= -->
+<!-- TOKOCPS AI CHAT -->
 
 <div class="ai-panel" id="aiPanel">
 
@@ -976,8 +1000,7 @@ const ADMIN_WA = "GANTI_NOMOR_ADMIN";
 const PRICE_BGL = "Hubungi Admin";
 const PRICE_BLACK = "Hubungi Admin";
 
-// Link undangan Discord
-// Ganti dengan link Discord server TOKOCPS kamu
+// Link Discord asli
 
 const DISCORD_INVITE = "https://discord.gg/INVITEKAMU";
 
@@ -986,12 +1009,12 @@ const DISCORD_INVITE = "https://discord.gg/INVITEKAMU";
 document.getElementById("bglPrice").textContent = PRICE_BGL;
 document.getElementById("blackPrice").textContent = PRICE_BLACK;
 
-// Link WhatsApp
+// WhatsApp
 
 document.getElementById("adminLink").href =
   "https://wa.me/" + ADMIN_WA;
 
-// Link Discord
+// Discord
 
 document.getElementById("discordJoinButton").href =
   DISCORD_INVITE;
@@ -1012,7 +1035,6 @@ function showDiscordPopup(){
   }catch(error){}
 
   discordPopup.classList.add("show");
-
 }
 
 function closeDiscordPopup(){
@@ -1025,12 +1047,8 @@ function closeDiscordPopup(){
 
 }
 
-// Tampilkan popup setelah halaman siap
-
 window.addEventListener("load",function(){
-
   setTimeout(showDiscordPopup,400);
-
 });
 
 // ==================================
@@ -1049,6 +1067,92 @@ function buyProduct(product){
   );
 
 }
+
+// ==================================
+// SLIDER GESER TOKOCPS AI
+// ==================================
+
+const aiSwipe =
+  document.getElementById("aiSwipe");
+
+const aiSwipeKnob =
+  document.getElementById("aiSwipeKnob");
+
+let aiDragging = false;
+let aiStartX = 0;
+let aiCurrentX = 0;
+
+function resetAISlider(){
+
+  aiCurrentX = 0;
+
+  aiSwipeKnob.style.transition = "left .25s ease";
+  aiSwipeKnob.style.left = "7px";
+
+}
+
+aiSwipeKnob.addEventListener("pointerdown",function(e){
+
+  aiDragging = true;
+  aiStartX = e.clientX;
+
+  aiSwipeKnob.style.transition = "none";
+
+  aiSwipeKnob.setPointerCapture(e.pointerId);
+
+});
+
+aiSwipeKnob.addEventListener("pointermove",function(e){
+
+  if(!aiDragging) return;
+
+  const trackWidth = aiSwipe.clientWidth;
+  const knobWidth = aiSwipeKnob.offsetWidth;
+
+  const maxMove = trackWidth - knobWidth - 18;
+
+  let move = e.clientX - aiStartX;
+
+  aiCurrentX = Math.max(0,Math.min(maxMove,move));
+
+  aiSwipeKnob.style.left =
+    (7 + aiCurrentX) + "px";
+
+});
+
+aiSwipeKnob.addEventListener("pointerup",function(){
+
+  if(!aiDragging) return;
+
+  aiDragging = false;
+
+  const trackWidth = aiSwipe.clientWidth;
+  const knobWidth = aiSwipeKnob.offsetWidth;
+
+  const maxMove = trackWidth - knobWidth - 18;
+
+  if(aiCurrentX >= maxMove * 0.78){
+
+    resetAISlider();
+
+    document
+      .getElementById("aiPanel")
+      .classList.add("show");
+
+  }else{
+
+    resetAISlider();
+
+  }
+
+});
+
+aiSwipeKnob.addEventListener("pointercancel",function(){
+
+  aiDragging = false;
+  resetAISlider();
+
+});
 
 // ==================================
 // TOKOCPS AI - DEMO
@@ -1090,7 +1194,9 @@ function sendAI(event){
 
   event.preventDefault();
 
-  const input = document.getElementById("aiInput");
+  const input =
+    document.getElementById("aiInput");
+
   const question = input.value.trim();
 
   if(!question) return;
