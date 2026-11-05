@@ -838,73 +838,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 </script>
-<!-- TOKOCPS DISCORD POPUP -->
-<style>
-.discord-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 22px;
-  background: rgba(0,0,0,.88);
-  backdrop-filter: blur(13px);
-  -webkit-backdrop-filter: blur(13px);
-}
-
-.discord-overlay.show {
-  display: flex;
-  animation: discordFade .35s ease;
-}
-
-.discord-popup {
-  width: 100%;
-  max-width: 520px;
-  padding: 27px;
-  border-radius: 25px;
-  background: #192433;
-  border: 1px solid #344256;
-  color: #f5f7fb;
-  box-shadow: 0 25px 80px rgba(0,0,0,.5);
-  animation: discordSlide .4s ease;
-}
-
-.discord-heading {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  margin-bottom: 22px;
-}
-
-.discord-icon {
-  width: 48px;
-  height: 48px;
-  flex-shrink: 0;
-  color: #5865F2;
-}
-
-.discord-heading h2 {
-  font-size: 23px;
-  line-height: 1.3;
-  margin: 0;
-  font-weight: 800;
-}
-
-.discord-desc {
-  color: #9eacbf;
-  font-size: 15px;
-  line-height: 1.7;
-  margin-bottom: 23px;
-}
-
-.discord-benefit {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  margin: 17px 0;
-  font-size: 15px;
-}
 
 .discord-check {
   color: #5865F2;
@@ -971,42 +904,179 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 }
 </style>
 
-<div class="discord-overlay" id="tokocpsDiscordPopup">
-  <div class="discord-popup">
+<!-- TOKOCPS DISCORD POPUP -->
+<style>
+#tokocpsDiscordPopup {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: transparent;
+  pointer-events: none;
+}
 
-    <div class="discord-heading">
-      <svg class="discord-icon" viewBox="0 0 127.14 96.36"
-        xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+#tokocpsDiscordPopup.show {
+  display: flex;
+}
+
+.tokocps-discord-card {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 440px;
+  padding: 25px;
+  border-radius: 23px;
+  background: rgba(13, 23, 42, .97);
+  border: 1px solid rgba(88, 101, 242, .55);
+  box-shadow: 0 15px 55px rgba(0,0,0,.65);
+  color: white;
+  animation: tokocpsPop .35s ease;
+}
+
+.tokocps-discord-top {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tokocps-discord-logo {
+  width: 58px;
+  height: 58px;
+  color: #5865F2;
+  margin-bottom: 12px;
+}
+
+.tokocps-discord-top h2 {
+  font-size: 22px;
+  margin: 0 0 10px;
+  font-weight: 900;
+}
+
+.tokocps-discord-top p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #aab8d0;
+  margin: 0;
+}
+
+.tokocps-discord-list {
+  background: rgba(35, 49, 76, .85);
+  padding: 17px;
+  border-radius: 15px;
+}
+
+.tokocps-category {
+  margin-bottom: 15px;
+}
+
+.tokocps-category:last-child {
+  margin-bottom: 0;
+}
+
+.tokocps-category h3 {
+  color: #8290ff;
+  font-size: 13px;
+  margin: 0 0 8px;
+  letter-spacing: .7px;
+}
+
+.tokocps-category p {
+  color: #e0e8f8;
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.tokocps-discord-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.tokocps-join {
+  padding: 16px;
+  background: #5865F2;
+  color: white;
+  border: none;
+  border-radius: 13px;
+  font-weight: 900;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.tokocps-later {
+  padding: 13px;
+  color: #aab8d0;
+  background: transparent;
+  border: 1px solid #3c4a64;
+  border-radius: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@keyframes tokocpsPop {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+</style>
+
+<div id="tokocpsDiscordPopup">
+  <div class="tokocps-discord-card">
+
+    <div class="tokocps-discord-top">
+      <svg class="tokocps-discord-logo"
+        viewBox="0 0 127.14 96.36"
+        fill="currentColor">
         <path d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.88 97.68 97.68 0 0 0-29.07 0A72.37 72.37 0 0 0 45.68 0a105.89 105.89 0 0 0-26.25 8.09C2.8 32.65-1.7 56.6.55 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.9-11.18 68.42 68.42 0 0 1-10.86-5.18c.91-.67 1.8-1.37 2.65-2.08a75.75 75.75 0 0 0 64.47 0c.87.71 1.75 1.41 2.65 2.08a68.68 68.68 0 0 1-10.88 5.19 77 77 0 0 0 6.9 11.17 105.25 105.25 0 0 0 32.18-16.14c2.64-27.38-4.52-51.11-19.03-72.15ZM42.45 65.69c-6.27 0-11.45-5.72-11.45-12.75s5.08-12.75 11.45-12.75 11.56 5.77 11.45 12.75c0 7.03-5.08 12.75-11.45 12.75Zm42.24 0c-6.27 0-11.45-5.72-11.45-12.75s5.08-12.75 11.45-12.75 11.56 5.77 11.45 12.75c0 7.03-5.02 12.75-11.45 12.75Z"/>
       </svg>
-      <h2>Gabung Komunitas Discord</h2>
+
+      <h2>JOIN TOKOCPS COMMUNITY</h2>
+
+      <p>
+        Bergabung dengan komunitas TOKOCPS di Discord
+        untuk mendapatkan:
+      </p>
     </div>
 
-    <div class="discord-desc">
-      Bergabung dengan komunitas TOKOCPS di Discord untuk mendapatkan informasi terbaru:
+    <div class="tokocps-discord-list">
+
+      <div class="tokocps-category">
+        <h3>🔔 UPDATE</h3>
+        <p>✓ Update All Stock</p>
+      </div>
+
+      <div class="tokocps-category">
+        <h3>🏪 TRUSTED STORE</h3>
+        <p>
+          ✓ Account<br>
+          ✓ BGL (Blue Gem Lock)<br>
+          ✓ BLACK (Black Gem Lock)<br>
+          ✓ Script, Bothax & DLL
+        </p>
+      </div>
+
+      <div class="tokocps-category">
+        <h3>🎁 GIVEAWAY</h3>
+        <p>✓ Event dan hadiah komunitas TOKOCPS</p>
+      </div>
+
     </div>
 
-    <div class="discord-benefit">
-      <span class="discord-check">✓</span>
-      Update harga jual & beli terbaru
-    </div>
-
-    <div class="discord-benefit">
-      <span class="discord-check">✓</span>
-      Info promo dan diskon terbaru
-    </div>
-
-    <div class="discord-benefit">
-      <span class="discord-check">✓</span>
-      Informasi restock lebih dulu
-    </div>
-
-    <div class="discord-buttons">
-      <button class="discord-join" onclick="tokocpsJoinDiscord()">
+    <div class="tokocps-discord-actions">
+      <button class="tokocps-join"
+        onclick="tokocpsJoinDiscord()">
         JOIN DISCORD
       </button>
 
-      <button class="discord-later" onclick="tokocpsCloseDiscord()">
+      <button class="tokocps-later"
+        onclick="tokocpsCloseDiscord()">
         NANTI SAJA
       </button>
     </div>
@@ -1016,18 +1086,21 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
 <script>
 (function() {
-  const popup = document.getElementById("tokocpsDiscordPopup");
+  const popup = document.getElementById(
+    "tokocpsDiscordPopup"
+  );
 
   if (!sessionStorage.getItem("tokocpsDiscordSeen")) {
-    setTimeout(() => {
+    setTimeout(function() {
       popup.classList.add("show");
     }, 500);
   }
 })();
 
 function tokocpsCloseDiscord() {
-  document.getElementById("tokocpsDiscordPopup")
-    .classList.remove("show");
+  document.getElementById(
+    "tokocpsDiscordPopup"
+  ).classList.remove("show");
 
   sessionStorage.setItem("tokocpsDiscordSeen", "yes");
 }
@@ -1039,6 +1112,8 @@ function tokocpsJoinDiscord() {
   );
 
   tokocpsCloseDiscord();
+}
+</script>
 }
 </script>
 </body>
