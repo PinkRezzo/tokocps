@@ -4,1117 +4,1135 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#ffffff">
-
-<title>TOKOCPS | Premium CPS Marketplace</title>
+<meta name="theme-color" content="#12377f">
+<title>TOKOCPS | Kebutuhan CPS</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
 
-:root {
-  --blue: #1769f5;
-  --blue2: #3999ff;
-  --navy: #071c48;
-  --text: #10234d;
-  --muted: #71809d;
-  --white: #ffffff;
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:white;
+  background:#0b1d48;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+button{font-family:inherit;cursor:pointer}
+
+.page{
+  width:100%;
+  max-width:850px;
+  margin:auto;
+  padding:20px;
 }
 
-html {
-  scroll-behavior: smooth;
+.hero{
+  position:relative;
+  overflow:hidden;
+  padding:25px 22px 30px;
+  border-radius:30px;
+  background:linear-gradient(145deg,#1d4699,#123477 65%,#0c2868);
+  border:1px solid #4675d0;
+  box-shadow:0 9px 0 #081d4b,0 20px 50px #0005;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background: #fff;
-  color: var(--text);
-  overflow-x: hidden;
+.hero:before{
+  content:"";
+  position:absolute;
+  width:250px;
+  height:250px;
+  right:-100px;
+  top:-100px;
+  border-radius:50%;
+  background:#4a8aff22;
+  pointer-events:none;
 }
 
-/* BACKGROUND */
-
-body::before {
-  content: "";
-  position: fixed;
-  width: 500px;
-  height: 500px;
-  top: 100px;
-  left: -200px;
-  background: #dceaff;
-  filter: blur(120px);
-  opacity: .55;
-  z-index: -1;
+.top-label{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 15px;
+  border-radius:13px;
+  color:#8ed2ff;
+  background:white;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:1px;
 }
 
-body::after {
-  content: "";
-  position: fixed;
-  width: 400px;
-  height: 400px;
-  right: -200px;
-  bottom: 0;
-  background: #e3eaff;
-  filter: blur(120px);
-  opacity: .6;
-  z-index: -1;
+.dot{
+  width:10px;
+  height:10px;
+  background:#20c56b;
+  border-radius:50%;
+  flex-shrink:0;
 }
 
-/* NAVBAR */
-
-.nav-wrapper {
-  position: sticky;
-  top: 15px;
-  z-index: 100;
-  padding: 15px 4%;
+h1{
+  margin-top:24px;
+  font-size:clamp(32px,7vw,48px);
+  line-height:1.08;
+  letter-spacing:-1.5px;
+  font-weight:900;
 }
 
-.navbar {
-  max-width: 1250px;
-  margin: auto;
-  min-height: 85px;
-  padding: 12px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(255,255,255,.78);
-  backdrop-filter: blur(20px);
-  border: 1px solid #e5edff;
-  border-radius: 28px;
-  box-shadow: 0 12px 40px rgba(30,100,220,.10);
+h1 span{color:#ffd34e}
+
+.subtitle{
+  margin-top:16px;
+  color:#d3e2ff;
+  font-size:16px;
+  line-height:1.5;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  font-size: 24px;
-  font-weight: 900;
-  letter-spacing: -1px;
-  color: var(--navy);
+.status-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin:27px 0 17px;
 }
 
-.logo-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 16px;
-  display: grid;
-  place-items: center;
-  color: white;
-  background: linear-gradient(135deg,#43a4ff,#0752e8);
-  box-shadow: 0 5px 20px #277aff55;
-  font-size: 23px;
+.price-title{
+  font-weight:800;
+  color:#d9e6ff;
 }
 
-.logo span {
-  color: var(--blue);
+.open-status{
+  color:#8affbb;
+  background:#0c774b55;
+  border:1px solid #1ec879;
+  border-radius:30px;
+  padding:9px 13px;
+  font-size:12px;
+  font-weight:bold;
 }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
+.products{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
 }
 
-.nav-links a {
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 700;
-  color: #52617d;
-  transition: .3s;
+.product{
+  min-width:0;
+  padding:16px;
+  border-radius:24px;
+  background:linear-gradient(145deg,#2855a9,#173c83);
+  border:2px solid #4975c4;
+  box-shadow:0 8px 0 #071b4b;
 }
 
-.nav-links a:hover {
-  color: var(--blue);
+.product-head{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
 }
 
-.menu-btn {
-  border: 1px solid #dce8ff;
-  background: #f5f9ff;
-  color: var(--blue);
-  border-radius: 16px;
-  width: 55px;
-  height: 55px;
-  font-size: 27px;
-  cursor: pointer;
-  display: none;
+.product-icon{
+  width:66px;
+  height:66px;
+  display:grid;
+  place-items:center;
+  flex-shrink:0;
+  border-radius:17px;
+  background:#102e68;
+  border:1px solid #527bc1;
+  font-size:39px;
 }
 
-/* HERO */
-
-.hero {
-  max-width: 1250px;
-  min-height: 700px;
-  margin: auto;
-  padding: 130px 6% 100px;
-  position: relative;
-  display: flex;
-  align-items: center;
+.product-name{
+  font-size:14px;
+  font-weight:800;
+  color:#e6efff;
 }
 
-.hero-content {
-  max-width: 750px;
-  position: relative;
-  z-index: 3;
+.price{
+  margin-top:7px;
+  color:#ffd044;
+  font-size:clamp(23px,5vw,34px);
+  font-weight:1000;
+  letter-spacing:-1px;
+  overflow-wrap:anywhere;
 }
 
-.eyebrow {
-  color: var(--blue);
-  font-size: 16px;
-  font-weight: 900;
-  letter-spacing: 4px;
-  margin-bottom: 55px;
+.per{
+  font-size:12px;
+  color:#d5e3ff;
 }
 
-.hero h1 {
-  color: var(--navy);
-  font-size: clamp(48px,8vw,88px);
-  line-height: .99;
-  letter-spacing: -6px;
-  font-weight: 900;
-  margin-bottom: 45px;
+.buy{
+  width:100%;
+  margin-top:19px;
+  padding:14px 8px;
+  border:0;
+  border-radius:14px;
+  background:#ffd54f;
+  color:#102d69;
+  font-size:15px;
+  font-weight:900;
+  box-shadow:0 5px 0 #bd8b13;
 }
 
-.hero h1 span {
-  color: var(--blue);
+.buy:active{
+  transform:translateY(3px);
+  box-shadow:none;
 }
 
-.hero p {
-  max-width: 570px;
-  color: var(--muted);
-  font-size: 19px;
-  line-height: 1.9;
-  margin-bottom: 55px;
+.sell-card{
+  margin-top:28px;
+  padding:18px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  border-radius:22px;
+  background:#19ad65;
+  box-shadow:0 7px 0 #087a45;
+  text-decoration:none;
+  color:white;
 }
 
-.buttons {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
+.wa-icon{
+  width:58px;
+  height:58px;
+  display:grid;
+  place-items:center;
+  background:white;
+  color:#111;
+  border-radius:17px;
+  font-size:30px;
+  flex-shrink:0;
 }
 
-.btn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 230px;
-  padding: 22px 28px;
-  border-radius: 22px;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 800;
-  transition: .3s;
+.sell-text{
+  flex:1;
+  min-width:0;
 }
 
-.btn-primary {
-  background: linear-gradient(135deg,#2787ff,#0752dc);
-  color: white;
-  box-shadow: 0 12px 28px #1769f555;
+.sell-text strong{font-size:22px}
+
+.sell-text p{
+  font-size:13px;
+  margin-top:4px;
 }
 
-.btn-outline {
-  color: var(--blue);
-  border: 1.8px solid var(--blue);
-  background: white;
+.arrow{
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border-radius:15px;
+  background:#07874e;
+  font-size:25px;
+  flex-shrink:0;
 }
 
-.btn:hover {
-  transform: translateY(-5px);
+.ai-banner{
+  margin-top:20px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px;
+  border-radius:50px;
+  border:2px solid #6384ff;
+  background:#10245c;
+  color:white;
+  text-align:left;
+  box-shadow:0 0 18px #487aff33;
 }
 
-/* FLOATING GEMS */
-
-.gem-area {
-  position: absolute;
-  right: 3%;
-  top: 130px;
-  width: 450px;
-  height: 450px;
+.ai-logo{
+  width:60px;
+  height:60px;
+  flex-shrink:0;
+  display:grid;
+  place-items:center;
+  border:3px solid #568bff;
+  border-radius:50%;
+  font-size:27px;
 }
 
-.gem {
-  position: absolute;
-  display: grid;
-  place-items: center;
-  filter: drop-shadow(0 20px 25px #1685ff35);
-  animation: float 4s ease-in-out infinite;
+.ai-label{
+  flex:1;
+  min-width:0;
 }
 
-.gem img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.ai-label strong{font-size:16px}
+
+.ai-label small{
+  display:block;
+  margin-top:5px;
+  color:#b8c9ff;
 }
 
-.gem-big {
-  width: 300px;
-  height: 300px;
-  top: 55px;
-  right: 0;
+.ai-arrow{
+  font-size:24px;
+  color:#b8c9ff;
 }
 
-.gem-small {
-  width: 130px;
-  height: 130px;
-  left: 0;
-  top: 0;
-  animation-delay: -2s;
+.footer{
+  padding:25px 0 10px;
+  text-align:center;
+  color:#a8bce5;
+  font-size:12px;
 }
 
-.gem-mini {
-  width: 105px;
-  height: 105px;
-  bottom: 0;
-  left: 90px;
-  animation-delay: -1s;
+/* =========================
+   TOKOCPS AI CHAT
+========================= */
+
+.ai-panel{
+  position:fixed;
+  z-index:999;
+  bottom:20px;
+  right:18px;
+  width:min(370px,calc(100% - 36px));
+  height:470px;
+  max-height:75vh;
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+  border:1px solid #5579d5;
+  border-radius:22px;
+  background:#101f42;
+  box-shadow:0 15px 50px #0009;
 }
 
-@keyframes float {
-  0%,100% { transform: translateY(0) rotate(-4deg); }
-  50% { transform: translateY(-25px) rotate(5deg); }
+.ai-panel.show{display:flex}
+
+.ai-head{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:16px;
+  background:#20458e;
 }
 
-/* STATS */
-
-.stats {
-  max-width: 1150px;
-  margin: 0 auto 100px;
-  padding: 30px;
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  background: rgba(255,255,255,.8);
-  border: 1px solid #c8dcff;
-  border-radius: 30px;
-  box-shadow: 0 15px 45px #337bff10;
+.ai-avatar{
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  background:#5865f2;
+  border-radius:14px;
+  font-size:21px;
 }
 
-.stat {
-  text-align: center;
-  padding: 15px;
-  border-right: 1px solid #dce7fa;
+.ai-head-info{flex:1}
+
+.ai-head-info strong{font-size:15px}
+
+.ai-head-info small{
+  display:block;
+  margin-top:4px;
+  color:#b8d1ff;
 }
 
-.stat:last-child {
-  border: none;
+.close-ai{
+  background:transparent;
+  border:0;
+  color:white;
+  font-size:24px;
 }
 
-.stat h2 {
-  font-size: 32px;
-  color: var(--navy);
-  font-weight: 900;
+.ai-messages{
+  flex:1;
+  overflow:auto;
+  padding:15px;
 }
 
-.stat p {
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 9px;
-  font-weight: 600;
+.message{
+  max-width:90%;
+  margin-bottom:12px;
+  padding:12px;
+  border-radius:14px;
+  font-size:13px;
+  line-height:1.5;
+  overflow-wrap:anywhere;
 }
 
-/* SERVICES */
-
-.section {
-  max-width: 1200px;
-  margin: auto;
-  padding: 80px 5%;
+.bot{
+  background:#243a65;
+  color:white;
+  border-bottom-left-radius:3px;
 }
 
-.section-heading {
-  text-align: center;
-  margin-bottom: 55px;
+.user{
+  margin-left:auto;
+  background:#426be0;
+  color:white;
+  border-bottom-right-radius:3px;
 }
 
-.section-heading small {
-  color: var(--blue);
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 3px;
+.quick{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  padding:0 13px 12px;
 }
 
-.section-heading h2 {
-  margin-top: 15px;
-  font-size: clamp(32px,5vw,48px);
-  color: var(--navy);
-  letter-spacing: -2px;
+.quick button{
+  padding:8px 10px;
+  border:1px solid #5875bd;
+  border-radius:20px;
+  background:#1d315a;
+  color:#dbe7ff;
+  font-size:11px;
 }
 
-.section-heading p {
-  color: var(--muted);
-  margin-top: 15px;
-  line-height: 1.8;
+.ai-input{
+  display:flex;
+  gap:8px;
+  padding:12px;
+  border-top:1px solid #344b77;
 }
 
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 25px;
+.ai-input input{
+  min-width:0;
+  flex:1;
+  padding:12px;
+  border:1px solid #4b659b;
+  border-radius:20px;
+  outline:none;
+  background:#0c1934;
+  color:white;
 }
 
-.service-card {
-  padding: 35px;
-  border-radius: 28px;
-  border: 1px solid #e0eaff;
-  background: white;
-  box-shadow: 0 12px 40px #174caa09;
-  transition: .3s;
+.ai-input button{
+  width:43px;
+  border:0;
+  border-radius:50%;
+  background:#5865f2;
+  color:white;
+  font-size:19px;
 }
 
-.service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 45px #1769f51a;
+/* =========================
+   DISCORD POPUP
+========================= */
+
+#tokocpsDiscordPopup{
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+  background:rgba(0,0,0,0.2);
+  pointer-events:none;
 }
 
-.service-icon {
-  width: 65px;
-  height: 65px;
-  border-radius: 20px;
-  display: grid;
-  place-items: center;
-  font-size: 30px;
-  background: #eaf3ff;
-  margin-bottom: 25px;
+#tokocpsDiscordPopup.show{
+  display:flex;
 }
 
-.service-card h3 {
-  font-size: 23px;
-  margin-bottom: 12px;
-  color: var(--navy);
+.discord-card{
+  width:100%;
+  max-width:355px;
+  padding:22px;
+  border-radius:23px;
+  background:linear-gradient(145deg,#172d59,#101d3e);
+  border:1px solid #536fc0;
+  box-shadow:0 15px 45px #0008;
+  text-align:center;
+  pointer-events:auto;
+  animation:discordPop .35s ease;
 }
 
-.service-card p {
-  color: var(--muted);
-  line-height: 1.8;
-  font-size: 14px;
-}
-
-.service-card a {
-  display: inline-block;
-  margin-top: 25px;
-  text-decoration: none;
-  color: var(--blue);
-  font-weight: 800;
-  font-size: 14px;
-}
-
-/* CTA */
-
-.cta {
-  max-width: 1100px;
-  margin: 80px auto;
-  padding: 75px 30px;
-  text-align: center;
-  border-radius: 35px;
-  color: white;
-  background: linear-gradient(135deg,#1979fa,#073fc4);
-  box-shadow: 0 20px 50px #1769f533;
-}
-
-.cta h2 {
-  font-size: clamp(30px,5vw,45px);
-  font-weight: 900;
-}
-
-.cta p {
-  margin: 20px auto 30px;
-  color: #dceaff;
-  line-height: 1.8;
-}
-
-.cta a {
-  display: inline-block;
-  background: white;
-  color: var(--blue);
-  padding: 17px 30px;
-  border-radius: 15px;
-  text-decoration: none;
-  font-weight: 900;
-}
-
-/* FOOTER */
-
-footer {
-  padding: 45px 20px;
-  border-top: 1px solid #e7edfa;
-  text-align: center;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 2;
-}
-
-footer strong {
-  color: var(--blue);
-}
-
-/* MOBILE MENU */
-
-.mobile-menu {
-  display: none;
-  position: absolute;
-  top: 100px;
-  left: 5%;
-  right: 5%;
-  background: white;
-  padding: 20px;
-  border: 1px solid #e0eaff;
-  border-radius: 22px;
-  box-shadow: 0 15px 40px #174caa20;
-}
-
-.mobile-menu a {
-  display: block;
-  padding: 15px;
-  text-decoration: none;
-  color: var(--navy);
-  font-weight: 700;
-  border-bottom: 1px solid #eef3fc;
-}
-
-.mobile-menu a:last-child {
-  border: none;
-}
-
-.mobile-menu.show {
-  display: block;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:850px) {
-  .nav-links {
-    display: none;
+@keyframes discordPop{
+  from{
+    opacity:0;
+    transform:translateY(15px) scale(.96);
   }
-
-  .menu-btn {
-    display: block;
-  }
-
-  .hero {
-    padding-top: 110px;
-    min-height: auto;
-    padding-bottom: 80px;
-  }
-
-  .hero-content {
-    max-width: 100%;
-  }
-
-  .hero h1 {
-    font-size: clamp(48px,11vw,75px);
-    letter-spacing: -4px;
-  }
-
-  .gem-area {
-    position: relative;
-    width: 100%;
-    height: 280px;
-    right: auto;
-    top: auto;
-    margin: 35px auto 0;
-  }
-
-  .hero {
-    display: block;
-  }
-
-  .gem-big {
-    width: 220px;
-    height: 220px;
-    right: 5%;
-    top: 20px;
-  }
-
-  .gem-small {
-    width: 95px;
-    height: 95px;
-  }
-
-  .gem-mini {
-    width: 80px;
-    height: 80px;
-    bottom: 5px;
-  }
-
-  .stats {
-    margin: 0 5% 60px;
-    padding: 15px 5px;
-  }
-
-  .stat h2 {
-    font-size: 22px;
-  }
-
-  .stat p {
-    font-size: 10px;
-  }
-
-  .service-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cta {
-    margin: 50px 5%;
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
   }
 }
 
-@media(max-width:480px) {
-  .nav-wrapper {
-    padding: 12px 3%;
+.discord-icon{
+  width:62px;
+  height:62px;
+  margin:0 auto 12px;
+  display:grid;
+  place-items:center;
+  border-radius:19px;
+  background:#5865f2;
+  box-shadow:0 5px 15px #5865f255;
+}
+
+.discord-icon svg{
+  width:37px;
+  height:37px;
+  fill:white;
+}
+
+.discord-title{
+  font-size:21px;
+  font-weight:900;
+  margin-bottom:8px;
+}
+
+.discord-description{
+  color:#c4d4f5;
+  font-size:12px;
+  line-height:1.55;
+  margin-bottom:17px;
+}
+
+.discord-list{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+  text-align:left;
+  margin-bottom:19px;
+}
+
+.discord-item{
+  display:flex;
+  gap:11px;
+  align-items:flex-start;
+  padding:11px;
+  border-radius:13px;
+  background:#ffffff0b;
+  border:1px solid #ffffff13;
+}
+
+.discord-item-icon{
+  width:34px;
+  height:34px;
+  flex-shrink:0;
+  display:grid;
+  place-items:center;
+  border-radius:10px;
+  background:#29477e;
+  font-size:17px;
+}
+
+.discord-item-text strong{
+  display:block;
+  font-size:11px;
+  color:#8fcaff;
+  letter-spacing:.7px;
+  margin-bottom:4px;
+}
+
+.discord-item-text p{
+  color:#e0eaff;
+  font-size:11px;
+  line-height:1.45;
+}
+
+.discord-buttons{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+
+.discord-join{
+  display:block;
+  width:100%;
+  padding:12px;
+  border:0;
+  border-radius:12px;
+  background:#5865f2;
+  color:white;
+  font-size:13px;
+  font-weight:900;
+  text-decoration:none;
+  box-shadow:0 4px 0 #3945bd;
+}
+
+.discord-join:active{
+  transform:translateY(3px);
+  box-shadow:none;
+}
+
+.discord-later{
+  width:100%;
+  padding:11px;
+  border:1px solid #52658e;
+  border-radius:12px;
+  background:#ffffff0b;
+  color:#cbd8f4;
+  font-size:12px;
+  font-weight:bold;
+}
+
+/* =========================
+   UKURAN MOBILE
+========================= */
+
+@media(max-width:440px){
+
+  .page{padding:10px}
+
+  .hero{
+    padding:17px 14px 21px;
+    border-radius:24px;
   }
 
-  .navbar {
-    min-height: 72px;
-    border-radius: 22px;
-    padding: 10px 14px;
+  .top-label{
+    gap:7px;
+    padding:7px 10px;
+    font-size:10px;
+    letter-spacing:.5px;
+    border-radius:10px;
   }
 
-  .logo {
-    font-size: 21px;
+  .dot{
+    width:8px;
+    height:8px;
   }
 
-  .logo-icon {
-    width: 43px;
-    height: 43px;
+  h1{
+    margin-top:17px;
+    font-size:clamp(25px,6.8vw,29px);
+    line-height:1.08;
+    letter-spacing:-1px;
   }
 
-  .hero {
-    padding: 85px 7% 65px;
+  .subtitle{
+    margin-top:12px;
+    font-size:13px;
+    line-height:1.45;
   }
 
-  .eyebrow {
-    font-size: 11px;
-    letter-spacing: 2.5px;
-    margin-bottom: 35px;
+  .status-row{
+    gap:8px;
+    margin:20px 0 13px;
   }
 
-  .hero h1 {
-    font-size: 51px;
-    line-height: 1.02;
-    letter-spacing: -3.5px;
-    margin-bottom: 28px;
+  .price-title{font-size:12px}
+
+  .open-status{
+    padding:7px 9px;
+    font-size:10px;
   }
 
-  .hero p {
-    font-size: 15px;
-    line-height: 1.8;
-    margin-bottom: 35px;
+  .products{gap:8px}
+
+  .product{
+    padding:10px;
+    border-radius:19px;
+    border-width:1.5px;
   }
 
-  .buttons {
-    flex-direction: column;
+  .product-head{gap:8px}
+
+  .product-icon{
+    width:43px;
+    height:43px;
+    border-radius:13px;
+    font-size:25px;
   }
 
-  .btn {
-    width: 100%;
-    padding: 19px;
+  .product-name{font-size:11px}
+
+  .price{
+    margin-top:5px;
+    font-size:clamp(15px,4.7vw,22px);
+    letter-spacing:-.8px;
+    overflow-wrap:normal;
   }
 
-  .gem-area {
-    height: 230px;
+  .per{font-size:10px}
+
+  .buy{
+    margin-top:13px;
+    padding:10px 5px;
+    border-radius:12px;
+    font-size:12px;
+    box-shadow:0 4px 0 #bd8b13;
   }
 
-  .gem-big {
-    width: 190px;
-    height: 190px;
+  .sell-card{
+    margin-top:22px;
+    padding:12px;
+    gap:10px;
+    border-radius:19px;
   }
 
-  .section {
-    padding: 60px 6%;
+  .wa-icon{
+    width:43px;
+    height:43px;
+    border-radius:13px;
+    font-size:23px;
   }
 
-  .service-card {
-    padding: 27px;
+  .sell-text strong{font-size:17px}
+
+  .sell-text p{
+    margin-top:3px;
+    font-size:11px;
   }
+
+  .arrow{
+    width:36px;
+    height:36px;
+    border-radius:12px;
+    font-size:19px;
+  }
+
+  .ai-banner{
+    margin-top:15px;
+    padding:10px;
+    gap:10px;
+    border-radius:40px;
+  }
+
+  .ai-logo{
+    width:45px;
+    height:45px;
+    border-width:2px;
+    font-size:21px;
+  }
+
+  .ai-label strong{font-size:13px}
+
+  .ai-label small{
+    margin-top:3px;
+    font-size:10px;
+  }
+
+  .ai-arrow{font-size:19px}
+
+  .footer{
+    padding:19px 0 8px;
+    font-size:10px;
+  }
+
+  .ai-panel{
+    right:10px;
+    bottom:10px;
+    width:calc(100% - 20px);
+    max-height:80vh;
+  }
+
+  .discord-card{
+    max-width:340px;
+    padding:18px;
+    border-radius:20px;
+  }
+
+  .discord-title{font-size:19px}
+}
+
+/* LAYAR SANGAT KECIL */
+@media(max-width:350px){
+  .product{padding:8px}
+  .product-head{gap:6px}
+  .product-icon{
+    width:37px;
+    height:37px;
+    font-size:21px;
+  }
+  .product-name{font-size:10px}
+  .price{font-size:15px}
+  .buy{font-size:10px}
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- HALAMAN UTAMA TOKOCPS -->
 
-<div class="nav-wrapper">
-  <nav class="navbar">
+<main class="page">
 
-    <div class="logo">
-      <div class="logo-icon">T</div>
-      TOKO<span>CPS</span>
-    </div>
+<section class="hero">
 
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </div>
-
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
-
-  </nav>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#home" onclick="toggleMenu()">Home</a>
-    <a href="#services" onclick="toggleMenu()">Services</a>
-    <a href="#about" onclick="toggleMenu()">About</a>
-    <a href="#contact" onclick="toggleMenu()">Contact</a>
-  </div>
-</div>
-
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-  <div class="hero-content">
-
-    <div class="eyebrow">
-      PREMIUM CPS MARKETPLACE
-    </div>
-
-    <h1>
-      Your Trusted<br>
-      <span>CPS</span><br>
-      Marketplace.
-    </h1>
-
-    <p>
-      Buy and sell Growtopia items through a clean,
-      secure, and reliable marketplace experience.
-      Everything you need starts here.
-    </p>
-
-    <div class="buttons">
-      <a href="#services" class="btn btn-primary">
-        BUY/SELL HERE
-      </a>
-
-      <a href="#about" class="btn btn-outline">
-        EXPLORE SERVICES
-      </a>
-    </div>
-
+  <div class="top-label">
+    <span class="dot"></span>
+    TOKOCPS STORE · INDONESIA
   </div>
 
-  <div class="gem-area">
+  <h1>
+    Lengkapi Kebutuhan<br>
+    <span>CPS Kamu Di Sini.</span>
+  </h1>
 
-    <!-- Ganti URL gambar dengan gambar milikmu -->
-
-    <div class="gem gem-big">
-      <img src="logo-bgl-black.png" alt="Blue Gem Lock">
-    </div>
-
-    <div class="gem gem-small">
-      <img src="logo-black.png" alt="Black Gem Lock">
-    </div>
-
-    <div class="gem gem-mini">
-      <img src="logo-bgl-black.png" alt="BGL">
-    </div>
-
-  </div>
-
-</section>
-
-<!-- STATS -->
-
-<section class="stats" id="about">
-
-  <div class="stat">
-    <h2>100K+</h2>
-    <p>Marketplace Potential</p>
-  </div>
-
-  <div class="stat">
-    <h2>24/7</h2>
-    <p>Online Access</p>
-  </div>
-
-  <div class="stat">
-    <h2>100%</h2>
-    <p>Customer Focus</p>
-  </div>
-
-</section>
-
-<!-- SERVICES -->
-
-<section class="section" id="services">
-
-  <div class="section-heading">
-    <small>OUR MARKETPLACE</small>
-    <h2>Explore Our Services</h2>
-    <p>
-      Everything you need for your Growtopia trading.
-    </p>
-  </div>
-
-  <div class="service-grid">
-
-    <div class="service-card">
-      <div class="service-icon">💎</div>
-      <h3>Buy BGL</h3>
-      <p>
-        Get your Blue Gem Lock through our
-        marketplace service.
-      </p>
-      <a href="#contact">EXPLORE SERVICE →</a>
-    </div>
-
-    <div class="service-card">
-      <div class="service-icon">🖤</div>
-      <h3>Buy Black GL</h3>
-      <p>
-        Find Black Gem Lock for your
-        Growtopia collection.
-      </p>
-      <a href="#contact">EXPLORE SERVICE →</a>
-    </div>
-
-    <div class="service-card">
-      <div class="service-icon">💰</div>
-      <h3>Sell BGL</h3>
-      <p>
-        Want to sell your BGL?
-        Explore our selling service.
-      </p>
-      <a href="#contact">EXPLORE SERVICE →</a>
-    </div>
-
-    <div class="service-card">
-      <div class="service-icon">💠</div>
-      <h3>Sell Black GL</h3>
-      <p>
-        Trade your Black Gem Lock
-        through our marketplace.
-      </p>
-      <a href="#contact">EXPLORE SERVICE →</a>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- CTA -->
-
-<section class="cta" id="contact">
-
-  <h2>Ready to Start Trading?</h2>
-
-  <p>
-    Discover a better way to buy and sell
-    Growtopia items with TOKOCPS.
+  <p class="subtitle">
+    Marketplace BGL & BLACK untuk kebutuhan
+    Growtopia kamu.
   </p>
 
-  <a href="https://wa.me/628XXXXXXXXXX">
-    CONTACT ADMIN →
+  <div class="status-row">
+    <span class="price-title">Harga hari ini</span>
+    <span class="open-status">
+      🟢 Toko buka · bisa pesan sekarang
+    </span>
+  </div>
+
+  <div class="products">
+
+    <article class="product">
+      <div class="product-head">
+        <div class="product-icon">🔒</div>
+        <div>
+          <div class="product-name">Black Gem Lock</div>
+          <div class="price" id="blackPrice">Hubungi Admin</div>
+          <div class="per">per BLACK</div>
+        </div>
+      </div>
+
+      <button class="buy" onclick="buyProduct('BLACK')">
+        🛒 Beli BLACK →
+      </button>
+    </article>
+
+    <article class="product">
+      <div class="product-head">
+        <div class="product-icon">💎</div>
+        <div>
+          <div class="product-name">Blue Gem Lock</div>
+          <div class="price" id="bglPrice">Hubungi Admin</div>
+          <div class="per">per BGL</div>
+        </div>
+      </div>
+
+      <button class="buy" onclick="buyProduct('BGL')">
+        🛒 Beli BGL →
+      </button>
+    </article>
+
+  </div>
+
+  <a class="sell-card" id="adminLink" href="#">
+    <div class="wa-icon">☏</div>
+
+    <div class="sell-text">
+      <strong>Beli dan Jual</strong>
+      <p>Langsung dibantu admin</p>
+    </div>
+
+    <div class="arrow">→</div>
   </a>
+
+  <button class="ai-banner" onclick="toggleAI()">
+    <div class="ai-logo">✦</div>
+
+    <div class="ai-label">
+      <strong>GESER UNTUK CHAT<br>TOKOCPS AI</strong>
+      <small>Asisten virtual TOKOCPS</small>
+    </div>
+
+    <span class="ai-arrow">▤</span>
+  </button>
 
 </section>
 
-<!-- FOOTER -->
+<div class="footer">
+  © 2026 TOKOCPS · Marketplace CPS
+</div>
 
-<footer>
-  <strong>TOKOCPS</strong><br>
-  Premium CPS Marketplace<br>
-  © 2026 TOKOCPS. All Rights Reserved.
-</footer>
+</main>
 
-<script>
-function toggleMenu() {
-  document.getElementById("mobileMenu")
-    .classList.toggle("show");
-}
-
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener("click", function(e) {
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: "smooth" });
-    }
-  });
-});
-</script>
-
-.discord-check {
-  color: #5865F2;
-  font-size: 23px;
-  font-weight: bold;
-}
-
-.discord-buttons {
-  display: grid;
-  gap: 13px;
-  margin-top: 29px;
-}
-
-.discord-join,
-.discord-later {
-  width: 100%;
-  min-height: 57px;
-  border-radius: 17px;
-  font-size: 15px;
-  font-weight: 800;
-  cursor: pointer;
-  transition: .2s;
-}
-
-.discord-join {
-  color: #8290ff;
-  background: transparent;
-  border: 2px solid #5865F2;
-}
-
-.discord-join:active {
-  background: #5865F2;
-  color: white;
-  transform: scale(.98);
-}
-
-.discord-later {
-  color: #f5f7fb;
-  background: transparent;
-  border: 2px solid #3d4b60;
-}
-
-.discord-later:active {
-  background: #29374a;
-}
-
-@keyframes discordFade {
-  from {opacity:0}
-  to {opacity:1}
-}
-
-@keyframes discordSlide {
-  from {opacity:0; transform:translateY(25px) scale(.96)}
-  to {opacity:1; transform:translateY(0) scale(1)}
-}
-
-@media(max-width:480px) {
-  .discord-popup {
-    padding: 24px 21px;
-  }
-  .discord-heading h2 {
-    font-size: 20px;
-  }
-}
-</style>
-
-<!-- TOKOCPS DISCORD POPUP -->
-<style>
-#tokocpsDiscordPopup {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 18px;
-  background: transparent;
-  pointer-events: none;
-}
-
-#tokocpsDiscordPopup.show {
-  display: flex;
-}
-
-.tokocps-discord-card {
-  pointer-events: auto;
-  width: 100%;
-  max-width: 440px;
-  padding: 25px;
-  border-radius: 23px;
-  background: rgba(13, 23, 42, .97);
-  border: 1px solid rgba(88, 101, 242, .55);
-  box-shadow: 0 15px 55px rgba(0,0,0,.65);
-  color: white;
-  animation: tokocpsPop .35s ease;
-}
-
-.tokocps-discord-top {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.tokocps-discord-logo {
-  width: 58px;
-  height: 58px;
-  color: #5865F2;
-  margin-bottom: 12px;
-}
-
-.tokocps-discord-top h2 {
-  font-size: 22px;
-  margin: 0 0 10px;
-  font-weight: 900;
-}
-
-.tokocps-discord-top p {
-  font-size: 13px;
-  line-height: 1.6;
-  color: #aab8d0;
-  margin: 0;
-}
-
-.tokocps-discord-list {
-  background: rgba(35, 49, 76, .85);
-  padding: 17px;
-  border-radius: 15px;
-}
-
-.tokocps-category {
-  margin-bottom: 15px;
-}
-
-.tokocps-category:last-child {
-  margin-bottom: 0;
-}
-
-.tokocps-category h3 {
-  color: #8290ff;
-  font-size: 13px;
-  margin: 0 0 8px;
-  letter-spacing: .7px;
-}
-
-.tokocps-category p {
-  color: #e0e8f8;
-  font-size: 13px;
-  line-height: 1.8;
-  margin: 0;
-}
-
-.tokocps-discord-actions {
-  display: grid;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.tokocps-join {
-  padding: 16px;
-  background: #5865F2;
-  color: white;
-  border: none;
-  border-radius: 13px;
-  font-weight: 900;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.tokocps-later {
-  padding: 13px;
-  color: #aab8d0;
-  background: transparent;
-  border: 1px solid #3c4a64;
-  border-radius: 13px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-@keyframes tokocpsPop {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-</style>
+<!-- =========================
+     POPUP JOIN DISCORD
+========================= -->
 
 <div id="tokocpsDiscordPopup">
-  <div class="tokocps-discord-card">
 
-    <div class="tokocps-discord-top">
-      <svg class="tokocps-discord-logo"
-        viewBox="0 0 127.14 96.36"
-        fill="currentColor">
-        <path d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.88 97.68 97.68 0 0 0-29.07 0A72.37 72.37 0 0 0 45.68 0a105.89 105.89 0 0 0-26.25 8.09C2.8 32.65-1.7 56.6.55 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.9-11.18 68.42 68.42 0 0 1-10.86-5.18c.91-.67 1.8-1.37 2.65-2.08a75.75 75.75 0 0 0 64.47 0c.87.71 1.75 1.41 2.65 2.08a68.68 68.68 0 0 1-10.88 5.19 77 77 0 0 0 6.9 11.17 105.25 105.25 0 0 0 32.18-16.14c2.64-27.38-4.52-51.11-19.03-72.15ZM42.45 65.69c-6.27 0-11.45-5.72-11.45-12.75s5.08-12.75 11.45-12.75 11.56 5.77 11.45 12.75c0 7.03-5.08 12.75-11.45 12.75Zm42.24 0c-6.27 0-11.45-5.72-11.45-12.75s5.08-12.75 11.45-12.75 11.56 5.77 11.45 12.75c0 7.03-5.02 12.75-11.45 12.75Z"/>
+  <div class="discord-card">
+
+    <div class="discord-icon">
+      <svg viewBox="0 0 127.14 96.36" aria-label="Discord">
+        <path d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.08 0A72.37 72.37 0 0 0 45.67 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.7 56.6.54 80.21a105.73 105.73 0 0 0 32.1 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.17c.91-.67 1.8-1.37 2.66-2.09a75.6 75.6 0 0 0 64.2 0c.87.72 1.75 1.42 2.67 2.09a68.68 68.68 0 0 1-10.87 5.18 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.1-16.14c2.64-27.37-4.52-51.1-18.63-72.15ZM42.45 65.69c-6.26 0-11.43-5.73-11.43-12.78s5.05-12.79 11.43-12.79 11.54 5.78 11.43 12.79c-.11 7.05-5.05 12.78-11.43 12.78Zm42.24 0c-6.27 0-11.43-5.73-11.43-12.78s5.05-12.79 11.43-12.79 11.54 5.78 11.43 12.79c-.11 7.05-5.05 12.78-11.43 12.78Z"/>
       </svg>
-
-      <h2>JOIN TOKOCPS COMMUNITY</h2>
-
-      <p>
-        Bergabung dengan komunitas TOKOCPS di Discord
-        untuk mendapatkan:
-      </p>
     </div>
 
-    <div class="tokocps-discord-list">
+    <div class="discord-title">
+      JOIN COMMUNITY TOKOCPS
+    </div>
 
-      <div class="tokocps-category">
-        <h3>🔔 UPDATE</h3>
-        <p>✓ Update All Stock</p>
+    <p class="discord-description">
+      Bergabung dengan komunitas TOKOCPS di Discord
+      untuk mendapatkan informasi terbaru, stok,
+      event, dan berbagai keuntungan lainnya.
+    </p>
+
+    <div class="discord-list">
+
+      <div class="discord-item">
+        <div class="discord-item-icon">📢</div>
+        <div class="discord-item-text">
+          <strong>UPDATE</strong>
+          <p>Update All Stock dan informasi terbaru TOKOCPS.</p>
+        </div>
       </div>
 
-      <div class="tokocps-category">
-        <h3>🏪 TRUSTED STORE</h3>
-        <p>
-          ✓ Account<br>
-          ✓ BGL (Blue Gem Lock)<br>
-          ✓ BLACK (Black Gem Lock)<br>
-          ✓ Script, Bothax & DLL
-        </p>
+      <div class="discord-item">
+        <div class="discord-item-icon">🏪</div>
+        <div class="discord-item-text">
+          <strong>TRUSTED STORE</strong>
+          <p>Stock TOKOCPS: Account, BGL, BLACK, Script, Bothax, DLL.</p>
+        </div>
       </div>
 
-      <div class="tokocps-category">
-        <h3>🎁 GIVEAWAY</h3>
-        <p>✓ Event dan hadiah komunitas TOKOCPS</p>
+      <div class="discord-item">
+        <div class="discord-item-icon">🎁</div>
+        <div class="discord-item-text">
+          <strong>GIVEAWAY</strong>
+          <p>Ikuti event dan dapatkan hadiah dari komunitas.</p>
+        </div>
       </div>
 
     </div>
 
-    <div class="tokocps-discord-actions">
-      <button class="tokocps-join"
-        onclick="tokocpsJoinDiscord()">
-        JOIN DISCORD
-      </button>
+    <div class="discord-buttons">
 
-      <button class="tokocps-later"
-        onclick="tokocpsCloseDiscord()">
+      <a
+        class="discord-join"
+        id="discordJoinButton"
+        href="https://discord.gg/INVITEKAMU"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        JOIN DISCORD →
+      </a>
+
+      <button
+        class="discord-later"
+        type="button"
+        onclick="closeDiscordPopup()"
+      >
         NANTI SAJA
       </button>
+
     </div>
 
   </div>
+
+</div>
+
+<!-- =========================
+     TOKOCPS AI CHAT
+========================= -->
+
+<div class="ai-panel" id="aiPanel">
+
+  <div class="ai-head">
+    <div class="ai-avatar">✦</div>
+
+    <div class="ai-head-info">
+      <strong>TOKOCPS AI</strong>
+      <small>Asisten virtual · Demo</small>
+    </div>
+
+    <button class="close-ai" onclick="toggleAI()">×</button>
+  </div>
+
+  <div class="ai-messages" id="aiMessages">
+    <div class="message bot">
+      Halo! 👋 Selamat datang di TOKOCPS.
+      Saya siap membantu informasi BGL, BLACK,
+      stok dan cara pemesanan.
+    </div>
+  </div>
+
+  <div class="quick">
+    <button type="button" onclick="askAI('Harga BGL')">Harga BGL</button>
+    <button type="button" onclick="askAI('Harga BLACK')">Harga BLACK</button>
+    <button type="button" onclick="askAI('Cara order')">Cara order</button>
+    <button type="button" onclick="askAI('Partner')">Partner</button>
+  </div>
+
+  <form class="ai-input" onsubmit="sendAI(event)">
+    <input
+      id="aiInput"
+      placeholder="Tanyakan sesuatu..."
+      autocomplete="off"
+    >
+    <button type="submit">➤</button>
+  </form>
+
 </div>
 
 <script>
-(function() {
-  const popup = document.getElementById(
-    "tokocpsDiscordPopup"
-  );
 
-  if (!sessionStorage.getItem("tokocpsDiscordSeen")) {
-    setTimeout(function() {
-      popup.classList.add("show");
-    }, 500);
-  }
-})();
+// ==================================
+// PENGATURAN TOKOCPS
+// ==================================
 
-function tokocpsCloseDiscord() {
-  document.getElementById(
-    "tokocpsDiscordPopup"
-  ).classList.remove("show");
+// Nomor WhatsApp admin tanpa tanda +
+// Contoh: 6281234567890
 
-  sessionStorage.setItem("tokocpsDiscordSeen", "yes");
+const ADMIN_WA = "GANTI_NOMOR_ADMIN";
+
+// Harga produk
+
+const PRICE_BGL = "Hubungi Admin";
+const PRICE_BLACK = "Hubungi Admin";
+
+// Link undangan Discord
+// Ganti dengan link Discord server TOKOCPS kamu
+
+const DISCORD_INVITE = "https://discord.gg/INVITEKAMU";
+
+// Tampilkan harga
+
+document.getElementById("bglPrice").textContent = PRICE_BGL;
+document.getElementById("blackPrice").textContent = PRICE_BLACK;
+
+// Link WhatsApp
+
+document.getElementById("adminLink").href =
+  "https://wa.me/" + ADMIN_WA;
+
+// Link Discord
+
+document.getElementById("discordJoinButton").href =
+  DISCORD_INVITE;
+
+// ==================================
+// POPUP DISCORD
+// ==================================
+
+const discordPopup =
+  document.getElementById("tokocpsDiscordPopup");
+
+function showDiscordPopup(){
+
+  try{
+    if(sessionStorage.getItem("tokocpsDiscordDismissed") === "yes"){
+      return;
+    }
+  }catch(error){}
+
+  discordPopup.classList.add("show");
+
 }
 
-function tokocpsJoinDiscord() {
+function closeDiscordPopup(){
+
+  discordPopup.classList.remove("show");
+
+  try{
+    sessionStorage.setItem("tokocpsDiscordDismissed","yes");
+  }catch(error){}
+
+}
+
+// Tampilkan popup setelah halaman siap
+
+window.addEventListener("load",function(){
+
+  setTimeout(showDiscordPopup,400);
+
+});
+
+// ==================================
+// PEMBELIAN PRODUK
+// ==================================
+
+function buyProduct(product){
+
+  const message =
+    "Halo TOKOCPS, saya ingin membeli " + product;
+
   window.open(
-    "https://discord.gg/INVITEKAMU",
+    "https://wa.me/" + ADMIN_WA +
+    "?text=" + encodeURIComponent(message),
     "_blank"
   );
 
-  tokocpsCloseDiscord();
 }
-</script>
+
+// ==================================
+// TOKOCPS AI - DEMO
+// ==================================
+
+function toggleAI(){
+
+  document
+    .getElementById("aiPanel")
+    .classList.toggle("show");
+
 }
+
+function addMessage(text,type){
+
+  const messages =
+    document.getElementById("aiMessages");
+
+  const div = document.createElement("div");
+
+  div.className = "message " + type;
+  div.textContent = text;
+
+  messages.appendChild(div);
+
+  messages.scrollTop = messages.scrollHeight;
+
+}
+
+function askAI(question){
+
+  document.getElementById("aiInput").value = question;
+
+  sendAI(new Event("submit"));
+
+}
+
+function sendAI(event){
+
+  event.preventDefault();
+
+  const input = document.getElementById("aiInput");
+  const question = input.value.trim();
+
+  if(!question) return;
+
+  addMessage(question,"user");
+
+  input.value = "";
+
+  let answer =
+    "Terima kasih sudah menghubungi TOKOCPS! Untuk informasi lebih lanjut, silakan hubungi admin kami.";
+
+  const q = question.toLowerCase();
+
+  if(q.includes("bgl")){
+
+    answer =
+      "Untuk pembelian Blue Gem Lock (BGL), silakan cek informasi harga terbaru di halaman TOKOCPS atau hubungi admin.";
+
+  }else if(q.includes("black")){
+
+    answer =
+      "Untuk produk Black Gem Lock (BLACK), silakan hubungi admin TOKOCPS untuk informasi harga dan stok.";
+
+  }else if(q.includes("order") || q.includes("beli")){
+
+    answer =
+      "Kamu bisa menekan tombol Beli BGL atau Beli BLACK. Admin akan membantu proses pemesanan.";
+
+  }else if(q.includes("partner")){
+
+    answer =
+      "TOKOCPS membuka kesempatan kerja sama partner. Silakan hubungi admin untuk informasi kemitraan.";
+
+  }else if(q.includes("stok")){
+
+    answer =
+      "Informasi stok terbaru tersedia melalui Update All Stock di komunitas TOKOCPS.";
+
+  }
+
+  setTimeout(function(){
+
+    addMessage(answer,"bot");
+
+  },500);
+
+}
+
 </script>
+
 </body>
 </html>
