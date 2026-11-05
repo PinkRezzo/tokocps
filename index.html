@@ -1,3 +1,843 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+
+<title>TOKOCPS | Premium CPS Marketplace</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --blue: #1769f5;
+  --blue2: #3999ff;
+  --navy: #071c48;
+  --text: #10234d;
+  --muted: #71809d;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fff;
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* BACKGROUND */
+
+body::before {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  top: 100px;
+  left: -200px;
+  background: #dceaff;
+  filter: blur(120px);
+  opacity: .55;
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  right: -200px;
+  bottom: 0;
+  background: #e3eaff;
+  filter: blur(120px);
+  opacity: .6;
+  z-index: -1;
+}
+
+/* NAVBAR */
+
+.nav-wrapper {
+  position: sticky;
+  top: 15px;
+  z-index: 100;
+  padding: 15px 4%;
+}
+
+.navbar {
+  max-width: 1250px;
+  margin: auto;
+  min-height: 85px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,255,255,.78);
+  backdrop-filter: blur(20px);
+  border: 1px solid #e5edff;
+  border-radius: 28px;
+  box-shadow: 0 12px 40px rgba(30,100,220,.10);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  color: var(--navy);
+}
+
+.logo-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  color: white;
+  background: linear-gradient(135deg,#43a4ff,#0752e8);
+  box-shadow: 0 5px 20px #277aff55;
+  font-size: 23px;
+}
+
+.logo span {
+  color: var(--blue);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: #52617d;
+  transition: .3s;
+}
+
+.nav-links a:hover {
+  color: var(--blue);
+}
+
+.menu-btn {
+  border: 1px solid #dce8ff;
+  background: #f5f9ff;
+  color: var(--blue);
+  border-radius: 16px;
+  width: 55px;
+  height: 55px;
+  font-size: 27px;
+  cursor: pointer;
+  display: none;
+}
+
+/* HERO */
+
+.hero {
+  max-width: 1250px;
+  min-height: 700px;
+  margin: auto;
+  padding: 130px 6% 100px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 750px;
+  position: relative;
+  z-index: 3;
+}
+
+.eyebrow {
+  color: var(--blue);
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  margin-bottom: 55px;
+}
+
+.hero h1 {
+  color: var(--navy);
+  font-size: clamp(48px,8vw,88px);
+  line-height: .99;
+  letter-spacing: -6px;
+  font-weight: 900;
+  margin-bottom: 45px;
+}
+
+.hero h1 span {
+  color: var(--blue);
+}
+
+.hero p {
+  max-width: 570px;
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1.9;
+  margin-bottom: 55px;
+}
+
+.buttons {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 230px;
+  padding: 22px 28px;
+  border-radius: 22px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 800;
+  transition: .3s;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg,#2787ff,#0752dc);
+  color: white;
+  box-shadow: 0 12px 28px #1769f555;
+}
+
+.btn-outline {
+  color: var(--blue);
+  border: 1.8px solid var(--blue);
+  background: white;
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+}
+
+/* FLOATING GEMS */
+
+.gem-area {
+  position: absolute;
+  right: 3%;
+  top: 130px;
+  width: 450px;
+  height: 450px;
+}
+
+.gem {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  filter: drop-shadow(0 20px 25px #1685ff35);
+  animation: float 4s ease-in-out infinite;
+}
+
+.gem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.gem-big {
+  width: 300px;
+  height: 300px;
+  top: 55px;
+  right: 0;
+}
+
+.gem-small {
+  width: 130px;
+  height: 130px;
+  left: 0;
+  top: 0;
+  animation-delay: -2s;
+}
+
+.gem-mini {
+  width: 105px;
+  height: 105px;
+  bottom: 0;
+  left: 90px;
+  animation-delay: -1s;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-25px) rotate(5deg); }
+}
+
+/* STATS */
+
+.stats {
+  max-width: 1150px;
+  margin: 0 auto 100px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  background: rgba(255,255,255,.8);
+  border: 1px solid #c8dcff;
+  border-radius: 30px;
+  box-shadow: 0 15px 45px #337bff10;
+}
+
+.stat {
+  text-align: center;
+  padding: 15px;
+  border-right: 1px solid #dce7fa;
+}
+
+.stat:last-child {
+  border: none;
+}
+
+.stat h2 {
+  font-size: 32px;
+  color: var(--navy);
+  font-weight: 900;
+}
+
+.stat p {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 9px;
+  font-weight: 600;
+}
+
+/* SERVICES */
+
+.section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 80px 5%;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.section-heading small {
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.section-heading h2 {
+  margin-top: 15px;
+  font-size: clamp(32px,5vw,48px);
+  color: var(--navy);
+  letter-spacing: -2px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  margin-top: 15px;
+  line-height: 1.8;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 25px;
+}
+
+.service-card {
+  padding: 35px;
+  border-radius: 28px;
+  border: 1px solid #e0eaff;
+  background: white;
+  box-shadow: 0 12px 40px #174caa09;
+  transition: .3s;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px #1769f51a;
+}
+
+.service-icon {
+  width: 65px;
+  height: 65px;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  background: #eaf3ff;
+  margin-bottom: 25px;
+}
+
+.service-card h3 {
+  font-size: 23px;
+  margin-bottom: 12px;
+  color: var(--navy);
+}
+
+.service-card p {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.service-card a {
+  display: inline-block;
+  margin-top: 25px;
+  text-decoration: none;
+  color: var(--blue);
+  font-weight: 800;
+  font-size: 14px;
+}
+
+/* CTA */
+
+.cta {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 75px 30px;
+  text-align: center;
+  border-radius: 35px;
+  color: white;
+  background: linear-gradient(135deg,#1979fa,#073fc4);
+  box-shadow: 0 20px 50px #1769f533;
+}
+
+.cta h2 {
+  font-size: clamp(30px,5vw,45px);
+  font-weight: 900;
+}
+
+.cta p {
+  margin: 20px auto 30px;
+  color: #dceaff;
+  line-height: 1.8;
+}
+
+.cta a {
+  display: inline-block;
+  background: white;
+  color: var(--blue);
+  padding: 17px 30px;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: 900;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 45px 20px;
+  border-top: 1px solid #e7edfa;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2;
+}
+
+footer strong {
+  color: var(--blue);
+}
+
+/* MOBILE MENU */
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100px;
+  left: 5%;
+  right: 5%;
+  background: white;
+  padding: 20px;
+  border: 1px solid #e0eaff;
+  border-radius: 22px;
+  box-shadow: 0 15px 40px #174caa20;
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: var(--navy);
+  font-weight: 700;
+  border-bottom: 1px solid #eef3fc;
+}
+
+.mobile-menu a:last-child {
+  border: none;
+}
+
+.mobile-menu.show {
+  display: block;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:850px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .hero {
+    padding-top: 110px;
+    min-height: auto;
+    padding-bottom: 80px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    font-size: clamp(48px,11vw,75px);
+    letter-spacing: -4px;
+  }
+
+  .gem-area {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    right: auto;
+    top: auto;
+    margin: 35px auto 0;
+  }
+
+  .hero {
+    display: block;
+  }
+
+  .gem-big {
+    width: 220px;
+    height: 220px;
+    right: 5%;
+    top: 20px;
+  }
+
+  .gem-small {
+    width: 95px;
+    height: 95px;
+  }
+
+  .gem-mini {
+    width: 80px;
+    height: 80px;
+    bottom: 5px;
+  }
+
+  .stats {
+    margin: 0 5% 60px;
+    padding: 15px 5px;
+  }
+
+  .stat h2 {
+    font-size: 22px;
+  }
+
+  .stat p {
+    font-size: 10px;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta {
+    margin: 50px 5%;
+  }
+}
+
+@media(max-width:480px) {
+  .nav-wrapper {
+    padding: 12px 3%;
+  }
+
+  .navbar {
+    min-height: 72px;
+    border-radius: 22px;
+    padding: 10px 14px;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+
+  .logo-icon {
+    width: 43px;
+    height: 43px;
+  }
+
+  .hero {
+    padding: 85px 7% 65px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    margin-bottom: 35px;
+  }
+
+  .hero h1 {
+    font-size: 51px;
+    line-height: 1.02;
+    letter-spacing: -3.5px;
+    margin-bottom: 28px;
+  }
+
+  .hero p {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 19px;
+  }
+
+  .gem-area {
+    height: 230px;
+  }
+
+  .gem-big {
+    width: 190px;
+    height: 190px;
+  }
+
+  .section {
+    padding: 60px 6%;
+  }
+
+  .service-card {
+    padding: 27px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="nav-wrapper">
+  <nav class="navbar">
+
+    <div class="logo">
+      <div class="logo-icon">T</div>
+      TOKO<span>CPS</span>
+    </div>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="toggleMenu()">Home</a>
+    <a href="#services" onclick="toggleMenu()">Services</a>
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+  </div>
+</div>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      PREMIUM CPS MARKETPLACE
+    </div>
+
+    <h1>
+      Your Trusted<br>
+      <span>CPS</span><br>
+      Marketplace.
+    </h1>
+
+    <p>
+      Buy and sell Growtopia items through a clean,
+      secure, and reliable marketplace experience.
+      Everything you need starts here.
+    </p>
+
+    <div class="buttons">
+      <a href="#services" class="btn btn-primary">
+        BUY/SELL HERE
+      </a>
+
+      <a href="#about" class="btn btn-outline">
+        EXPLORE SERVICES
+      </a>
+    </div>
+
+  </div>
+
+  <div class="gem-area">
+
+    <!-- Ganti URL gambar dengan gambar milikmu -->
+
+    <div class="gem gem-big">
+      <img src="logo-bgl.png" alt="Blue Gem Lock">
+    </div>
+
+    <div class="gem gem-small">
+      <img src="logo-black.png" alt="Black Gem Lock">
+    </div>
+
+    <div class="gem gem-mini">
+      <img src="logo-bgl.png" alt="BGL">
+    </div>
+
+  </div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="stats" id="about">
+
+  <div class="stat">
+    <h2>100K+</h2>
+    <p>Marketplace Potential</p>
+  </div>
+
+  <div class="stat">
+    <h2>24/7</h2>
+    <p>Online Access</p>
+  </div>
+
+  <div class="stat">
+    <h2>100%</h2>
+    <p>Customer Focus</p>
+  </div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="section" id="services">
+
+  <div class="section-heading">
+    <small>OUR MARKETPLACE</small>
+    <h2>Explore Our Services</h2>
+    <p>
+      Everything you need for your Growtopia trading.
+    </p>
+  </div>
+
+  <div class="service-grid">
+
+    <div class="service-card">
+      <div class="service-icon">💎</div>
+      <h3>Buy BGL</h3>
+      <p>
+        Get your Blue Gem Lock through our
+        marketplace service.
+      </p>
+      <a href="#contact">EXPLORE SERVICE →</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">🖤</div>
+      <h3>Buy Black GL</h3>
+      <p>
+        Find Black Gem Lock for your
+        Growtopia collection.
+      </p>
+      <a href="#contact">EXPLORE SERVICE →</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">💰</div>
+      <h3>Sell BGL</h3>
+      <p>
+        Want to sell your BGL?
+        Explore our selling service.
+      </p>
+      <a href="#contact">EXPLORE SERVICE →</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">💠</div>
+      <h3>Sell Black GL</h3>
+      <p>
+        Trade your Black Gem Lock
+        through our marketplace.
+      </p>
+      <a href="#contact">EXPLORE SERVICE →</a>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta" id="contact">
+
+  <h2>Ready to Start Trading?</h2>
+
+  <p>
+    Discover a better way to buy and sell
+    Growtopia items with TOKOCPS.
+  </p>
+
+  <a href="https://wa.me/628XXXXXXXXXX">
+    CONTACT ADMIN →
+  </a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <strong>TOKOCPS</strong><br>
+  Premium CPS Marketplace<br>
+  © 2026 TOKOCPS. All Rights Reserved.
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("mobileMenu")
+    .classList.toggle("show");
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener("click", function(e) {
+    const target = document.querySelector(this.getAttribute("href"));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+});
+</script>
 <!-- TOKOCPS DISCORD POPUP -->
 <style>
 .discord-overlay {
@@ -201,3 +1041,5 @@ function tokocpsJoinDiscord() {
   tokocpsCloseDiscord();
 }
 </script>
+</body>
+</html>
