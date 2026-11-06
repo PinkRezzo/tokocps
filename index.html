@@ -4,8 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#12377f">
-<title>TOKOCPS | Kebutuhan CPS</title>
+<meta name="theme-color" content="#071229">
+<title>TOKOCPS | Marketplace</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -15,230 +15,283 @@ button{font-family:inherit;cursor:pointer}
 
 /* HERO */
 .hero{
- position:relative;overflow:hidden;padding:25px 22px 30px;
- border-radius:30px;background:linear-gradient(145deg,#1d4699,#123477 65%,#0c2868);
+ padding:25px 22px 30px;border-radius:30px;
+ background:linear-gradient(145deg,#1d4699,#123477 65%,#0c2868);
  border:1px solid #4675d0;box-shadow:0 9px 0 #081d4b,0 20px 50px #0005
 }
-.top-label{display:inline-flex;align-items:center;gap:10px;padding:10px 15px;border-radius:13px;color:#8ed2ff;background:#fff;font-size:12px;font-weight:900;letter-spacing:1px}
+.top-label{display:inline-flex;align-items:center;gap:10px;padding:10px 15px;border-radius:13px;color:#8ed2ff;background:white;font-size:12px;font-weight:900}
 .dot{width:10px;height:10px;background:#20c56b;border-radius:50%}
-h1{margin-top:24px;font-size:clamp(32px,7vw,48px);line-height:1.08;letter-spacing:-1.5px;font-weight:900}
+h1{margin-top:24px;font-size:clamp(32px,7vw,48px);line-height:1.08}
 h1 span{color:#ffd34e}
 .subtitle{margin-top:16px;color:#d3e2ff;font-size:16px;line-height:1.5}
 .status-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin:27px 0 17px}
-.price-title{font-weight:800;color:#d9e6ff}
 .open-status{color:#8affbb;background:#0c774b55;border:1px solid #1ec879;border-radius:30px;padding:9px 13px;font-size:12px;font-weight:bold}
 .products{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .product{min-width:0;padding:16px;border-radius:24px;background:linear-gradient(145deg,#2855a9,#173c83);border:2px solid #4975c4;box-shadow:0 8px 0 #071b4b}
-.product-head{display:flex;align-items:center;gap:12px;min-width:0}
-.product-icon{width:66px;height:66px;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;border-radius:17px;background:#102e68;border:1px solid #527bc1}
+.product-head{display:flex;align-items:center;gap:12px}
+.product-icon{width:66px;height:66px;display:grid;place-items:center;flex-shrink:0;border-radius:17px;background:#102e68}
 .product-icon img{width:100%;height:100%;object-fit:contain;padding:5px}
-.product-info{flex:1;min-width:0;overflow:hidden}
-.product-name{font-size:14px;font-weight:800;color:#e6efff}
-.price{margin-top:7px;color:#ffd044;font-size:clamp(23px,5vw,34px);font-weight:1000;letter-spacing:-1px;overflow-wrap:anywhere}
-.per{font-size:12px;color:#d5e3ff;line-height:1.5}
+.product-info{flex:1;min-width:0}
+.product-name{font-size:14px;font-weight:800}
+.price{margin-top:7px;color:#ffd044;font-size:clamp(23px,5vw,34px);font-weight:1000}
+.per{font-size:12px;color:#d5e3ff}
 .buy{width:100%;margin-top:19px;padding:14px 8px;border:0;border-radius:14px;background:#ffd54f;color:#102d69;font-size:15px;font-weight:900;box-shadow:0 5px 0 #bd8b13}
 .buy:active{transform:translateY(3px);box-shadow:none}
 
 /* AI SLIDER */
-.ai-banner{position:relative;margin-top:20px;width:100%;height:76px;display:flex;align-items:center;padding:8px;border-radius:50px;border:2px solid #6384ff;background:#10245c;color:white;box-shadow:0 0 18px #487aff33;overflow:hidden;user-select:none;touch-action:pan-y}
-.ai-swipe-knob{position:absolute;left:7px;top:50%;transform:translateY(-50%);width:52px;height:52px;display:grid;place-items:center;border-radius:50%;border:3px solid #568bff;background:linear-gradient(145deg,#426eff,#182f87);color:white;font-size:25px;font-weight:bold;box-shadow:0 0 15px #568bff66;z-index:2;cursor:grab;touch-action:none}
+.ai-banner{
+ position:relative;margin-top:20px;height:76px;display:flex;
+ align-items:center;padding:8px;border-radius:50px;
+ border:2px solid #6384ff;background:#10245c;color:white;
+ box-shadow:0 0 18px #487aff33;overflow:hidden;touch-action:pan-y
+}
+.ai-swipe-knob{
+ position:absolute;left:7px;top:50%;transform:translateY(-50%);
+ width:52px;height:52px;display:grid;place-items:center;
+ border-radius:50%;border:3px solid #568bff;
+ background:linear-gradient(145deg,#426eff,#182f87);
+ font-size:25px;z-index:2;touch-action:none
+}
 .ai-label{flex:1;text-align:center;pointer-events:none}
 .ai-label strong{font-size:14px}
 .ai-label small{display:block;margin-top:4px;color:#b8c9ff;font-size:10px}
-.ai-arrow{font-size:20px;color:#b8c9ff;padding-right:7px;pointer-events:none}
-.footer{padding:25px 0 10px;text-align:center;color:#a8bce5;font-size:12px}
+.ai-arrow{font-size:20px;padding-right:7px}
+.footer{padding:25px 0;text-align:center;color:#a8bce5;font-size:12px}
 
-/* AI CHAT */
-.ai-panel{position:fixed;z-index:2500;bottom:20px;right:18px;width:min(370px,calc(100% - 36px));height:470px;max-height:75vh;display:none;flex-direction:column;overflow:hidden;border:1px solid #5579d5;border-radius:22px;background:#101f42;box-shadow:0 15px 50px #0009}
-.ai-panel.show{display:flex}
-.ai-head{display:flex;align-items:center;gap:12px;padding:16px;background:#20458e}
-.ai-avatar{width:42px;height:42px;display:grid;place-items:center;background:#5865f2;border-radius:14px;font-size:21px}
-.ai-head-info{flex:1}
-.ai-head-info strong{font-size:15px}
-.ai-head-info small{display:block;margin-top:4px;color:#b8d1ff}
-.close-ai{background:transparent;border:0;color:white;font-size:24px}
-.ai-messages{flex:1;overflow:auto;padding:15px}
-.message{max-width:90%;margin-bottom:12px;padding:12px;border-radius:14px;font-size:13px;line-height:1.5;overflow-wrap:anywhere}
-.bot{background:#243a65;color:white;border-bottom-left-radius:3px}
-.user{margin-left:auto;background:#426be0;color:white;border-bottom-right-radius:3px}
-.quick{display:flex;flex-wrap:wrap;gap:7px;padding:0 13px 12px}
-.quick button{padding:8px 10px;border:1px solid #5875bd;border-radius:20px;background:#1d315a;color:#dbe7ff;font-size:11px}
-.ai-input{display:flex;gap:8px;padding:12px;border-top:1px solid #344b77}
-.ai-input input{min-width:0;flex:1;padding:12px;border:1px solid #4b659b;border-radius:20px;outline:none;background:#0c1934;color:white}
-.ai-input button{width:43px;border:0;border-radius:50%;background:#5865f2;color:white;font-size:19px}
-
-/* DISCORD */
-#tokocpsDiscordPopup{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;padding:16px;background:#0005}
-#tokocpsDiscordPopup.show{display:flex}
-.discord-card{width:100%;max-width:355px;padding:22px;border-radius:23px;background:linear-gradient(145deg,#172d59,#101d3e);border:1px solid #536fc0;box-shadow:0 15px 45px #0008;text-align:center;animation:discordPop .35s ease}
-@keyframes discordPop{from{opacity:0;transform:translateY(15px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
-.discord-icon{width:62px;height:62px;margin:0 auto 12px;display:grid;place-items:center;border-radius:19px;background:#5865f2}
-.discord-icon svg{width:37px;height:37px;fill:white}
-.discord-title{font-size:21px;font-weight:900;margin-bottom:8px}
-.discord-description{color:#c4d4f5;font-size:12px;line-height:1.55;margin-bottom:17px}
-.discord-list{display:flex;flex-direction:column;gap:9px;text-align:left;margin-bottom:19px}
-.discord-item{display:flex;gap:11px;align-items:flex-start;padding:11px;border-radius:13px;background:#ffffff0b;border:1px solid #ffffff13}
-.discord-item-icon{width:34px;height:34px;flex-shrink:0;display:grid;place-items:center;border-radius:10px;background:#29477e;font-size:17px}
-.discord-item-text strong{display:block;font-size:11px;color:#8fcaff;letter-spacing:.7px;margin-bottom:4px}
-.discord-item-text p{color:#e0eaff;font-size:11px;line-height:1.45}
-.discord-buttons{display:flex;flex-direction:column;gap:9px}
-.discord-join{display:block;width:100%;padding:12px;border:0;border-radius:12px;background:#5865f2;color:white;font-size:13px;font-weight:900;text-decoration:none;box-shadow:0 4px 0 #3945bd}
-.discord-later{width:100%;padding:11px;border:1px solid #52658e;border-radius:12px;background:#ffffff0b;color:#cbd8f4;font-size:12px;font-weight:bold}
-
-/* ORDER BOTTOM SHEET */
+/* ORDER SHEET */
 .order-overlay{position:fixed;inset:0;z-index:3000;background:#0009;display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(3px)}
 .order-overlay.show{display:flex}
-.order-sheet{width:100%;max-width:850px;height:90vh;max-height:95vh;background:#0b245a;border:1px solid #4779d8;border-radius:32px 32px 0 0;overflow:hidden;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .3s ease;box-shadow:0 -10px 45px #0008}
+.order-sheet{
+ width:100%;max-width:850px;height:90vh;max-height:95vh;
+ background:#0b245a;border:1px solid #4779d8;
+ border-radius:32px 32px 0 0;overflow:hidden;
+ display:flex;flex-direction:column;transform:translateY(100%);
+ transition:transform .3s ease
+}
 .order-overlay.show .order-sheet{transform:translateY(0)}
-.sheet-head{flex-shrink:0;position:relative;padding:17px 20px 20px;background:linear-gradient(135deg,#2365e8,#1744a3);border-bottom:2px solid #588aff}
-.drag-area{height:23px;display:flex;justify-content:center;align-items:flex-start;touch-action:none;cursor:grab}
-.drag-handle{width:88px;height:9px;border-radius:20px;background:#dce8ff}
+.sheet-head{flex-shrink:0;padding:17px 20px 20px;background:linear-gradient(135deg,#2365e8,#1744a3);border-bottom:2px solid #588aff}
+.drag-area{height:20px;display:flex;justify-content:center;touch-action:none}
+.drag-handle{width:88px;height:8px;border-radius:20px;background:#dce8ff}
 .sheet-heading{display:flex;align-items:center;gap:13px;margin-top:9px}
-.wa-logo{width:60px;height:60px;display:grid;place-items:center;flex-shrink:0;border-radius:18px;background:#20c967;font-size:34px;box-shadow:0 6px 0 #078c4c}
+.wa-logo{width:55px;height:55px;display:grid;place-items:center;border-radius:17px;background:#20c967;font-size:30px}
 .sheet-title{flex:1;min-width:0}
-.sheet-title small{font-size:12px;letter-spacing:1px;font-weight:900;color:#dbe7ff}
-.sheet-title h2{font-size:25px;margin:7px 0 8px}
-.sheet-title p{font-size:13px;line-height:1.5;color:#dce7ff}
-.sheet-close{width:52px;height:52px;flex-shrink:0;border:4px solid #ffd34e;border-radius:17px;background:white;color:#2362db;font-size:29px;font-weight:bold}
-.sheet-content{overflow-y:auto;overscroll-behavior:contain;padding:14px;flex:1}
-.step-card{padding:15px;margin-bottom:14px;border:2px solid #315eaf;border-radius:27px;background:#173e88;box-shadow:0 8px 0 #07183c}
+.sheet-title small{font-size:11px;font-weight:900;color:#dbe7ff}
+.sheet-title h2{font-size:22px;margin:7px 0}
+.sheet-title p{font-size:12px;line-height:1.5;color:#dce7ff}
+.sheet-close{width:44px;height:44px;border:3px solid #ffd34e;border-radius:14px;background:white;color:#2362db;font-size:26px}
+.sheet-content{overflow-y:auto;padding:14px;flex:1}
+.step-card{padding:15px;margin-bottom:14px;border:2px solid #315eaf;border-radius:23px;background:#173e88;box-shadow:0 7px 0 #07183c}
 .step-heading{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.step-number{width:54px;height:54px;display:grid;place-items:center;flex-shrink:0;background:#ffd34e;color:#102b62;border-radius:18px;font-size:23px;font-weight:900;box-shadow:0 5px 0 #bd8b13}
-.step-heading h3{font-size:19px;margin-bottom:4px}
-.step-heading p{font-size:13px;color:#c6d9ff;line-height:1.4}
+.step-number{width:45px;height:45px;display:grid;place-items:center;background:#ffd34e;color:#102b62;border-radius:14px;font-size:21px;font-weight:900}
+.step-heading h3{font-size:17px;margin-bottom:4px}
+.step-heading p{font-size:12px;color:#c6d9ff}
 .choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.choice{padding:15px;text-align:left;border:2px solid #315da8;border-radius:22px;background:#0d2454;color:white;min-height:105px}
-.choice.active{border:3px solid #62a0ff;box-shadow:0 0 15px #448cff66;background:#123778}
-.choice strong{display:block;font-size:19px;margin-bottom:7px}
-.choice span{font-size:13px;line-height:1.5;color:#c4d7ff}
-.choice .selected{float:right;color:#71b5ff}
-.item-row{display:flex;align-items:center;gap:10px;padding:12px;margin-top:10px;border:1px solid #315ba3;border-radius:22px;background:#0d2454}
-.item-icon{width:65px;height:65px;flex-shrink:0;border-radius:16px;overflow:hidden;background:#173e88}
+.choice{padding:14px;text-align:left;border:2px solid #315da8;border-radius:18px;background:#0d2454;color:white;min-height:90px}
+.choice.active{border:3px solid #62a0ff;background:#123778}
+.choice strong{display:block;font-size:17px;margin-bottom:7px}
+.choice span{font-size:12px;color:#c4d7ff}
+.item-row{display:flex;align-items:center;gap:9px;padding:10px;margin-top:10px;border:1px solid #315ba3;border-radius:18px;background:#0d2454}
+.item-icon{width:52px;height:52px;flex-shrink:0;border-radius:13px;overflow:hidden;background:#173e88}
 .item-icon img{width:100%;height:100%;object-fit:contain;padding:4px}
 .item-info{flex:1;min-width:0}
-.item-info strong{font-size:16px}
-.item-info small{display:block;margin-top:5px;color:#bfd2f5}
-.quantity{display:flex;align-items:center;gap:6px}
-.qty-btn{width:40px;height:48px;border:0;border-radius:14px;background:white;color:#1e5ed4;font-size:24px;font-weight:bold}
-.qty-value{width:65px;height:48px;display:grid;place-items:center;border:2px solid #315fae;border-radius:14px;color:white;font-size:21px;font-weight:bold}
-.payment-select{width:100%;padding:15px;border:2px solid #315da8;border-radius:16px;background:#0d2454;color:white;font-size:15px;outline:none}
-
-/* FORM WORLD & OWNER */
-.sell-details{
- display:none;margin-top:12px;padding:14px;
- border:2px solid #4878cf;border-radius:20px;background:#102d68
-}
-.sell-details.show{display:block}
-.sell-details h4{font-size:15px;margin-bottom:12px;color:#ffd34e}
-.sell-field{margin-bottom:12px}
-.sell-field:last-child{margin-bottom:0}
-.sell-field label{display:block;margin-bottom:7px;font-size:13px;font-weight:800;color:#dce8ff}
-.sell-field input{
+.item-info strong{font-size:14px}
+.item-info small{display:block;margin-top:5px;color:#bfd2f5;font-size:11px}
+.quantity{display:flex;align-items:center;gap:5px}
+.qty-btn{width:35px;height:42px;border:0;border-radius:12px;background:white;color:#1e5ed4;font-size:22px}
+.qty-value{width:42px;height:42px;display:grid;place-items:center;border:2px solid #315fae;border-radius:12px;font-weight:bold}
+.payment-select,.field-input{
  width:100%;padding:14px;border:2px solid #315da8;
- border-radius:13px;outline:none;background:#0d2454;
- color:white;font-size:14px
+ border-radius:14px;background:#0d2454;color:white;
+ font-size:14px;outline:none;margin-top:8px
 }
-.sell-field input:focus{border-color:#62a0ff}
-.sell-field input::placeholder{color:#819bc9}
-
-.admin-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.admin-card{position:relative;display:flex;align-items:center;gap:9px;padding:12px 9px;border:2px solid #315da8;border-radius:20px;background:#0d2454;color:white;text-align:left;min-width:0}
-.admin-card.active{border:3px solid #62a0ff;background:#123778;box-shadow:0 0 12px #448cff55}
-.admin-card:disabled{opacity:.55;cursor:not-allowed}
-.admin-avatar{width:42px;height:42px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;background:#315da8;font-size:23px}
+.field-input::placeholder{color:#91a9d5}
+.field-label{display:block;margin-top:13px;font-size:12px;font-weight:bold;color:#dbe7ff}
+.admin-list{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.admin-card{position:relative;display:flex;align-items:center;gap:8px;padding:11px 7px;border:2px solid #315da8;border-radius:16px;background:#0d2454;color:white;text-align:left;min-width:0}
+.admin-card.active{border:3px solid #62a0ff;background:#123778}
+.admin-card:disabled{opacity:.45}
+.admin-avatar{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:#315da8}
 .admin-info{min-width:0;flex:1}
-.admin-name{font-size:13px;font-weight:900;line-height:1.4}
-.verified{display:inline-grid;place-items:center;width:16px;height:16px;margin-left:3px;border-radius:50%;background:#2786ff;color:white;font-size:11px;vertical-align:middle}
-.admin-status{font-size:11px;font-weight:bold;margin-top:5px}
+.admin-name{font-size:11px;font-weight:900;overflow-wrap:anywhere}
+.verified{display:inline-grid;place-items:center;width:15px;height:15px;border-radius:50%;background:#2786ff;font-size:10px}
+.admin-status{font-size:10px;font-weight:bold;margin-top:5px}
 .online{color:#18d777}
 .offline{color:#9ba9c4}
-.admin-availability{display:block;font-size:10px;margin-top:4px;color:#b9d1ff}
-.admin-check{position:absolute;right:7px;top:7px;color:#fff;background:#13bd73;border-radius:50%;width:22px;height:22px;display:grid;place-items:center;font-size:13px}
-.summary-card{background:#f1f5ff;color:#10244b;border-radius:23px;overflow:hidden;margin-bottom:14px}
-.summary-head{padding:16px 18px;border-bottom:1px solid #d1def6}
-.summary-head small{color:#2464dc;font-weight:900;letter-spacing:1px}
-.summary-head h3{font-size:23px;margin-top:7px}
-.summary-body{padding:12px 18px}
-.summary-line{display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px dashed #c7d7f3;color:#52688f;font-weight:bold;font-size:14px}
+.admin-check{position:absolute;right:5px;top:5px;background:#13bd73;border-radius:50%;width:18px;height:18px;display:grid;place-items:center;font-size:11px}
+.summary-card{background:#f1f5ff;color:#10244b;border-radius:20px;overflow:hidden;margin-bottom:14px}
+.summary-head{padding:15px;border-bottom:1px solid #d1def6}
+.summary-head small{color:#2464dc;font-weight:900}
+.summary-head h3{font-size:21px;margin-top:6px}
+.summary-body{padding:12px 16px}
+.summary-line{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px dashed #c7d7f3;color:#52688f;font-size:13px}
 .summary-line strong{color:#10244b;text-align:right;overflow-wrap:anywhere}
-.summary-total{font-size:13px;color:#607394;padding-top:12px;line-height:1.5}
-.order-submit{width:100%;padding:17px;border:0;border-radius:17px;background:#18c76a;color:white;font-size:16px;font-weight:900;box-shadow:0 5px 0 #07894a}
-.order-submit:active{transform:translateY(3px);box-shadow:none}
+.summary-total{font-size:11px;color:#607394;padding-top:12px;line-height:1.5}
+.order-submit{width:100%;padding:16px;border:0;border-radius:15px;background:#18c76a;color:white;font-size:15px;font-weight:900;box-shadow:0 5px 0 #07894a}
 .order-note{text-align:center;font-size:11px;color:#b8cafa;padding:12px}
-body.sheet-open{overflow:hidden}
+
+/* TOKOCPS AI FULL SCREEN */
+.ai-panel{
+ position:fixed;inset:0;z-index:5000;
+ display:none;flex-direction:column;
+ overflow:hidden;background:#071229;color:#eef3ff
+}
+.ai-panel.show{display:flex}
+.ai-head{
+ min-height:85px;display:flex;align-items:center;gap:13px;
+ padding:15px 20px;background:#081329;
+ border-bottom:1px solid #263963
+}
+.ai-head button{border:0;background:transparent;color:#e5edff;font-size:27px}
+.ai-head-info{flex:1;min-width:0}
+.ai-head-info strong{font-size:21px}
+.ai-head-info small{display:block;margin-top:5px;color:#a8b9dc;font-size:13px}
+.ai-online{display:inline-block;width:11px;height:11px;margin-right:6px;border-radius:50%;background:#20d889;box-shadow:0 0 12px #20d889}
+.ai-welcome{flex:1;overflow-y:auto;padding:20px 20px 15px;text-align:center}
+.ai-logo-large{
+ width:115px;height:115px;margin:5px auto 30px;
+ display:grid;place-items:center;border-radius:50%;
+ border:7px solid transparent;
+ background:linear-gradient(#101d42,#101d42) padding-box,
+ conic-gradient(#39d9dc,#a4e889,#ffd34e,#8b5bff,#39d9dc) border-box;
+ box-shadow:0 0 30px #526aff33;
+ animation:logoGlow 3s ease-in-out infinite alternate
+}
+@keyframes logoGlow{to{box-shadow:0 0 40px #607aff88}}
+.ai-logo-large span{font-size:53px;color:white}
+.ai-greeting{
+ font-size:clamp(29px,7vw,42px);
+ font-weight:900;line-height:1.2
+}
+.ai-greeting span{
+ background:linear-gradient(90deg,#648cff,#c38bff,#ffd45d);
+ background-clip:text;-webkit-background-clip:text;color:transparent
+}
+.ai-description{margin:22px auto;color:#9eafd2;font-size:15px;line-height:1.7;max-width:600px}
+.ai-price-chips{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:22px 0 30px}
+.ai-chip{padding:11px 14px;border:1px solid #29447c;border-radius:30px;background:#0c1935;color:#aebfe3;font-size:13px;font-weight:bold}
+.ai-chip b{color:#ffd34e}
+.ai-chip .green{color:#22d58a}
+.ai-cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;text-align:left}
+.ai-card{
+ min-height:150px;padding:18px;border:2px solid #253d70;
+ border-radius:27px;background:#101d3d;color:white;
+ text-align:left;box-shadow:0 6px 0 #030a18;
+ transition:.2s
+}
+.ai-card:active{transform:scale(.97);border-color:#6588ff}
+.ai-card-icon{
+ width:55px;height:55px;display:grid;place-items:center;
+ border-radius:18px;border:1px solid #293e70;
+ background:#0b1836;font-size:29px;margin-bottom:18px
+}
+.ai-card strong{display:block;font-size:16px;margin-bottom:7px}
+.ai-card small{display:block;color:#9cafd3;font-size:12px;line-height:1.5}
+.ai-quick{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin:25px 0 15px}
+.ai-quick button{
+ padding:11px 15px;border:1px solid #2c447b;
+ border-radius:30px;background:transparent;color:#e3eaff;font-size:13px
+}
+.ai-chat-area{display:none;flex:1;overflow-y:auto;padding:20px}
+.ai-chat-area.show{display:block}
+.ai-message{max-width:88%;width:fit-content;padding:13px 16px;margin-bottom:13px;border-radius:17px;font-size:14px;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere}
+.ai-message.bot{background:#172746;color:#edf3ff;border-bottom-left-radius:4px}
+.ai-message.user{margin-left:auto;background:#355ac1;color:white;border-bottom-right-radius:4px}
+.ai-input-area{padding:12px 18px 18px;background:#071229}
+.ai-input-form{
+ display:flex;align-items:center;gap:10px;
+ padding:9px 12px;border:2px solid #263e75;
+ border-radius:45px;background:#101d3d;
+ box-shadow:0 4px 15px #0004
+}
+.ai-add{
+ width:38px;height:38px;flex-shrink:0;
+ background:transparent;border:0;color:white;font-size:29px
+}
+.ai-input-form input{
+ flex:1;min-width:0;padding:12px 5px;
+ border:0;outline:none;background:transparent;
+ color:white;font-size:15px
+}
+.ai-input-form input::placeholder{color:#7183aa}
+.ai-send{
+ width:48px;height:48px;flex-shrink:0;border:0;
+ border-radius:50%;background:#1d315e;color:white;font-size:23px
+}
+.ai-send:disabled{opacity:.5}
+.ai-disclaimer{text-align:center;color:#7185ad;font-size:10px;margin-top:12px}
+.ai-back{display:none}
+
+/* DISCORD */
+#tokocpsDiscordPopup{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;padding:16px;background:#0009}
+#tokocpsDiscordPopup.show{display:flex}
+.discord-card{width:100%;max-width:350px;padding:22px;border-radius:23px;background:#172d59;border:1px solid #536fc0;text-align:center}
+.discord-title{font-size:20px;font-weight:900;margin-bottom:10px}
+.discord-description{color:#c4d4f5;font-size:12px;line-height:1.5;margin-bottom:18px}
+.discord-join,.discord-later{display:block;width:100%;padding:13px;border:0;border-radius:12px;background:#5865f2;color:white;font-weight:bold;text-decoration:none}
+.discord-later{margin-top:9px;background:#ffffff13;color:white;border:1px solid #52658e}
 
 /* MOBILE */
 @media(max-width:440px){
  .page{padding:10px}
  .hero{padding:17px 14px 21px;border-radius:24px}
- .top-label{gap:7px;padding:7px 10px;font-size:10px;letter-spacing:.5px;border-radius:10px}
- .dot{width:8px;height:8px}
- h1{margin-top:17px;font-size:clamp(25px,6.8vw,29px);line-height:1.08;letter-spacing:-1px}
- .subtitle{margin-top:12px;font-size:13px;line-height:1.45}
- .status-row{gap:8px;margin:20px 0 13px}
- .price-title{font-size:12px}
+ .top-label{padding:7px 10px;font-size:10px}
+ h1{margin-top:17px;font-size:28px}
+ .subtitle{font-size:13px}
+ .status-row{margin:20px 0 13px}
  .open-status{padding:7px 9px;font-size:10px}
  .products{gap:8px}
- .product{padding:10px;border-radius:19px;border-width:1.5px}
+ .product{padding:10px;border-radius:19px}
  .product-head{gap:8px}
- .product-icon{width:43px;height:43px;border-radius:13px}
- .product-icon img{padding:3px}
+ .product-icon{width:43px;height:43px}
  .product-name{font-size:11px}
- .price{margin-top:5px;font-size:clamp(15px,4.7vw,22px);letter-spacing:-.8px}
+ .price{font-size:clamp(15px,4.7vw,22px)}
  .per{font-size:10px}
- .buy{margin-top:13px;padding:10px 5px;border-radius:12px;font-size:12px}
- .ai-banner{margin-top:15px;height:65px;padding:7px}
- .ai-swipe-knob{width:45px;height:45px;font-size:22px}
+ .buy{margin-top:13px;padding:10px 5px;font-size:12px}
+ .ai-banner{height:65px}
+ .ai-swipe-knob{width:45px;height:45px}
  .ai-label strong{font-size:12px}
- .ai-label small{font-size:9px}
- .footer{padding:19px 0 8px;font-size:10px}
- .ai-panel{right:10px;bottom:10px;width:calc(100% - 20px);max-height:80vh}
- .discord-card{max-width:340px;padding:18px}
- .discord-title{font-size:19px}
- .order-sheet{height:91vh;border-radius:25px 25px 0 0}
- .sheet-head{padding:12px 14px 15px}
+ .order-sheet{height:92vh;border-radius:25px 25px 0 0}
+ .sheet-head{padding:12px 14px}
  .sheet-heading{gap:9px}
- .wa-logo{width:48px;height:48px;font-size:27px;border-radius:15px}
- .sheet-title small{font-size:10px}
- .sheet-title h2{font-size:20px;margin:5px 0}
- .sheet-title p{font-size:12px}
- .sheet-close{width:43px;height:43px;font-size:24px;border-width:3px}
+ .wa-logo{width:45px;height:45px;font-size:25px}
+ .sheet-title h2{font-size:18px}
+ .sheet-title p{font-size:11px}
+ .sheet-close{width:39px;height:39px}
  .sheet-content{padding:10px}
- .step-card{padding:12px;margin-bottom:11px;border-radius:22px}
- .step-number{width:47px;height:47px;font-size:20px;border-radius:15px}
- .step-heading h3{font-size:17px}
- .step-heading p{font-size:12px}
- .choice{padding:12px;min-height:100px}
- .choice strong{font-size:17px}
- .choice span{font-size:12px}
- .item-row{gap:7px;padding:9px}
- .item-icon{width:48px;height:48px}
- .item-info strong{font-size:13px}
- .item-info small{font-size:11px}
- .quantity{gap:4px}
- .qty-btn{width:34px;height:43px;font-size:20px}
- .qty-value{width:48px;height:43px;font-size:18px}
- .admin-list{gap:7px}
- .admin-card{padding:10px 6px;gap:6px;border-radius:15px}
- .admin-avatar{width:32px;height:32px;font-size:18px}
- .admin-name{font-size:11px}
- .admin-status{font-size:10px}
- .admin-availability{font-size:9px}
- .admin-check{width:18px;height:18px;font-size:11px}
- .summary-head h3{font-size:21px}
- .summary-line{font-size:12px}
+ .step-card{padding:12px}
+ .admin-card{gap:5px;padding:9px 5px}
+ .admin-avatar{width:28px;height:28px;font-size:14px}
+ .admin-name{font-size:10px}
+ .ai-head{min-height:80px;padding:12px 17px}
+ .ai-head-info strong{font-size:19px}
+ .ai-welcome{padding:8px 17px 12px}
+ .ai-logo-large{width:105px;height:105px;margin-bottom:25px}
+ .ai-logo-large span{font-size:46px}
+ .ai-description{font-size:14px;margin:19px auto}
+ .ai-price-chips{gap:7px;margin:18px 0 26px}
+ .ai-chip{padding:9px 10px;font-size:11px}
+ .ai-cards{gap:10px}
+ .ai-card{min-height:145px;padding:13px;border-radius:23px}
+ .ai-card-icon{width:48px;height:48px;font-size:25px;margin-bottom:15px}
+ .ai-card strong{font-size:14px}
+ .ai-card small{font-size:11px}
+ .ai-quick{gap:7px;margin:22px 0 12px}
+ .ai-quick button{padding:9px 12px;font-size:12px}
+ .ai-input-area{padding:9px 12px 16px}
+ .ai-input-form{gap:5px;padding:6px 9px}
+ .ai-input-form input{font-size:14px}
+ .ai-send{width:43px;height:43px}
 }
 @media(max-width:350px){
  .product{padding:8px}
  .product-icon{width:37px;height:37px}
  .product-name{font-size:10px}
  .price{font-size:15px}
- .buy{font-size:10px}
  .admin-avatar{display:none}
- .admin-name{font-size:10px}
- .qty-btn{width:30px}
- .qty-value{width:40px}
+ .ai-card{padding:10px}
+ .ai-card strong{font-size:12px}
 }
+body.sheet-open{overflow:hidden}
 </style>
 </head>
 
@@ -250,7 +303,6 @@ body.sheet-open{overflow:hidden}
  <div class="top-label"><span class="dot"></span>TOKOCPS STORE · INDONESIA</div>
 
  <h1>Lengkapi Kebutuhan<br><span>CPS Kamu Di Sini.</span></h1>
-
  <p class="subtitle">Marketplace BGL & BLACK untuk kebutuhan Growtopia kamu.</p>
 
  <div class="status-row">
@@ -259,10 +311,9 @@ body.sheet-open{overflow:hidden}
  </div>
 
  <div class="products">
-
   <article class="product">
    <div class="product-head">
-    <div class="product-icon"><img src="logo-black.png" alt="Black Gem Lock"></div>
+    <div class="product-icon"><img src="logo-black.png" alt="BLACK"></div>
     <div class="product-info">
      <div class="product-name">Black Gem Lock</div>
      <div class="price" id="blackPrice">105.0K</div>
@@ -274,7 +325,7 @@ body.sheet-open{overflow:hidden}
 
   <article class="product">
    <div class="product-head">
-    <div class="product-icon"><img src="logo-bgl-black.png" alt="Blue Gem Lock"></div>
+    <div class="product-icon"><img src="logo-bgl-black.png" alt="BGL"></div>
     <div class="product-info">
      <div class="product-name">Blue Gem Lock</div>
      <div class="price" id="bglPrice">1.1K</div>
@@ -283,7 +334,6 @@ body.sheet-open{overflow:hidden}
    </div>
    <button class="buy" onclick="openOrder('BGL')">🛒 Beli BGL →</button>
   </article>
-
  </div>
 
  <div class="ai-banner" id="aiSwipe">
@@ -292,504 +342,515 @@ body.sheet-open{overflow:hidden}
    <strong>GESER UNTUK CHAT<br>TOKOCPS AI</strong>
    <small>Geser bulatan ke kanan</small>
   </div>
-  <span class="ai-arrow">▤</span>
+  <span class="ai-arrow">✦</span>
  </div>
 
 </section>
-
 <div class="footer">© 2026 TOKOCPS · Marketplace CPS</div>
 </main>
 
-<!-- POPUP PEMESANAN -->
+<!-- FORM ORDER -->
 <div class="order-overlay" id="orderOverlay">
- <section class="order-sheet" id="orderSheet">
+<section class="order-sheet" id="orderSheet">
 
-  <header class="sheet-head">
-   <div class="drag-area" id="dragArea"><div class="drag-handle"></div></div>
-   <div class="sheet-heading">
-    <div class="wa-logo">☏</div>
-    <div class="sheet-title">
-     <small>🟡 BELI & JUAL BGL / DL · WHATSAPP</small>
-     <h2>Beli & Jual dibantu Admin</h2>
-     <p>Pilih transaksi, isi quantity, pilih pembayaran dan admin. Admin membantu langsung lewat WhatsApp.</p>
-    </div>
-    <button class="sheet-close" onclick="closeOrder()">×</button>
-   </div>
-  </header>
-
-  <div class="sheet-content">
-
-   <!-- STEP 1 -->
-   <div class="step-card">
-    <div class="step-heading">
-     <div class="step-number">01</div>
-     <div><h3>Pilih Beli atau Jual</h3><p>Admin membantu beli maupun jual lewat WhatsApp.</p></div>
-    </div>
-    <div class="choice-grid">
-     <button class="choice active" id="buyChoice" onclick="setTransaction('Beli')">
-      <strong>🛒 Beli <span class="selected">✓</span></strong>
-      <span>Saya ingin membeli BGL atau BLACK</span>
-     </button>
-     <button class="choice" id="sellChoice" onclick="setTransaction('Jual')">
-      <strong>⇄ Jual</strong>
-      <span>Saya ingin menjual BGL atau BLACK</span>
-     </button>
-    </div>
-   </div>
-
-   <!-- STEP 2 -->
-   <div class="step-card">
-    <div class="step-heading">
-     <div class="step-number">02</div>
-     <div><h3>Pilih item & quantity</h3><p>Masukkan jumlah produk yang diinginkan.</p></div>
-    </div>
-
-    <div class="item-row">
-     <div class="item-icon"><img src="logo-bgl-black.png" alt="BGL"></div>
-     <div class="item-info"><strong>Blue Gem Lock</strong><small id="itemBGLPrice">Beli: 1.1K/BGL · Jual: 950/BGL</small></div>
-     <div class="quantity">
-      <button class="qty-btn" onclick="changeQty('bgl',-1)">−</button>
-      <div class="qty-value" id="qtyBGL">0</div>
-      <button class="qty-btn" onclick="changeQty('bgl',1)">+</button>
-     </div>
-    </div>
-
-    <div class="item-row">
-     <div class="item-icon"><img src="logo-black.png" alt="BLACK"></div>
-     <div class="item-info"><strong>Black Gem Lock</strong><small id="itemBLACKPrice">Beli: 105.0K · Jual: 97.0K</small></div>
-     <div class="quantity">
-      <button class="qty-btn" onclick="changeQty('black',-1)">−</button>
-      <div class="qty-value" id="qtyBLACK">0</div>
-      <button class="qty-btn" onclick="changeQty('black',1)">+</button>
-     </div>
-    </div>
-
-    <!-- FORM WORLD & OWNER KHUSUS JUAL -->
-    <div class="sell-details" id="sellDetails">
-     <h4>📦 Informasi World</h4>
-
-     <div class="sell-field">
-      <label for="sellWorld">🌎 World</label>
-      <input type="text" id="sellWorld"
-       placeholder="Contoh: TOKOCPS"
-       autocomplete="off">
-     </div>
-
-     <div class="sell-field">
-      <label for="sellOwner">👤 Owner</label>
-      <input type="text" id="sellOwner"
-       placeholder="Masukkan nama owner world"
-       autocomplete="off">
-     </div>
-    </div>
-
-   </div>
-
-   <!-- STEP 3 -->
-   <div class="step-card">
-    <div class="step-heading">
-     <div class="step-number">03</div>
-     <div><h3>Metode pembayaran</h3><p>Pilih metode pembayaran yang tersedia.</p></div>
-    </div>
-    <select class="payment-select" id="payment" onchange="updateSummary()">
-     <option value="">Pilih metode pembayaran</option>
-     <option value="QRIS">QRIS</option>
-     <option value="DANA">DANA</option>
-     <option value="GoPay">GoPay</option>
-     <option value="OVO">OVO</option>
-     <option value="Transfer Bank">Transfer Bank</option>
-     <option value="Diskusi dengan Admin">Diskusi dengan Admin</option>
-    </select>
-   </div>
-
-   <!-- STEP 4 -->
-   <div class="step-card">
-    <div class="step-heading">
-     <div class="step-number">04</div>
-     <div><h3>Pilih admin</h3><p>Pilih admin yang ingin kamu hubungi.</p></div>
-    </div>
-
-    <div class="admin-list">
-     <button class="admin-card active" id="adminCard1" onclick="selectAdmin(1)">
-      <div class="admin-avatar">👤</div>
-      <div class="admin-info">
-       <div class="admin-name">Booopa | TokoCPS.Store <span class="verified">✓</span></div>
-       <div class="admin-status" id="adminStatus1"></div>
-       <span class="admin-availability" id="adminAvailability1"></span>
-      </div>
-      <span class="admin-check" id="adminCheck1">✓</span>
-     </button>
-
-     <button class="admin-card" id="adminCard2" onclick="selectAdmin(2)">
-      <div class="admin-avatar">👤</div>
-      <div class="admin-info">
-       <div class="admin-name">WholeSale | TokoCPS.Store <span class="verified">✓</span></div>
-       <div class="admin-status" id="adminStatus2"></div>
-       <span class="admin-availability" id="adminAvailability2"></span>
-      </div>
-      <span class="admin-check" id="adminCheck2" style="display:none">✓</span>
-     </button>
-    </div>
-   </div>
-
-   <!-- STEP 5 -->
-   <div class="summary-card">
-    <div class="summary-head">
-     <small>05 · RINGKASAN</small>
-     <h3>Pesanan kamu</h3>
-    </div>
-    <div class="summary-body">
-     <div class="summary-line"><span>Blue Gem Lock</span><strong id="sumBGL">0</strong></div>
-     <div class="summary-line"><span>Black Gem Lock</span><strong id="sumBLACK">0</strong></div>
-     <div class="summary-line"><span>Jenis transaksi</span><strong id="sumType">Beli</strong></div>
-     <div class="summary-line"><span>World</span><strong id="sumWorld">—</strong></div>
-     <div class="summary-line"><span>Owner</span><strong id="sumOwner">—</strong></div>
-     <div class="summary-line"><span>Harga BGL</span><strong id="sumPriceBGL">—</strong></div>
-     <div class="summary-line"><span>Harga BLACK</span><strong id="sumPriceBLACK">—</strong></div>
-     <div class="summary-line"><span>Estimasi total</span><strong id="sumTotal">0</strong></div>
-     <div class="summary-line"><span>Pembayaran</span><strong id="sumPayment">—</strong></div>
-     <div class="summary-line"><span>Admin</span><strong id="sumAdmin">Booopa</strong></div>
-     <div class="summary-total">Estimasi total berdasarkan harga yang tertera. Harga akhir dan ketersediaan stok tetap dikonfirmasi oleh admin.</div>
-    </div>
-   </div>
-
-   <button class="order-submit" onclick="submitOrder()">☏ Konfirmasi Pesanan →</button>
-   <div class="order-note">Pastikan jumlah produk, World, Owner dan admin sudah benar sebelum melanjutkan.</div>
-
+<header class="sheet-head">
+ <div class="drag-area" id="dragArea"><div class="drag-handle"></div></div>
+ <div class="sheet-heading">
+  <div class="wa-logo">☏</div>
+  <div class="sheet-title">
+   <small>TOKOCPS · WHATSAPP ORDER</small>
+   <h2>Beli & Jual dibantu Admin</h2>
+   <p>Isi detail transaksi dan admin akan membantu melalui WhatsApp.</p>
   </div>
- </section>
+  <button class="sheet-close" onclick="closeOrder()">×</button>
+ </div>
+</header>
+
+<div class="sheet-content">
+
+<div class="step-card">
+ <div class="step-heading">
+  <div class="step-number">01</div>
+  <div><h3>Pilih transaksi</h3><p>Pilih beli atau jual.</p></div>
+ </div>
+ <div class="choice-grid">
+  <button class="choice active" id="buyChoice" onclick="setTransaction('Beli')">
+   <strong>🛒 Beli ✓</strong><span>Membeli BGL atau BLACK</span>
+  </button>
+  <button class="choice" id="sellChoice" onclick="setTransaction('Jual')">
+   <strong>⇄ Jual</strong><span>Menjual BGL atau BLACK</span>
+  </button>
+ </div>
 </div>
 
-<!-- POPUP DISCORD -->
+<div class="step-card">
+ <div class="step-heading">
+  <div class="step-number">02</div>
+  <div><h3>Item & Quantity</h3><p>Masukkan jumlah produk.</p></div>
+ </div>
+
+ <div class="item-row">
+  <div class="item-icon"><img src="logo-bgl-black.png" alt="BGL"></div>
+  <div class="item-info"><strong>Blue Gem Lock</strong><small id="itemBGLPrice"></small></div>
+  <div class="quantity">
+   <button class="qty-btn" onclick="changeQty('bgl',-1)">−</button>
+   <div class="qty-value" id="qtyBGL">0</div>
+   <button class="qty-btn" onclick="changeQty('bgl',1)">+</button>
+  </div>
+ </div>
+
+ <div class="item-row">
+  <div class="item-icon"><img src="logo-black.png" alt="BLACK"></div>
+  <div class="item-info"><strong>Black Gem Lock</strong><small id="itemBLACKPrice"></small></div>
+  <div class="quantity">
+   <button class="qty-btn" onclick="changeQty('black',-1)">−</button>
+   <div class="qty-value" id="qtyBLACK">0</div>
+   <button class="qty-btn" onclick="changeQty('black',1)">+</button>
+  </div>
+ </div>
+</div>
+
+<!-- KHUSUS FORM JUAL -->
+<div class="step-card" id="sellDetails" style="display:none">
+ <div class="step-heading">
+  <div class="step-number">03</div>
+  <div><h3>Detail World & Owner</h3><p>Isi informasi world tempat item akan ditransaksikan.</p></div>
+ </div>
+
+ <label class="field-label" for="world">🌎 Nama World</label>
+ <input class="field-input" id="world" placeholder="Contoh: TOKOCPS" autocomplete="off">
+
+ <label class="field-label" for="owner">👤 Owner World</label>
+ <input class="field-input" id="owner" placeholder="Masukkan nama owner world" autocomplete="off">
+</div>
+
+<div class="step-card">
+ <div class="step-heading">
+  <div class="step-number" id="paymentStep">03</div>
+  <div><h3>Metode pembayaran</h3><p>Pilih metode pembayaran.</p></div>
+ </div>
+ <select class="payment-select" id="payment" onchange="updateSummary()">
+  <option value="">Pilih metode pembayaran</option>
+  <option>QRIS</option>
+  <option>DANA</option>
+  <option>GoPay</option>
+  <option>OVO</option>
+  <option>Transfer Bank</option>
+  <option>Diskusi dengan Admin</option>
+ </select>
+</div>
+
+<div class="step-card">
+ <div class="step-heading">
+  <div class="step-number" id="adminStep">04</div>
+  <div><h3>Pilih admin</h3><p>Pilih admin yang ingin dihubungi.</p></div>
+ </div>
+
+ <div class="admin-list">
+  <button class="admin-card active" id="adminCard1" onclick="selectAdmin(1)">
+   <div class="admin-avatar">👤</div>
+   <div class="admin-info">
+    <div class="admin-name">Booopa | TokoCPS.Store <span class="verified">✓</span></div>
+    <div class="admin-status" id="adminStatus1"></div>
+   </div>
+   <span class="admin-check" id="adminCheck1">✓</span>
+  </button>
+
+  <button class="admin-card" id="adminCard2" onclick="selectAdmin(2)">
+   <div class="admin-avatar">👤</div>
+   <div class="admin-info">
+    <div class="admin-name">WholeSale | TokoCPS.Store <span class="verified">✓</span></div>
+    <div class="admin-status" id="adminStatus2"></div>
+   </div>
+   <span class="admin-check" id="adminCheck2" style="display:none">✓</span>
+  </button>
+ </div>
+</div>
+
+<div class="summary-card">
+ <div class="summary-head">
+  <small>RINGKASAN TRANSAKSI</small>
+  <h3>Pesanan kamu</h3>
+ </div>
+ <div class="summary-body">
+  <div class="summary-line"><span>BGL</span><strong id="sumBGL">0</strong></div>
+  <div class="summary-line"><span>BLACK</span><strong id="sumBLACK">0</strong></div>
+  <div class="summary-line"><span>Jenis transaksi</span><strong id="sumType">Beli</strong></div>
+  <div class="summary-line"><span>World</span><strong id="sumWorld">—</strong></div>
+  <div class="summary-line"><span>Owner</span><strong id="sumOwner">—</strong></div>
+  <div class="summary-line"><span>Harga BGL</span><strong id="sumPriceBGL">—</strong></div>
+  <div class="summary-line"><span>Harga BLACK</span><strong id="sumPriceBLACK">—</strong></div>
+  <div class="summary-line"><span>Estimasi total</span><strong id="sumTotal">0</strong></div>
+  <div class="summary-line"><span>Pembayaran</span><strong id="sumPayment">—</strong></div>
+  <div class="summary-line"><span>Admin</span><strong id="sumAdmin">Booopa</strong></div>
+  <div class="summary-total">Estimasi harga dapat berubah. Stok dan nominal akhir dikonfirmasi oleh admin.</div>
+ </div>
+</div>
+
+<button class="order-submit" onclick="submitOrder()">☏ Konfirmasi WhatsApp →</button>
+<div class="order-note">Pastikan seluruh informasi transaksi sudah benar.</div>
+
+</div>
+</section>
+</div>
+
+<!-- DISCORD -->
 <div id="tokocpsDiscordPopup">
  <div class="discord-card">
-  <div class="discord-icon">
-   <svg viewBox="0 0 127.14 96.36">
-    <path d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.08 0A72.37 72.37 0 0 0 45.67 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.7 56.6.54 80.21a105.73 105.73 0 0 0 32.1 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.17c.91-.67 1.8-1.37 2.66-2.09a75.6 75.6 0 0 0 64.2 0c.87.72 1.75 1.42 2.67 2.09a68.68 68.68 0 0 1-10.87 5.18 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.1-16.14c2.64-27.37-4.52-51.1-18.63-72.15ZM42.45 65.69c-6.26 0-11.43-5.73-11.43-12.78s5.05-12.79 11.43-12.79 11.54 5.78 11.43 12.79c-.11 7.05-5.05 12.78-11.43 12.78Zm42.24 0c-6.27 0-11.43-5.73-11.43-12.78s5.05-12.79 11.43-12.79 11.54 5.78 11.43 12.79c-.11 7.05-5.05 12.78-11.43 12.78Z"/>
-   </svg>
-  </div>
+  <div style="font-size:40px;margin-bottom:12px">🎮</div>
   <div class="discord-title">JOIN COMMUNITY TOKOCPS</div>
-  <p class="discord-description">Bergabung dengan komunitas TOKOCPS di Discord untuk mendapatkan informasi terbaru, stok, event, dan berbagai keuntungan lainnya.</p>
-  <div class="discord-list">
-   <div class="discord-item"><div class="discord-item-icon">📢</div><div class="discord-item-text"><strong>UPDATE</strong><p>Update All Stock dan informasi terbaru TOKOCPS.</p></div></div>
-   <div class="discord-item"><div class="discord-item-icon">🏪</div><div class="discord-item-text"><strong>TRUSTED STORE</strong><p>Stock TOKOCPS: Account, BGL, BLACK, Script, Bothax, DLL.</p></div></div>
-   <div class="discord-item"><div class="discord-item-icon">🎁</div><div class="discord-item-text"><strong>GIVEAWAY</strong><p>Ikuti event dan dapatkan hadiah dari komunitas.</p></div></div>
-  </div>
-  <div class="discord-buttons">
-   <a class="discord-join" id="discordJoinButton" href="#" target="_blank" rel="noopener noreferrer">JOIN DISCORD →</a>
-   <button class="discord-later" onclick="closeDiscordPopup()">NANTI SAJA</button>
-  </div>
+  <p class="discord-description">Bergabung dengan komunitas TOKOCPS untuk mendapatkan informasi terbaru, stok, event dan giveaway.</p>
+  <a class="discord-join" id="discordJoinButton" href="#" target="_blank" rel="noopener noreferrer">JOIN DISCORD →</a>
+  <button class="discord-later" onclick="closeDiscordPopup()">NANTI SAJA</button>
  </div>
 </div>
 
 <!-- TOKOCPS AI -->
 <div class="ai-panel" id="aiPanel">
- <div class="ai-head">
-  <div class="ai-avatar">✦</div>
-  <div class="ai-head-info"><strong>TOKOCPS AI</strong><small>Asisten virtual · Demo</small></div>
-  <button class="close-ai" onclick="toggleAI()">×</button>
+
+ <header class="ai-head">
+  <button onclick="toggleAIMenu()" aria-label="Menu">☰</button>
+  <div class="ai-head-info">
+   <strong>Tokocps AI</strong>
+   <small><span class="ai-online"></span>Online · siap membantu</small>
+  </div>
+  <button onclick="newAIChat()" aria-label="Chat baru">✎</button>
+  <button onclick="toggleAI()" aria-label="Tutup">×</button>
+ </header>
+
+ <div class="ai-welcome" id="aiWelcome">
+
+  <div class="ai-logo-large"><span>✦</span></div>
+
+  <h2 class="ai-greeting">
+   <span>Selamat datang!</span><br>
+   Mau transaksi apa hari ini?
+  </h2>
+
+  <p class="ai-description">
+   Tanya harga, hitung BGL · DL · WL, atau langsung beli & jual.
+   Semua informasi mengikuti pengaturan harga TOKOCPS.
+  </p>
+
+  <div class="ai-price-chips">
+   <div class="ai-chip">💎 Beli <b id="aiBuyPrice">1.1K</b></div>
+   <div class="ai-chip">💎 Jual <b class="green" id="aiSellPrice">950</b></div>
+   <div class="ai-chip">🔒 BLACK <b id="aiBlackPrice">105K</b></div>
+  </div>
+
+  <div class="ai-cards">
+   <button class="ai-card" onclick="aiAction('beli')">
+    <div class="ai-card-icon">💎</div>
+    <strong>Beli BGL</strong>
+    <small>Checkout dengan harga dan stok terbaru</small>
+   </button>
+
+   <button class="ai-card" onclick="aiAction('jual')">
+    <div class="ai-card-icon">🔷</div>
+    <strong>Jual BGL / BLACK</strong>
+    <small>Lihat estimasi payout dari admin</small>
+   </button>
+
+   <button class="ai-card" onclick="aiAction('kalkulator')">
+    <div class="ai-card-icon">🟨</div>
+    <strong>Hitung BGL · DL · WL</strong>
+    <small>Konversi dan estimasi harga beli/jual</small>
+   </button>
+
+   <button class="ai-card" onclick="aiAction('aman')">
+    <div class="ai-card-icon">🛡️</div>
+    <strong>Aman nggak?</strong>
+    <small>Tips transaksi aman di TOKOCPS</small>
+   </button>
+  </div>
+
+  <div class="ai-quick">
+   <button onclick="askAI('Cek stok')">Cek stok</button>
+   <button onclick="askAI('Metode pembayaran')">Metode pembayaran</button>
+   <button onclick="askAI('Cek pesanan')">Cek pesanan</button>
+   <button onclick="askAI('Tools Growtopia')">Tools Growtopia</button>
+   <button onclick="askAI('Panduan')">Panduan</button>
+  </div>
+
  </div>
- <div class="ai-messages" id="aiMessages">
-  <div class="message bot">Halo! 👋 Selamat datang di TOKOCPS. Saya siap membantu informasi BGL, BLACK, stok dan cara pemesanan.</div>
+
+ <div class="ai-chat-area" id="aiMessages">
+  <div class="ai-message bot">Halo! 👋 Selamat datang di TOKOCPS AI. Ada yang bisa saya bantu?</div>
  </div>
- <div class="quick">
-  <button onclick="askAI('Harga BGL')">Harga BGL</button>
-  <button onclick="askAI('Harga BLACK')">Harga BLACK</button>
-  <button onclick="askAI('Cara order')">Cara order</button>
-  <button onclick="askAI('Partner')">Partner</button>
+
+ <div class="ai-input-area">
+  <form class="ai-input-form" onsubmit="sendAI(event)">
+   <button type="button" class="ai-add" onclick="aiAction('menu')">+</button>
+   <input id="aiInput" placeholder="Tanya TOKOCPS AI..." autocomplete="off">
+   <button class="ai-send" type="submit">↑</button>
+  </form>
+  <div class="ai-disclaimer">TOKOCPS AI bisa keliru. Harga & stok selalu dikonfirmasi saat checkout.</div>
  </div>
- <form class="ai-input" onsubmit="sendAI(event)">
-  <input id="aiInput" placeholder="Tanyakan sesuatu..." autocomplete="off">
-  <button type="submit">➤</button>
- </form>
+
 </div>
 
 <script>
 // ===================================
-// PENGATURAN TOKOCPS
+// KONFIGURASI TOKOCPS
 // ===================================
 
 const ADMIN_1_WA = "085864582161";
 const ADMIN_2_WA = "085765732905";
 
 const ADMINS = {
-  1: {
-    name: "Booopa | TokoCPS.Store",
-    phone: ADMIN_1_WA,
-    online: true
+  1:{
+    name:"Booopa | TokoCPS.Store",
+    phone:ADMIN_1_WA,
+    online:true
   },
-  2: {
-    name: "WholeSale | TokoCPS.Store",
-    phone: ADMIN_2_WA,
-    online: true
+  2:{
+    name:"WholeSale | TokoCPS.Store",
+    phone:ADMIN_2_WA,
+    online:true
   }
 };
 
-// HARGA TOKOCPS
+// Harga
 const PRICE_BGL_BUY = 1100;
 const PRICE_BGL_SELL = 950;
-
 const PRICE_BLACK_BUY = 105000;
 const PRICE_BLACK_SELL = 97000;
 
 const DISCORD_INVITE = "https://discord.gg/Te7ZRPKQz";
-
-document.getElementById("discordJoinButton").href = DISCORD_INVITE;
+document.getElementById("discordJoinButton").href=DISCORD_INVITE;
 
 // ===================================
 // FORMAT HARGA
 // ===================================
 
 function formatPrice(value){
-  if(value >= 1000){
-    return (value / 1000).toFixed(1) + "K";
-  }
-  return value.toLocaleString("id-ID");
+ if(value>=1000){
+  return (value/1000).toFixed(1)+"K";
+ }
+ return value.toLocaleString("id-ID");
 }
 
 function getPrices(){
-  return transaction === "Beli"
-    ? {bgl:PRICE_BGL_BUY,black:PRICE_BLACK_BUY}
-    : {bgl:PRICE_BGL_SELL,black:PRICE_BLACK_SELL};
+ return transaction==="Beli"
+ ? {bgl:PRICE_BGL_BUY,black:PRICE_BLACK_BUY}
+ : {bgl:PRICE_BGL_SELL,black:PRICE_BLACK_SELL};
 }
 
 // ===================================
-// STATUS DAN PILIHAN ADMIN
+// ORDER
 // ===================================
 
-let selectedAdmin = 1;
+let transaction="Beli";
+let qtyBGL=0;
+let qtyBLACK=0;
+let selectedAdmin=1;
 
-function renderAdmins(){
-  [1,2].forEach(id=>{
-    const admin = ADMINS[id];
-    const status = document.getElementById("adminStatus"+id);
-    const availability = document.getElementById("adminAvailability"+id);
-    const card = document.getElementById("adminCard"+id);
-    const check = document.getElementById("adminCheck"+id);
-
-    status.textContent = admin.online ? "● ONLINE" : "● OFFLINE";
-    status.className = "admin-status "+(admin.online ? "online" : "offline");
-
-    availability.textContent = admin.online ? "Tersedia" : "Tidak tersedia";
-    card.disabled = !admin.online;
-
-    card.classList.toggle("active",selectedAdmin===id && admin.online);
-    check.style.display = selectedAdmin===id && admin.online ? "grid" : "none";
-  });
-
-  updateSummary();
-}
-
-function selectAdmin(id){
-  if(!ADMINS[id].online){
-    alert("Admin sedang OFFLINE. Silakan pilih admin lain.");
-    return;
-  }
-  selectedAdmin = id;
-  renderAdmins();
-}
-
-// ===================================
-// POPUP PEMESANAN
-// ===================================
-
-const overlay = document.getElementById("orderOverlay");
-const sheet = document.getElementById("orderSheet");
-
-let transaction = "Beli";
-let qtyBGL = 0;
-let qtyBLACK = 0;
+const overlay=document.getElementById("orderOverlay");
+const sheet=document.getElementById("orderSheet");
 
 function openOrder(product){
-  overlay.classList.add("show");
-  document.body.classList.add("sheet-open");
+ overlay.classList.add("show");
+ document.body.classList.add("sheet-open");
 
-  if(product==="BGL"){
-    qtyBGL = 1;
-    qtyBLACK = 0;
-  }else if(product==="BLACK"){
-    qtyBGL = 0;
-    qtyBLACK = 1;
-  }
+ if(product==="BGL"){
+  qtyBGL=1;qtyBLACK=0;
+ }else if(product==="BLACK"){
+  qtyBGL=0;qtyBLACK=1;
+ }
 
-  updateQuantity();
-  updateSummary();
+ setTransaction("Beli");
+ updateQuantity();
+ updateSummary();
 }
 
 function closeOrder(){
-  overlay.classList.remove("show");
-  document.body.classList.remove("sheet-open");
-  sheet.style.transform = "";
+ overlay.classList.remove("show");
+ document.body.classList.remove("sheet-open");
+ sheet.style.transform="";
 }
 
-overlay.addEventListener("click",function(e){
-  if(e.target===overlay) closeOrder();
+overlay.addEventListener("click",e=>{
+ if(e.target===overlay)closeOrder();
 });
 
 function setTransaction(type){
-  transaction = type;
+ transaction=type;
 
-  document.getElementById("buyChoice").classList.toggle("active",type==="Beli");
-  document.getElementById("sellChoice").classList.toggle("active",type==="Jual");
+ document.getElementById("buyChoice").classList.toggle("active",type==="Beli");
+ document.getElementById("sellChoice").classList.toggle("active",type==="Jual");
 
-  document.getElementById("buyChoice").innerHTML =
-    '<strong>🛒 Beli '+(type==="Beli"?'<span class="selected">✓</span>':'')+'</strong><span>Saya ingin membeli BGL atau BLACK</span>';
+ document.getElementById("buyChoice").innerHTML=
+ '<strong>🛒 Beli '+(type==="Beli"?'✓':'')+'</strong><span>Membeli BGL atau BLACK</span>';
 
-  document.getElementById("sellChoice").innerHTML =
-    '<strong>⇄ Jual '+(type==="Jual"?'<span class="selected">✓</span>':'')+'</strong><span>Saya ingin menjual BGL atau BLACK</span>';
+ document.getElementById("sellChoice").innerHTML=
+ '<strong>⇄ Jual '+(type==="Jual"?'✓':'')+'</strong><span>Menjual BGL atau BLACK</span>';
 
-  // Form World dan Owner hanya muncul saat transaksi Jual
-  document.getElementById("sellDetails").classList.toggle("show",type==="Jual");
+ // World dan Owner hanya tampil saat Jual
+ document.getElementById("sellDetails").style.display=
+ type==="Jual"?"block":"none";
 
-  updateSummary();
+ document.getElementById("paymentStep").textContent=type==="Jual"?"04":"03";
+ document.getElementById("adminStep").textContent=type==="Jual"?"05":"04";
+
+ updateSummary();
 }
 
 function changeQty(item,amount){
-  if(item==="bgl"){
-    qtyBGL=Math.max(0,qtyBGL+amount);
-  }else{
-    qtyBLACK=Math.max(0,qtyBLACK+amount);
-  }
-  updateQuantity();
-  updateSummary();
+ if(item==="bgl"){
+  qtyBGL=Math.max(0,qtyBGL+amount);
+ }else{
+  qtyBLACK=Math.max(0,qtyBLACK+amount);
+ }
+ updateQuantity();
+ updateSummary();
 }
 
 function updateQuantity(){
-  document.getElementById("qtyBGL").textContent=qtyBGL;
-  document.getElementById("qtyBLACK").textContent=qtyBLACK;
+ document.getElementById("qtyBGL").textContent=qtyBGL;
+ document.getElementById("qtyBLACK").textContent=qtyBLACK;
 }
 
 // ===================================
-// RINGKASAN PESANAN
+// ADMIN STATUS
+// ===================================
+
+function renderAdmins(){
+ [1,2].forEach(id=>{
+  const admin=ADMINS[id];
+  const status=document.getElementById("adminStatus"+id);
+  const card=document.getElementById("adminCard"+id);
+  const check=document.getElementById("adminCheck"+id);
+
+  status.textContent=admin.online?"● ONLINE":"● OFFLINE";
+  status.className="admin-status "+(admin.online?"online":"offline");
+
+  card.disabled=!admin.online;
+  card.classList.toggle("active",selectedAdmin===id&&admin.online);
+  check.style.display=selectedAdmin===id&&admin.online?"grid":"none";
+ });
+ updateSummary();
+}
+
+function selectAdmin(id){
+ if(!ADMINS[id].online){
+  alert("Admin sedang offline. Silakan pilih admin lain.");
+  return;
+ }
+ selectedAdmin=id;
+ renderAdmins();
+}
+
+// ===================================
+// RINGKASAN
 // ===================================
 
 function updateSummary(){
-  const prices = getPrices();
+ const prices=getPrices();
+ const total=qtyBGL*prices.bgl+qtyBLACK*prices.black;
 
-  const totalBGL = qtyBGL * prices.bgl;
-  const totalBLACK = qtyBLACK * prices.black;
-  const total = totalBGL + totalBLACK;
+ const world=document.getElementById("world").value.trim();
+ const owner=document.getElementById("owner").value.trim();
 
-  document.getElementById("sumBGL").textContent=qtyBGL;
-  document.getElementById("sumBLACK").textContent=qtyBLACK;
-  document.getElementById("sumType").textContent=transaction;
+ document.getElementById("sumBGL").textContent=qtyBGL;
+ document.getElementById("sumBLACK").textContent=qtyBLACK;
+ document.getElementById("sumType").textContent=transaction;
 
-  document.getElementById("sumWorld").textContent =
-    transaction==="Jual"
-      ? (document.getElementById("sellWorld").value.trim() || "—")
-      : "—";
+ document.getElementById("sumWorld").textContent=transaction==="Jual"?(world||"—"):"—";
+ document.getElementById("sumOwner").textContent=transaction==="Jual"?(owner||"—"):"—";
 
-  document.getElementById("sumOwner").textContent =
-    transaction==="Jual"
-      ? (document.getElementById("sellOwner").value.trim() || "—")
-      : "—";
-
-  document.getElementById("sumPayment").textContent =
-    document.getElementById("payment").value || "—";
-
-  document.getElementById("sumAdmin").textContent =
-    ADMINS[selectedAdmin].name.replace(" | TokoCPS.Store","")+
-    (ADMINS[selectedAdmin].online ? " (Online)" : " (Offline)");
-
-  document.getElementById("sumPriceBGL").textContent =
-    qtyBGL>0 ? formatPrice(prices.bgl)+"/BGL" : "—";
-
-  document.getElementById("sumPriceBLACK").textContent =
-    qtyBLACK>0 ? formatPrice(prices.black) : "—";
-
-  document.getElementById("sumTotal").textContent =
-    formatPrice(total);
+ document.getElementById("sumPriceBGL").textContent=qtyBGL?formatPrice(prices.bgl)+"/BGL":"—";
+ document.getElementById("sumPriceBLACK").textContent=qtyBLACK?formatPrice(prices.black):"—";
+ document.getElementById("sumTotal").textContent=formatPrice(total);
+ document.getElementById("sumPayment").textContent=document.getElementById("payment").value||"—";
+ document.getElementById("sumAdmin").textContent=ADMINS[selectedAdmin].name.replace(" | TokoCPS.Store","");
 }
 
-// Update ringkasan langsung saat World/Owner diketik
-document.getElementById("sellWorld").addEventListener("input",updateSummary);
-document.getElementById("sellOwner").addEventListener("input",updateSummary);
+document.getElementById("world").addEventListener("input",updateSummary);
+document.getElementById("owner").addEventListener("input",updateSummary);
 
 // ===================================
-// KONFIRMASI WHATSAPP
+// WHATSAPP CHECKOUT
 // ===================================
 
 function submitOrder(){
-  if(qtyBGL===0 && qtyBLACK===0){
-    alert("Silakan pilih minimal satu produk.");
-    return;
+ if(qtyBGL===0&&qtyBLACK===0){
+  alert("Silakan pilih minimal satu produk.");
+  return;
+ }
+
+ const payment=document.getElementById("payment").value;
+ if(!payment){
+  alert("Silakan pilih metode pembayaran.");
+  return;
+ }
+
+ const admin=ADMINS[selectedAdmin];
+
+ if(!admin.online){
+  alert("Admin sedang offline.");
+  return;
+ }
+
+ if(!admin.phone){
+  alert("Nomor WhatsApp admin belum diatur.");
+  return;
+ }
+
+ const world=document.getElementById("world").value.trim();
+ const owner=document.getElementById("owner").value.trim();
+
+ if(transaction==="Jual"){
+  if(!world){
+   alert("Silakan isi nama World terlebih dahulu.");
+   document.getElementById("world").focus();
+   return;
   }
 
-  const payment=document.getElementById("payment").value;
-
-  if(!payment){
-    alert("Silakan pilih metode pembayaran.");
-    return;
+  if(!owner){
+   alert("Silakan isi nama Owner World terlebih dahulu.");
+   document.getElementById("owner").focus();
+   return;
   }
+ }
 
-  // Validasi khusus transaksi Jual
-  let world = "";
-  let owner = "";
+ const prices=getPrices();
+ const totalBGL=qtyBGL*prices.bgl;
+ const totalBLACK=qtyBLACK*prices.black;
+ const total=totalBGL+totalBLACK;
 
-  if(transaction==="Jual"){
-    world = document.getElementById("sellWorld").value.trim();
-    owner = document.getElementById("sellOwner").value.trim();
+ const message=[
+  "Halo "+admin.name+", saya ingin "+transaction.toLowerCase()+" melalui TOKOCPS.",
+  "",
+  "=== DETAIL TRANSAKSI TOKOCPS ===",
+  "Jenis transaksi: "+transaction,
+  "",
+  "Blue Gem Lock (BGL): "+qtyBGL,
+  "Harga BGL: "+formatPrice(prices.bgl)+"/BGL",
+  "Subtotal BGL: "+formatPrice(totalBGL),
+  "",
+  "Black Gem Lock (BLACK): "+qtyBLACK,
+  "Harga BLACK: "+formatPrice(prices.black),
+  "Subtotal BLACK: "+formatPrice(totalBLACK),
+  "",
+  ...(transaction==="Jual"?[
+   "=== INFORMASI WORLD ===",
+   "World: "+world,
+   "Owner: "+owner,
+   ""
+  ]:[]),
+  "Metode pembayaran: "+payment,
+  "Estimasi total: "+formatPrice(total),
+  "Admin: "+admin.name,
+  "",
+  "Mohon konfirmasi stok dan transaksi saya. Terima kasih."
+ ].join("\n");
 
-    if(!world){
-      alert("Silakan isi nama World terlebih dahulu.");
-      document.getElementById("sellWorld").focus();
-      return;
-    }
+ const phone=String(admin.phone).replace(/\D/g,"").replace(/^0/,"62");
 
-    if(!owner){
-      alert("Silakan isi nama Owner terlebih dahulu.");
-      document.getElementById("sellOwner").focus();
-      return;
-    }
-  }
-
-  const admin=ADMINS[selectedAdmin];
-
-  if(!admin.online){
-    alert("Admin sedang offline. Silakan pilih admin lain.");
-    return;
-  }
-
-  if(!admin.phone){
-    alert("Nomor WhatsApp Admin "+selectedAdmin+" belum diatur.");
-    return;
-  }
-
-  const prices = getPrices();
-
-  const totalBGL = qtyBGL * prices.bgl;
-  const totalBLACK = qtyBLACK * prices.black;
-  const total = totalBGL + totalBLACK;
-
-  const message = [
-    "Halo "+admin.name+", saya ingin "+transaction.toLowerCase()+" melalui TOKOCPS.",
-    "",
-    "DETAIL PESANAN TOKOCPS",
-    "Blue Gem Lock (BGL): "+qtyBGL,
-    "Harga BGL: "+formatPrice(prices.bgl)+"/BGL",
-    "Subtotal BGL: "+formatPrice(totalBGL),
-    "",
-    "Black Gem Lock (BLACK): "+qtyBLACK,
-    "Harga BLACK: "+formatPrice(prices.black),
-    "Subtotal BLACK: "+formatPrice(totalBLACK),
-    "",
-    "Jenis transaksi: "+transaction,
-    ...(transaction==="Jual" ? [
-      "World: "+world,
-      "Owner: "+owner
-    ] : []),
-    "Metode pembayaran: "+payment,
-    "Estimasi total: "+formatPrice(total),
-    "",
-    "Mohon konfirmasi stok dan pesanan saya. Terima kasih."
-  ].join("\n");
-
-  const phone=String(admin.phone).replace(/\D/g,"").replace(/^0/,"62");
-
-  window.open(
-    "https://wa.me/"+phone+"?text="+encodeURIComponent(message),
-    "_blank"
-  );
+ window.open(
+  "https://wa.me/"+phone+"?text="+encodeURIComponent(message),
+  "_blank"
+ );
 }
 
 // ===================================
@@ -802,68 +863,59 @@ let dragCurrentY=0;
 let dragging=false;
 
 dragArea.addEventListener("pointerdown",e=>{
-  dragging=true;
-  dragStartY=e.clientY;
-  dragCurrentY=0;
-  sheet.style.transition="none";
-  dragArea.setPointerCapture(e.pointerId);
+ dragging=true;
+ dragStartY=e.clientY;
+ dragCurrentY=0;
+ sheet.style.transition="none";
+ dragArea.setPointerCapture(e.pointerId);
 });
 
 dragArea.addEventListener("pointermove",e=>{
-  if(!dragging)return;
-  const delta=e.clientY-dragStartY;
-  dragCurrentY=delta;
-
-  if(delta>0){
-    sheet.style.transform="translateY("+delta+"px)";
-  }else{
-    sheet.style.transform="translateY(0)";
-  }
+ if(!dragging)return;
+ dragCurrentY=e.clientY-dragStartY;
+ sheet.style.transform="translateY("+Math.max(0,dragCurrentY)+"px)";
 });
 
 function finishDrag(){
-  if(!dragging)return;
-  dragging=false;
-  sheet.style.transition="transform .3s ease";
-
-  if(dragCurrentY>120){
-    closeOrder();
-  }else{
-    sheet.style.transform="translateY(0)";
-  }
+ if(!dragging)return;
+ dragging=false;
+ sheet.style.transition="transform .3s ease";
+ if(dragCurrentY>120)closeOrder();
+ else sheet.style.transform="translateY(0)";
 }
 
 dragArea.addEventListener("pointerup",finishDrag);
 dragArea.addEventListener("pointercancel",finishDrag);
 
 // ===================================
-// POPUP DISCORD
+// DISCORD POPUP
 // ===================================
 
 const discordPopup=document.getElementById("tokocpsDiscordPopup");
 
 function showDiscordPopup(){
-  try{
-    if(sessionStorage.getItem("tokocpsDiscordDismissed")==="yes")return;
-  }catch(e){}
-  discordPopup.classList.add("show");
+ try{
+  if(sessionStorage.getItem("tokocpsDiscordDismissed")==="yes")return;
+ }catch(e){}
+ discordPopup.classList.add("show");
 }
 
 function closeDiscordPopup(){
-  discordPopup.classList.remove("show");
-  try{
-    sessionStorage.setItem("tokocpsDiscordDismissed","yes");
-  }catch(e){}
+ discordPopup.classList.remove("show");
+ try{
+  sessionStorage.setItem("tokocpsDiscordDismissed","yes");
+ }catch(e){}
 }
 
 window.addEventListener("load",()=>{
-  setTimeout(showDiscordPopup,400);
+ setTimeout(showDiscordPopup,1500);
 });
 
 // ===================================
-// SLIDER TOKOCPS AI
+// TOKOCPS AI OPEN / CLOSE
 // ===================================
 
+const aiPanel=document.getElementById("aiPanel");
 const aiSwipe=document.getElementById("aiSwipe");
 const aiSwipeKnob=document.getElementById("aiSwipeKnob");
 
@@ -871,99 +923,171 @@ let aiDragging=false;
 let aiStartX=0;
 let aiCurrentX=0;
 
+function toggleAI(){
+ aiPanel.classList.toggle("show");
+ document.body.style.overflow=aiPanel.classList.contains("show")?"hidden":"";
+}
+
 function resetAISlider(){
-  aiCurrentX=0;
-  aiSwipeKnob.style.transition="left .25s ease";
-  aiSwipeKnob.style.left="7px";
+ aiCurrentX=0;
+ aiSwipeKnob.style.transition="left .25s ease";
+ aiSwipeKnob.style.left="7px";
 }
 
 aiSwipeKnob.addEventListener("pointerdown",e=>{
-  aiDragging=true;
-  aiStartX=e.clientX;
-  aiSwipeKnob.style.transition="none";
-  aiSwipeKnob.setPointerCapture(e.pointerId);
+ aiDragging=true;
+ aiStartX=e.clientX;
+ aiSwipeKnob.style.transition="none";
+ aiSwipeKnob.setPointerCapture(e.pointerId);
 });
 
 aiSwipeKnob.addEventListener("pointermove",e=>{
-  if(!aiDragging)return;
-
-  const maxMove=aiSwipe.clientWidth-aiSwipeKnob.offsetWidth-18;
-  aiCurrentX=Math.max(0,Math.min(maxMove,e.clientX-aiStartX));
-  aiSwipeKnob.style.left=(7+aiCurrentX)+"px";
+ if(!aiDragging)return;
+ const max=aiSwipe.clientWidth-aiSwipeKnob.offsetWidth-18;
+ aiCurrentX=Math.max(0,Math.min(max,e.clientX-aiStartX));
+ aiSwipeKnob.style.left=(7+aiCurrentX)+"px";
 });
 
 aiSwipeKnob.addEventListener("pointerup",()=>{
-  if(!aiDragging)return;
-  aiDragging=false;
+ if(!aiDragging)return;
+ aiDragging=false;
+ const max=aiSwipe.clientWidth-aiSwipeKnob.offsetWidth-18;
 
-  const maxMove=aiSwipe.clientWidth-aiSwipeKnob.offsetWidth-18;
-
-  if(aiCurrentX>=maxMove*.78){
-    resetAISlider();
-    document.getElementById("aiPanel").classList.add("show");
-  }else{
-    resetAISlider();
-  }
+ if(aiCurrentX>=max*.78){
+  resetAISlider();
+  toggleAI();
+ }else resetAISlider();
 });
 
 aiSwipeKnob.addEventListener("pointercancel",()=>{
-  aiDragging=false;
-  resetAISlider();
+ aiDragging=false;
+ resetAISlider();
 });
 
 // ===================================
-// TOKOCPS AI - DEMO
+// TOKOCPS AI CHAT
 // ===================================
 
-function toggleAI(){
-  document.getElementById("aiPanel").classList.toggle("show");
-}
+const aiWelcome=document.getElementById("aiWelcome");
+const aiMessages=document.getElementById("aiMessages");
 
 function addMessage(text,type){
-  const messages=document.getElementById("aiMessages");
-  const div=document.createElement("div");
-  div.className="message "+type;
-  div.textContent=text;
-  messages.appendChild(div);
-  messages.scrollTop=messages.scrollHeight;
+ const div=document.createElement("div");
+ div.className="ai-message "+type;
+ div.textContent=text;
+ aiMessages.appendChild(div);
+ aiMessages.scrollTop=aiMessages.scrollHeight;
+}
+
+function startChat(message){
+ aiWelcome.style.display="none";
+ aiMessages.classList.add("show");
+ if(message)askAI(message);
+}
+
+function newAIChat(){
+ aiMessages.innerHTML='<div class="ai-message bot">Halo! 👋 Selamat datang kembali di TOKOCPS AI. Ada yang bisa saya bantu?</div>';
+ aiMessages.classList.remove("show");
+ aiWelcome.style.display="block";
+}
+
+function toggleAIMenu(){
+ alert("TOKOCPS AI · Menu bantuan\n\n• Informasi harga\n• Pembelian BGL / BLACK\n• Penjualan BGL / BLACK\n• Kalkulator Growtopia\n• Hubungi admin");
+}
+
+function aiAction(action){
+ if(action==="beli"){
+  toggleAI();
+  openOrder("BGL");
+  return;
+ }
+
+ if(action==="jual"){
+  toggleAI();
+  openOrder();
+  setTransaction("Jual");
+  return;
+ }
+
+ const questions={
+  kalkulator:"Bantu saya menghitung konversi BGL, DL dan WL.",
+  aman:"Bagaimana tips transaksi aman di TOKOCPS?",
+  menu:"Apa saja fitur TOKOCPS?"
+ };
+
+ startChat(questions[action]||"Apa saja fitur TOKOCPS?");
 }
 
 function askAI(question){
-  document.getElementById("aiInput").value=question;
-  sendAI(new Event("submit",{cancelable:true}));
+ startChat();
+ addMessage(question,"user");
+
+ let answer="";
+ const q=question.toLowerCase();
+
+ if(q.includes("bgl")){
+  answer="Harga BGL TOKOCPS:\n\n🛒 Beli: "+formatPrice(PRICE_BGL_BUY)+"/BGL\n💰 Jual: "+formatPrice(PRICE_BGL_SELL)+"/BGL\n\nHarga dapat berubah. Silakan konfirmasi kepada admin.";
+ }else if(q.includes("black")){
+  answer="Harga BLACK TOKOCPS:\n\n🛒 Beli: "+formatPrice(PRICE_BLACK_BUY)+"\n💰 Jual: "+formatPrice(PRICE_BLACK_SELL)+"\n\nHubungi admin untuk memastikan stok.";
+ }else if(q.includes("beli")||q.includes("order")){
+  answer="Cara membeli di TOKOCPS:\n\n1. Buka form order.\n2. Pilih Beli.\n3. Pilih BGL atau BLACK.\n4. Atur quantity.\n5. Pilih metode pembayaran.\n6. Pilih admin.\n7. Konfirmasi melalui WhatsApp.";
+ }else if(q.includes("jual")){
+  answer="Cara menjual di TOKOCPS:\n\n1. Buka form order.\n2. Pilih Jual.\n3. Pilih jumlah BGL atau BLACK.\n4. Masukkan nama World.\n5. Masukkan Owner World.\n6. Pilih pembayaran dan admin.\n7. Kirim detail melalui WhatsApp.";
+ }else if(q.includes("stok")){
+  answer="Untuk informasi stok terbaru, silakan hubungi admin TOKOCPS melalui WhatsApp atau komunitas Discord kami.";
+ }else if(q.includes("pembayaran")){
+  answer="Metode pembayaran TOKOCPS:\n\n• QRIS\n• DANA\n• GoPay\n• OVO\n• Transfer Bank\n• Diskusi dengan Admin\n\nPilih metode yang tersedia di form transaksi.";
+ }else if(q.includes("aman")){
+  answer="Tips transaksi aman:\n\n1. Gunakan admin resmi TOKOCPS.\n2. Periksa kembali detail transaksi.\n3. Jangan membagikan password akun.\n4. Pastikan pembayaran dan nominal benar.\n5. Simpan bukti transaksi.\n\nSelalu konfirmasi melalui kontak resmi TOKOCPS.";
+ }else if(q.includes("kalkulator")||q.includes("hitung")||q.includes("dl")||q.includes("wl")){
+  answer="Kalkulator dasar Growtopia:\n\n1 DL = 100 WL\n1 BGL = 100 DL\n1 BGL = 10.000 WL\n\nContoh:\n2 BGL = 200 DL = 20.000 WL.";
+ }else if(q.includes("partner")){
+  answer="TOKOCPS membuka kesempatan kerja sama partner. Hubungi admin untuk informasi lebih lanjut.";
+ }else if(q.includes("panduan")){
+  answer="Selamat datang di panduan TOKOCPS!\n\nKamu bisa menggunakan form Beli dan Jual untuk melakukan transaksi. Untuk penjualan, isi juga World dan Owner World.";
+ }else if(q.includes("tools")){
+  answer="TOKOCPS menyediakan informasi dan bantuan seputar Growtopia. Untuk tools dan fitur tambahan, silakan tanyakan kepada admin.";
+ }else if(q.includes("pesanan")){
+  answer="Untuk mengecek pesanan, silakan hubungi admin yang menangani transaksi kamu dan sertakan bukti atau detail order.";
+ }else{
+  answer="Terima kasih sudah menghubungi TOKOCPS AI! ✨\n\nSaya bisa membantu informasi harga BGL, BLACK, cara transaksi, kalkulator DL/WL, pembayaran dan panduan TOKOCPS.\n\nSilakan tanyakan sesuatu atau hubungi admin kami.";
+ }
+
+ setTimeout(()=>addMessage(answer,"bot"),350);
 }
 
 function sendAI(event){
-  event.preventDefault();
-
-  const input=document.getElementById("aiInput");
-  const question=input.value.trim();
-
-  if(!question)return;
-
-  addMessage(question,"user");
-  input.value="";
-
-  let answer="Terima kasih sudah menghubungi TOKOCPS! Untuk informasi lebih lanjut, silakan hubungi admin kami.";
-
-  const q=question.toLowerCase();
-
-  if(q.includes("bgl")){
-    answer="Harga BGL TOKOCPS: Beli 1.1K/BGL dan Jual 950/BGL. Harga dapat dikonfirmasi kembali kepada admin.";
-  }else if(q.includes("black")){
-    answer="Harga BLACK TOKOCPS: Beli 105.0K dan Jual 97.0K. Harga dapat dikonfirmasi kembali kepada admin.";
-  }else if(q.includes("order")||q.includes("beli")){
-    answer="Kamu bisa menekan tombol Beli BGL atau Beli BLACK. Isi jumlah produk, pilih pembayaran dan admin, lalu konfirmasi melalui WhatsApp.";
-  }else if(q.includes("partner")){
-    answer="TOKOCPS membuka kesempatan kerja sama partner. Silakan hubungi admin untuk informasi kemitraan.";
-  }else if(q.includes("stok")){
-    answer="Informasi stok terbaru tersedia melalui Update All Stock di komunitas TOKOCPS.";
-  }
-
-  setTimeout(()=>addMessage(answer,"bot"),500);
+ event.preventDefault();
+ const input=document.getElementById("aiInput");
+ const question=input.value.trim();
+ if(!question)return;
+ input.value="";
+ askAI(question);
 }
 
-// Render status admin ketika halaman dimuat
+// ===================================
+// UPDATE HARGA AI
+// ===================================
+
+document.getElementById("aiBuyPrice").textContent=formatPrice(PRICE_BGL_BUY);
+document.getElementById("aiSellPrice").textContent=formatPrice(PRICE_BGL_SELL);
+document.getElementById("aiBlackPrice").textContent=formatPrice(PRICE_BLACK_BUY);
+
+// ===================================
+// INITIALIZE
+// ===================================
+
+document.getElementById("blackPrice").textContent=formatPrice(PRICE_BLACK_BUY);
+document.getElementById("blackSellPrice").textContent=formatPrice(PRICE_BLACK_SELL);
+document.getElementById("bglPrice").textContent=formatPrice(PRICE_BGL_BUY);
+document.getElementById("bglSellPrice").textContent=formatPrice(PRICE_BGL_SELL)+"/BGL";
+
+document.getElementById("itemBGLPrice").textContent=
+ "Beli: "+formatPrice(PRICE_BGL_BUY)+" · Jual: "+formatPrice(PRICE_BGL_SELL);
+
+document.getElementById("itemBLACKPrice").textContent=
+ "Beli: "+formatPrice(PRICE_BLACK_BUY)+" · Jual: "+formatPrice(PRICE_BLACK_SELL);
+
 renderAdmins();
 updateSummary();
 
