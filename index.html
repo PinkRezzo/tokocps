@@ -12,13 +12,7 @@
 body{font-family:Arial,Helvetica,sans-serif;color:white;background:#0b1d48}
 button{font-family:inherit;cursor:pointer}
 .page{width:100%;max-width:850px;margin:auto;padding:20px}
-
-/* HERO */
-.hero{
- position:relative;overflow:hidden;padding:25px 22px 30px;
- border-radius:30px;background:linear-gradient(145deg,#1d4699,#123477 65%,#0c2868);
- border:1px solid #4675d0;box-shadow:0 9px 0 #081d4b,0 20px 50px #0005
-}
+.hero{position:relative;overflow:hidden;padding:25px 22px 30px;border-radius:30px;background:linear-gradient(145deg,#1d4699,#123477 65%,#0c2868);border:1px solid #4675d0;box-shadow:0 9px 0 #081d4b,0 20px 50px #0005}
 .top-label{display:inline-flex;align-items:center;gap:10px;padding:10px 15px;border-radius:13px;color:#8ed2ff;background:#fff;font-size:12px;font-weight:900;letter-spacing:1px}
 .dot{width:10px;height:10px;background:#20c56b;border-radius:50%}
 h1{margin-top:24px;font-size:clamp(32px,7vw,48px);line-height:1.08;letter-spacing:-1.5px;font-weight:900}
@@ -38,8 +32,6 @@ h1 span{color:#ffd34e}
 .per{font-size:12px;color:#d5e3ff}
 .buy{width:100%;margin-top:19px;padding:14px 8px;border:0;border-radius:14px;background:#ffd54f;color:#102d69;font-size:15px;font-weight:900;box-shadow:0 5px 0 #bd8b13}
 .buy:active{transform:translateY(3px);box-shadow:none}
-
-/* AI SLIDER */
 .ai-banner{position:relative;margin-top:20px;width:100%;height:76px;display:flex;align-items:center;padding:8px;border-radius:50px;border:2px solid #6384ff;background:#10245c;color:white;box-shadow:0 0 18px #487aff33;overflow:hidden;user-select:none;touch-action:pan-y}
 .ai-swipe-knob{position:absolute;left:7px;top:50%;transform:translateY(-50%);width:52px;height:52px;display:grid;place-items:center;border-radius:50%;border:3px solid #568bff;background:linear-gradient(145deg,#426eff,#182f87);color:white;font-size:25px;font-weight:bold;box-shadow:0 0 15px #568bff66;z-index:2;cursor:grab;touch-action:none}
 .ai-label{flex:1;text-align:center;pointer-events:none}
@@ -47,8 +39,6 @@ h1 span{color:#ffd34e}
 .ai-label small{display:block;margin-top:4px;color:#b8c9ff;font-size:10px}
 .ai-arrow{font-size:20px;color:#b8c9ff;padding-right:7px;pointer-events:none}
 .footer{padding:25px 0 10px;text-align:center;color:#a8bce5;font-size:12px}
-
-/* AI CHAT */
 .ai-panel{position:fixed;z-index:2500;bottom:20px;right:18px;width:min(370px,calc(100% - 36px));height:470px;max-height:75vh;display:none;flex-direction:column;overflow:hidden;border:1px solid #5579d5;border-radius:22px;background:#101f42;box-shadow:0 15px 50px #0009}
 .ai-panel.show{display:flex}
 .ai-head{display:flex;align-items:center;gap:12px;padding:16px;background:#20458e}
@@ -66,8 +56,6 @@ h1 span{color:#ffd34e}
 .ai-input{display:flex;gap:8px;padding:12px;border-top:1px solid #344b77}
 .ai-input input{min-width:0;flex:1;padding:12px;border:1px solid #4b659b;border-radius:20px;outline:none;background:#0c1934;color:white}
 .ai-input button{width:43px;border:0;border-radius:50%;background:#5865f2;color:white;font-size:19px}
-
-/* DISCORD */
 #tokocpsDiscordPopup{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;padding:16px;background:#0005}
 #tokocpsDiscordPopup.show{display:flex}
 .discord-card{width:100%;max-width:355px;padding:22px;border-radius:23px;background:linear-gradient(145deg,#172d59,#101d3e);border:1px solid #536fc0;box-shadow:0 15px 45px #0008;text-align:center;animation:discordPop .35s ease}
@@ -84,29 +72,11 @@ h1 span{color:#ffd34e}
 .discord-buttons{display:flex;flex-direction:column;gap:9px}
 .discord-join{display:block;width:100%;padding:12px;border:0;border-radius:12px;background:#5865f2;color:white;font-size:13px;font-weight:900;text-decoration:none;box-shadow:0 4px 0 #3945bd}
 .discord-later{width:100%;padding:11px;border:1px solid #52658e;border-radius:12px;background:#ffffff0b;color:#cbd8f4;font-size:12px;font-weight:bold}
-
-/* ORDER BOTTOM SHEET */
-.order-overlay{
- position:fixed;inset:0;z-index:3000;background:#0009;
- display:none;align-items:flex-end;justify-content:center;
- backdrop-filter:blur(3px)
-}
+.order-overlay{position:fixed;inset:0;z-index:3000;background:#0009;display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(3px)}
 .order-overlay.show{display:flex}
-.order-sheet{
- width:100%;max-width:850px;height:90vh;max-height:95vh;
- background:#0b245a;border:1px solid #4779d8;
- border-radius:32px 32px 0 0;overflow:hidden;
- display:flex;flex-direction:column;
- transform:translateY(100%);
- transition:transform .3s ease;
- box-shadow:0 -10px 45px #0008
-}
+.order-sheet{width:100%;max-width:850px;height:90vh;max-height:95vh;background:#0b245a;border:1px solid #4779d8;border-radius:32px 32px 0 0;overflow:hidden;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .3s ease;box-shadow:0 -10px 45px #0008}
 .order-overlay.show .order-sheet{transform:translateY(0)}
-.sheet-head{
- flex-shrink:0;position:relative;padding:17px 20px 20px;
- background:linear-gradient(135deg,#2365e8,#1744a3);
- border-bottom:2px solid #588aff
-}
+.sheet-head{flex-shrink:0;position:relative;padding:17px 20px 20px;background:linear-gradient(135deg,#2365e8,#1744a3);border-bottom:2px solid #588aff}
 .drag-area{height:23px;display:flex;justify-content:center;align-items:flex-start;touch-action:none;cursor:grab}
 .drag-handle{width:88px;height:9px;border-radius:20px;background:#dce8ff}
 .sheet-heading{display:flex;align-items:center;gap:13px;margin-top:9px}
@@ -163,323 +133,181 @@ h1 span{color:#ffd34e}
 .order-submit:active{transform:translateY(3px);box-shadow:none}
 .order-note{text-align:center;font-size:11px;color:#b8cafa;padding:12px}
 body.sheet-open{overflow:hidden}
-
-/* MOBILE */
 @media(max-width:440px){
- .page{padding:10px}
- .hero{padding:17px 14px 21px;border-radius:24px}
- .top-label{gap:7px;padding:7px 10px;font-size:10px;letter-spacing:.5px;border-radius:10px}
- .dot{width:8px;height:8px}
- h1{margin-top:17px;font-size:clamp(25px,6.8vw,29px);line-height:1.08;letter-spacing:-1px}
- .subtitle{margin-top:12px;font-size:13px;line-height:1.45}
- .status-row{gap:8px;margin:20px 0 13px}
- .price-title{font-size:12px}
- .open-status{padding:7px 9px;font-size:10px}
- .products{gap:8px}
- .product{padding:10px;border-radius:19px;border-width:1.5px}
- .product-head{gap:8px}
- .product-icon{width:43px;height:43px;border-radius:13px}
- .product-icon img{padding:3px}
- .product-name{font-size:11px}
- .price{margin-top:5px;font-size:clamp(15px,4.7vw,22px);letter-spacing:-.8px}
- .per{font-size:10px}
- .buy{margin-top:13px;padding:10px 5px;border-radius:12px;font-size:12px}
- .ai-banner{margin-top:15px;height:65px;padding:7px}
- .ai-swipe-knob{width:45px;height:45px;font-size:22px}
- .ai-label strong{font-size:12px}
- .ai-label small{font-size:9px}
- .footer{padding:19px 0 8px;font-size:10px}
- .ai-panel{right:10px;bottom:10px;width:calc(100% - 20px);max-height:80vh}
- .discord-card{max-width:340px;padding:18px}
- .discord-title{font-size:19px}
- .order-sheet{height:91vh;border-radius:25px 25px 0 0}
- .sheet-head{padding:12px 14px 15px}
- .sheet-heading{gap:9px}
- .wa-logo{width:48px;height:48px;font-size:27px;border-radius:15px}
- .sheet-title small{font-size:10px}
- .sheet-title h2{font-size:20px;margin:5px 0}
- .sheet-title p{font-size:12px}
- .sheet-close{width:43px;height:43px;font-size:24px;border-width:3px}
- .sheet-content{padding:10px}
- .step-card{padding:12px;margin-bottom:11px;border-radius:22px}
- .step-number{width:47px;height:47px;font-size:20px;border-radius:15px}
- .step-heading h3{font-size:17px}
- .step-heading p{font-size:12px}
- .choice{padding:12px;min-height:100px}
- .choice strong{font-size:17px}
- .choice span{font-size:12px}
- .item-row{gap:7px;padding:9px}
- .item-icon{width:48px;height:48px}
- .item-info strong{font-size:13px}
- .item-info small{font-size:11px}
- .quantity{gap:4px}
- .qty-btn{width:34px;height:43px;font-size:20px}
- .qty-value{width:48px;height:43px;font-size:18px}
- .admin-list{gap:7px}
- .admin-card{padding:10px 6px;gap:6px;border-radius:15px}
- .admin-avatar{width:32px;height:32px;font-size:18px}
- .admin-name{font-size:11px}
- .admin-status{font-size:10px}
- .admin-availability{font-size:9px}
- .admin-check{width:18px;height:18px;font-size:11px}
- .summary-head h3{font-size:21px}
- .summary-line{font-size:12px}
+.page{padding:10px}.hero{padding:17px 14px 21px;border-radius:24px}
+.top-label{gap:7px;padding:7px 10px;font-size:10px;letter-spacing:.5px;border-radius:10px}
+.dot{width:8px;height:8px}h1{margin-top:17px;font-size:clamp(25px,6.8vw,29px);line-height:1.08;letter-spacing:-1px}
+.subtitle{margin-top:12px;font-size:13px;line-height:1.45}
+.status-row{gap:8px;margin:20px 0 13px}.price-title{font-size:12px}
+.open-status{padding:7px 9px;font-size:10px}.products{gap:8px}
+.product{padding:10px;border-radius:19px;border-width:1.5px}.product-head{gap:8px}
+.product-icon{width:43px;height:43px;border-radius:13px}.product-icon img{padding:3px}
+.product-name{font-size:11px}.price{margin-top:5px;font-size:clamp(15px,4.7vw,22px);letter-spacing:-.8px}
+.per{font-size:10px}.buy{margin-top:13px;padding:10px 5px;border-radius:12px;font-size:12px}
+.ai-banner{margin-top:15px;height:65px;padding:7px}.ai-swipe-knob{width:45px;height:45px;font-size:22px}
+.ai-label strong{font-size:12px}.ai-label small{font-size:9px}
+.footer{padding:19px 0 8px;font-size:10px}
+.ai-panel{right:10px;bottom:10px;width:calc(100% - 20px);max-height:80vh}
+.discord-card{max-width:340px;padding:18px}.discord-title{font-size:19px}
+.order-sheet{height:91vh;border-radius:25px 25px 0 0}
+.sheet-head{padding:12px 14px 15px}.sheet-heading{gap:9px}
+.wa-logo{width:48px;height:48px;font-size:27px;border-radius:15px}
+.sheet-title small{font-size:10px}.sheet-title h2{font-size:20px;margin:5px 0}
+.sheet-title p{font-size:12px}.sheet-close{width:43px;height:43px;font-size:24px;border-width:3px}
+.sheet-content{padding:10px}.step-card{padding:12px;margin-bottom:11px;border-radius:22px}
+.step-number{width:47px;height:47px;font-size:20px;border-radius:15px}
+.step-heading h3{font-size:17px}.step-heading p{font-size:12px}
+.choice{padding:12px;min-height:100px}.choice strong{font-size:17px}.choice span{font-size:12px}
+.item-row{gap:7px;padding:9px}.item-icon{width:48px;height:48px}
+.item-info strong{font-size:13px}.item-info small{font-size:11px}
+.quantity{gap:4px}.qty-btn{width:34px;height:43px;font-size:20px}
+.qty-value{width:48px;height:43px;font-size:18px}
+.admin-list{gap:7px}.admin-card{padding:10px 6px;gap:6px;border-radius:15px}
+.admin-avatar{width:32px;height:32px;font-size:18px}.admin-name{font-size:11px}
+.admin-status{font-size:10px}.admin-availability{font-size:9px}
+.admin-check{width:18px;height:18px;font-size:11px}
+.summary-head h3{font-size:21px}.summary-line{font-size:12px}
 }
 @media(max-width:350px){
- .product{padding:8px}
- .product-icon{width:37px;height:37px}
- .product-name{font-size:10px}
- .price{font-size:15px}
- .buy{font-size:10px}
- .admin-avatar{display:none}
- .admin-name{font-size:10px}
- .qty-btn{width:30px}
- .qty-value{width:40px}
+.product{padding:8px}.product-icon{width:37px;height:37px}
+.product-name{font-size:10px}.price{font-size:15px}.buy{font-size:10px}
+.admin-avatar{display:none}.admin-name{font-size:10px}
+.qty-btn{width:30px}.qty-value{width:40px}
 }
 </style>
 </head>
 
 <body>
-
 <main class="page">
 <section class="hero">
-
- <div class="top-label"><span class="dot"></span>TOKOCPS STORE · INDONESIA</div>
-
- <h1>Lengkapi Kebutuhan<br><span>CPS Kamu Di Sini.</span></h1>
-
- <p class="subtitle">Marketplace BGL & BLACK untuk kebutuhan Growtopia kamu.</p>
-
- <div class="status-row">
-  <span class="price-title">Harga hari ini</span>
-  <span class="open-status">🟢 Toko buka · bisa pesan sekarang</span>
- </div>
-
- <div class="products">
-
-  <article class="product">
-   <div class="product-head">
-    <div class="product-icon"><img src="logo-black.png" alt="Black Gem Lock"></div>
-    <div class="product-info">
-     <div class="product-name">Black Gem Lock</div>
-     <div class="price" id="blackPrice">Hubungi Admin</div>
-     <div class="per">per BLACK</div>
-    </div>
-   </div>
-   <button class="buy" onclick="openOrder('BLACK')">🛒 Beli BLACK →</button>
-  </article>
-
-  <article class="product">
-   <div class="product-head">
-    <div class="product-icon"><img src="logo-bgl-black.png" alt="Blue Gem Lock"></div>
-    <div class="product-info">
-     <div class="product-name">Blue Gem Lock</div>
-     <div class="price" id="bglPrice">Hubungi Admin</div>
-     <div class="per">per BGL</div>
-    </div>
-   </div>
-   <button class="buy" onclick="openOrder('BGL')">🛒 Beli BGL →</button>
-  </article>
-
- </div>
-
- <!-- TOKOCPS AI TETAP DIPERTAHANKAN -->
- <div class="ai-banner" id="aiSwipe">
-  <div class="ai-swipe-knob" id="aiSwipeKnob">→</div>
-  <div class="ai-label">
-   <strong>GESER UNTUK CHAT<br>TOKOCPS AI</strong>
-   <small>Geser bulatan ke kanan</small>
-  </div>
-  <span class="ai-arrow">▤</span>
- </div>
-
+<div class="top-label"><span class="dot"></span>TOKOCPS STORE · INDONESIA</div>
+<h1>Lengkapi Kebutuhan<br><span>CPS Kamu Di Sini.</span></h1>
+<p class="subtitle">Marketplace BGL & BLACK untuk kebutuhan Growtopia kamu.</p>
+<div class="status-row">
+<span class="price-title">Harga hari ini</span>
+<span class="open-status">🟢 Toko buka · bisa pesan sekarang</span>
+</div>
+<div class="products">
+<article class="product">
+<div class="product-head">
+<div class="product-icon"><img src="logo-black.png" alt="Black Gem Lock"></div>
+<div class="product-info"><div class="product-name">Black Gem Lock</div><div class="price" id="blackPrice">Hubungi Admin</div><div class="per">per BLACK</div></div>
+</div>
+<button class="buy" onclick="openOrder('BLACK')">🛒 Beli BLACK →</button>
+</article>
+<article class="product">
+<div class="product-head">
+<div class="product-icon"><img src="logo-bgl-black.png" alt="Blue Gem Lock"></div>
+<div class="product-info"><div class="product-name">Blue Gem Lock</div><div class="price" id="bglPrice">Hubungi Admin</div><div class="per">per BGL</div></div>
+</div>
+<button class="buy" onclick="openOrder('BGL')">🛒 Beli BGL →</button>
+</article>
+</div>
+<div class="ai-banner" id="aiSwipe">
+<div class="ai-swipe-knob" id="aiSwipeKnob">→</div>
+<div class="ai-label"><strong>GESER UNTUK CHAT<br>TOKOCPS AI</strong><small>Geser bulatan ke kanan</small></div>
+<span class="ai-arrow">▤</span>
+</div>
 </section>
-
 <div class="footer">© 2026 TOKOCPS · Marketplace CPS</div>
 </main>
 
-<!-- POPUP PEMESANAN -->
 <div class="order-overlay" id="orderOverlay">
- <section class="order-sheet" id="orderSheet">
-
-  <header class="sheet-head">
-   <div class="drag-area" id="dragArea">
-    <div class="drag-handle"></div>
-   </div>
-
-   <div class="sheet-heading">
-    <div class="wa-logo">☏</div>
-    <div class="sheet-title">
-     <small>🟡 BELI & JUAL BGL / DL · WHATSAPP</small>
-     <h2>Beli & Jual dibantu Admin</h2>
-     <p>Pilih transaksi, isi quantity, pilih pembayaran dan admin. Admin membantu langsung lewat WhatsApp.</p>
-    </div>
-    <button class="sheet-close" onclick="closeOrder()">×</button>
-   </div>
-  </header>
-
-  <div class="sheet-content">
-
-   <!-- STEP 1 -->
-   <div class="step-card">
-    <div class="step-heading">
-     <div class="step-number">01</div>
-     <div><h3>Pilih Beli atau Jual</h3><p>Admin membantu beli maupun jual lewat WhatsApp.</p></div>
-    </div>
-    <div class="choice-grid">
-     <button class="choice active" id="buyChoice" onclick="setTransaction('Beli')">
-      <strong>🛒 Beli <span class="selected">✓</span></strong>
-      <span>Saya ingin membeli BGL atau BLACK</span>
-     </button>
-     <button class="choice" id="sellChoice" onclick="setTransaction('Jual')">
-      <strong>⇄ Jual</strong>
-      <span>Saya ingin menjual BGL atau BLACK</span>
-     </button>
-    </div>
-   </div>
-
-   <!-- STEP 2 -->
-   <div class="step-card">
-    <div class="step-heading">
-     <div class="step-number">02</div>
-     <div><h3>Pilih item & quantity</h3><p>Masukkan jumlah produk yang diinginkan.</p></div>
-    </div>
-
-    <div class="item-row">
-     <div class="item-icon"><img src="logo-bgl-black.png" alt="BGL"></div>
-     <div class="item-info"><strong>Blue Gem Lock</strong><small>per BGL</small></div>
-     <div class="quantity">
-      <button class="qty-btn" onclick="changeQty('bgl',-1)">−</button>
-      <div class="qty-value" id="qtyBGL">0</div>
-      <button class="qty-btn" onclick="changeQty('bgl',1)">+</button>
-     </div>
-    </div>
-
-    <div class="item-row">
-     <div class="item-icon"><img src="logo-black.png" alt="BLACK"></div>
-     <div class="item-info"><strong>Black Gem Lock</strong><small>per BLACK</small></div>
-     <div class="quantity">
-      <button class="qty-btn" onclick="changeQty('black',-1)">−</button>
-      <div class="qty-value" id="qtyBLACK">0</div>
-      <button class="qty-btn" onclick="changeQty('black',1)">+</button>
-     </div>
-    </div>
-   </div>
-
-   <!-- STEP 3 -->
-   <div class="step-card">
-    <div class="step-heading">
-     <div class="step-number">03</div>
-     <div><h3>Metode pembayaran</h3><p>Pilih metode pembayaran yang tersedia.</p></div>
-    </div>
-    <select class="payment-select" id="payment" onchange="updateSummary()">
-     <option value="">Pilih metode pembayaran</option>
-     <option value="QRIS">QRIS</option>
-     <option value="DANA">DANA</option>
-     <option value="GoPay">GoPay</option>
-     <option value="OVO">OVO</option>
-     <option value="Transfer Bank">Transfer Bank</option>
-     <option value="Diskusi dengan Admin">Diskusi dengan Admin</option>
-    </select>
-   </div>
-
-   <!-- STEP 4 -->
-   <div class="step-card">
-    <div class="step-heading">
-     <div class="step-number">04</div>
-     <div><h3>Pilih admin</h3><p>Pilih admin yang ingin kamu hubungi.</p></div>
-    </div>
-
-    <div class="admin-list">
-
-     <button class="admin-card active" id="adminCard1" onclick="selectAdmin(1)">
-      <div class="admin-avatar">👤</div>
-      <div class="admin-info">
-       <div class="admin-name">Booopa | TokoCPS.Store <span class="verified">✓</span></div>
-       <div class="admin-status" id="adminStatus1"></div>
-       <span class="admin-availability" id="adminAvailability1"></span>
-      </div>
-      <span class="admin-check" id="adminCheck1">✓</span>
-     </button>
-
-     <button class="admin-card" id="adminCard2" onclick="selectAdmin(2)">
-      <div class="admin-avatar">👤</div>
-      <div class="admin-info">
-       <div class="admin-name">WholeSale | TokoCPS.Store <span class="verified">✓</span></div>
-       <div class="admin-status" id="adminStatus2"></div>
-       <span class="admin-availability" id="adminAvailability2"></span>
-      </div>
-      <span class="admin-check" id="adminCheck2" style="display:none">✓</span>
-     </button>
-
-    </div>
-   </div>
-
-   <!-- STEP 5 -->
-   <div class="summary-card">
-    <div class="summary-head">
-     <small>05 · RINGKASAN</small>
-     <h3>Pesanan kamu</h3>
-    </div>
-    <div class="summary-body">
-     <div class="summary-line"><span>Blue Gem Lock</span><strong id="sumBGL">0</strong></div>
-     <div class="summary-line"><span>Black Gem Lock</span><strong id="sumBLACK">0</strong></div>
-     <div class="summary-line"><span>Jenis transaksi</span><strong id="sumType">Beli</strong></div>
-     <div class="summary-line"><span>Pembayaran</span><strong id="sumPayment">—</strong></div>
-     <div class="summary-line"><span>Admin</span><strong id="sumAdmin">Booopa</strong></div>
-     <div class="summary-total">Harga akhir dan ketersediaan stok akan dikonfirmasi oleh admin.</div>
-    </div>
-   </div>
-
-   <button class="order-submit" onclick="submitOrder()">☏ Konfirmasi Pesanan →</button>
-   <div class="order-note">Pastikan jumlah produk dan admin sudah benar sebelum melanjutkan.</div>
-
-  </div>
- </section>
+<section class="order-sheet" id="orderSheet">
+<header class="sheet-head">
+<div class="drag-area" id="dragArea"><div class="drag-handle"></div></div>
+<div class="sheet-heading">
+<div class="wa-logo">☏</div>
+<div class="sheet-title">
+<small>🟡 BELI & JUAL BGL / DL · WHATSAPP</small>
+<h2>Beli & Jual dibantu Admin</h2>
+<p>Pilih transaksi, isi quantity, pilih pembayaran dan admin. Admin membantu langsung lewat WhatsApp.</p>
+</div>
+<button class="sheet-close" onclick="closeOrder()">×</button>
+</div>
+</header>
+<div class="sheet-content">
+<div class="step-card">
+<div class="step-heading"><div class="step-number">01</div><div><h3>Pilih Beli atau Jual</h3><p>Admin membantu beli maupun jual lewat WhatsApp.</p></div></div>
+<div class="choice-grid">
+<button class="choice active" id="buyChoice" onclick="setTransaction('Beli')"><strong>🛒 Beli <span class="selected">✓</span></strong><span>Saya ingin membeli BGL atau BLACK</span></button>
+<button class="choice" id="sellChoice" onclick="setTransaction('Jual')"><strong>⇄ Jual</strong><span>Saya ingin menjual BGL atau BLACK</span></button>
+</div>
 </div>
 
-<!-- POPUP DISCORD -->
+<div class="step-card">
+<div class="step-heading"><div class="step-number">02</div><div><h3>Pilih item & quantity</h3><p>Masukkan jumlah produk yang diinginkan.</p></div></div>
+<div class="item-row">
+<div class="item-icon"><img src="logo-bgl-black.png" alt="BGL"></div>
+<div class="item-info"><strong>Blue Gem Lock</strong><small>per BGL</small></div>
+<div class="quantity"><button class="qty-btn" onclick="changeQty('bgl',-1)">−</button><div class="qty-value" id="qtyBGL">0</div><button class="qty-btn" onclick="changeQty('bgl',1)">+</button></div>
+</div>
+<div class="item-row">
+<div class="item-icon"><img src="logo-black.png" alt="BLACK"></div>
+<div class="item-info"><strong>Black Gem Lock</strong><small>per BLACK</small></div>
+<div class="quantity"><button class="qty-btn" onclick="changeQty('black',-1)">−</button><div class="qty-value" id="qtyBLACK">0</div><button class="qty-btn" onclick="changeQty('black',1)">+</button></div>
+</div>
+</div>
+
+<div class="step-card">
+<div class="step-heading"><div class="step-number">03</div><div><h3>Metode pembayaran</h3><p>Pilih metode pembayaran yang tersedia.</p></div></div>
+<select class="payment-select" id="payment" onchange="updateSummary()">
+<option value="">Pilih metode pembayaran</option>
+<option value="QRIS">QRIS</option><option value="DANA">DANA</option><option value="GoPay">GoPay</option><option value="OVO">OVO</option><option value="Transfer Bank">Transfer Bank</option><option value="Diskusi dengan Admin">Diskusi dengan Admin</option>
+</select>
+</div>
+
+<div class="step-card">
+<div class="step-heading"><div class="step-number">04</div><div><h3>Pilih admin</h3><p>Pilih admin yang ingin kamu hubungi.</p></div></div>
+<div class="admin-list">
+<button class="admin-card active" id="adminCard1" onclick="selectAdmin(1)">
+<div class="admin-avatar">👤</div><div class="admin-info"><div class="admin-name">Booopa | TokoCPS.Store <span class="verified">✓</span></div><div class="admin-status" id="adminStatus1"></div><span class="admin-availability" id="adminAvailability1"></span></div><span class="admin-check" id="adminCheck1">✓</span>
+</button>
+<button class="admin-card" id="adminCard2" onclick="selectAdmin(2)">
+<div class="admin-avatar">👤</div><div class="admin-info"><div class="admin-name">WholeSale | TokoCPS.Store <span class="verified">✓</span></div><div class="admin-status" id="adminStatus2"></div><span class="admin-availability" id="adminAvailability2"></span></div><span class="admin-check" id="adminCheck2" style="display:none">✓</span>
+</button>
+</div>
+</div>
+
+<div class="summary-card">
+<div class="summary-head"><small>05 · RINGKASAN</small><h3>Pesanan kamu</h3></div>
+<div class="summary-body">
+<div class="summary-line"><span>Blue Gem Lock</span><strong id="sumBGL">0</strong></div>
+<div class="summary-line"><span>Black Gem Lock</span><strong id="sumBLACK">0</strong></div>
+<div class="summary-line"><span>Jenis transaksi</span><strong id="sumType">Beli</strong></div>
+<div class="summary-line"><span>Pembayaran</span><strong id="sumPayment">—</strong></div>
+<div class="summary-line"><span>Admin</span><strong id="sumAdmin">Booopa</strong></div>
+<div class="summary-total">Harga akhir dan ketersediaan stok akan dikonfirmasi oleh admin.</div>
+</div>
+</div>
+<button class="order-submit" onclick="submitOrder()">☏ Konfirmasi Pesanan →</button>
+<div class="order-note">Pastikan jumlah produk dan admin sudah benar sebelum melanjutkan.</div>
+</div>
+</section>
+</div>
+
 <div id="tokocpsDiscordPopup">
- <div class="discord-card">
-  <div class="discord-icon">
-   <svg viewBox="0 0 127.14 96.36">
-    <path d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.08 0A72.37 72.37 0 0 0 45.67 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.7 56.6.54 80.21a105.73 105.73 0 0 0 32.1 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.17c.91-.67 1.8-1.37 2.66-2.09a75.6 75.6 0 0 0 64.2 0c.87.72 1.75 1.42 2.67 2.09a68.68 68.68 0 0 1-10.87 5.18 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.1-16.14c2.64-27.37-4.52-51.1-18.63-72.15ZM42.45 65.69c-6.26 0-11.43-5.73-11.43-12.78s5.05-12.79 11.43-12.79 11.54 5.78 11.43 12.79c-.11 7.05-5.05 12.78-11.43 12.78Zm42.24 0c-6.27 0-11.43-5.73-11.43-12.78s5.05-12.79 11.43-12.79 11.54 5.78 11.43 12.79c-.11 7.05-5.05 12.78-11.43 12.78Z"/>
-   </svg>
-  </div>
-  <div class="discord-title">JOIN COMMUNITY TOKOCPS</div>
-  <p class="discord-description">Bergabung dengan komunitas TOKOCPS di Discord untuk mendapatkan informasi terbaru, stok, event, dan berbagai keuntungan lainnya.</p>
-  <div class="discord-list">
-   <div class="discord-item"><div class="discord-item-icon">📢</div><div class="discord-item-text"><strong>UPDATE</strong><p>Update All Stock dan informasi terbaru TOKOCPS.</p></div></div>
-   <div class="discord-item"><div class="discord-item-icon">🏪</div><div class="discord-item-text"><strong>TRUSTED STORE</strong><p>Stock TOKOCPS: Account, BGL, BLACK, Script, Bothax, DLL.</p></div></div>
-   <div class="discord-item"><div class="discord-item-icon">🎁</div><div class="discord-item-text"><strong>GIVEAWAY</strong><p>Ikuti event dan dapatkan hadiah dari komunitas.</p></div></div>
-  </div>
-  <div class="discord-buttons">
-   <a class="discord-join" id="discordJoinButton" href="#" target="_blank" rel="noopener noreferrer">JOIN DISCORD →</a>
-   <button class="discord-later" onclick="closeDiscordPopup()">NANTI SAJA</button>
-  </div>
- </div>
+<div class="discord-card">
+<div class="discord-icon"><svg viewBox="0 0 127.14 96.36"><path d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.08 0A72.37 72.37 0 0 0 45.67 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.7 56.6.54 80.21a105.73 105.73 0 0 0 32.1 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.17c.91-.67 1.8-1.37 2.66-2.09a75.6 75.6 0 0 0 64.2 0c.87.72 1.75 1.42 2.67 2.09a68.68 68.68 0 0 1-10.87 5.18 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.1-16.14c2.64-27.37-4.52-51.1-18.63-72.15ZM42.45 65.69c-6.26 0-11.43-5.73-11.43-12.78s5.05-12.79 11.43-12.79 11.54 5.78 11.43 12.79c-.11 7.05-5.05 12.78-11.43 12.78Zm42.24 0c-6.27 0-11.43-5.73-11.43-12.78s5.05-12.79 11.43-12.79 11.54 5.78 11.43 12.79c-.11 7.05-5.05 12.78-11.43 12.78Z"/></svg></div>
+<div class="discord-title">JOIN COMMUNITY TOKOCPS</div>
+<p class="discord-description">Bergabung dengan komunitas TOKOCPS di Discord untuk mendapatkan informasi terbaru, stok, event, dan berbagai keuntungan lainnya.</p>
+<div class="discord-list">
+<div class="discord-item"><div class="discord-item-icon">📢</div><div class="discord-item-text"><strong>UPDATE</strong><p>Update All Stock dan informasi terbaru TOKOCPS.</p></div></div>
+<div class="discord-item"><div class="discord-item-icon">🏪</div><div class="discord-item-text"><strong>TRUSTED STORE</strong><p>Stock TOKOCPS: Account, BGL, BLACK, Script, Bothax, DLL.</p></div></div>
+<div class="discord-item"><div class="discord-item-icon">🎁</div><div class="discord-item-text"><strong>GIVEAWAY</strong><p>Ikuti event dan dapatkan hadiah dari komunitas.</p></div></div>
+</div>
+<div class="discord-buttons">
+<a class="discord-join" id="discordJoinButton" href="#" target="_blank" rel="noopener noreferrer">JOIN DISCORD →</a>
+<button class="discord-later" onclick="closeDiscordPopup()">NANTI SAJA</button>
+</div>
+</div>
 </div>
 
-<!-- TOKOCPS AI -->
 <div class="ai-panel" id="aiPanel">
- <div class="ai-head">
-  <div class="ai-avatar">✦</div>
-  <div class="ai-head-info"><strong>TOKOCPS AI</strong><small>Asisten virtual · Demo</small></div>
-  <button class="close-ai" onclick="toggleAI()">×</button>
- </div>
- <div class="ai-messages" id="aiMessages">
-  <div class="message bot">Halo! 👋 Selamat datang di TOKOCPS. Saya siap membantu informasi BGL, BLACK, stok dan cara pemesanan.</div>
- </div>
- <div class="quick">
-  <button onclick="askAI('Harga BGL')">Harga BGL</button>
-  <button onclick="askAI('Harga BLACK')">Harga BLACK</button>
-  <button onclick="askAI('Cara order')">Cara order</button>
-  <button onclick="askAI('Partner')">Partner</button>
- </div>
- <form class="ai-input" onsubmit="sendAI(event)">
-  <input id="aiInput" placeholder="Tanyakan sesuatu..." autocomplete="off">
-  <button type="submit">➤</button>
- </form>
+<div class="ai-head"><div class="ai-avatar">✦</div><div class="ai-head-info"><strong>TOKOCPS AI</strong><small>Asisten virtual · Demo</small></div><button class="close-ai" onclick="toggleAI()">×</button></div>
+<div class="ai-messages" id="aiMessages"><div class="message bot">Halo! 👋 Selamat datang di TOKOCPS. Saya siap membantu informasi BGL, BLACK, stok dan cara pemesanan.</div></div>
+<div class="quick"><button onclick="askAI('Harga BGL')">Harga BGL</button><button onclick="askAI('Harga BLACK')">Harga BLACK</button><button onclick="askAI('Cara order')">Cara order</button><button onclick="askAI('Partner')">Partner</button></div>
+<form class="ai-input" onsubmit="sendAI(event)"><input id="aiInput" placeholder="Tanyakan sesuatu..." autocomplete="off"><button type="submit">➤</button></form>
 </div>
 
 <script>
@@ -487,61 +315,61 @@ body.sheet-open{overflow:hidden}
 // PENGATURAN TOKOCPS
 // ===================================
 
-// Isi nomor admin tanpa tanda +.
-// Contoh: 6281234567890
+// Nomor boleh ditulis dengan 08 atau 62.
+// Sistem otomatis mengubah 08 menjadi 62.
 
 const ADMIN_1_WA = "085864582161";
 const ADMIN_2_WA = "085765732905";
 
-// Status admin: true = ONLINE, false = OFFLINE
-// Status ini masih manual karena website menggunakan GitHub Pages.
+function formatWAPhone(number){
+  let phone = String(number).replace(/\D/g,"");
+  if(phone.startsWith("0")) phone = "62"+phone.slice(1);
+  if(phone.startsWith("8")) phone = "62"+phone;
+  return phone;
+}
 
 const ADMINS = {
-  1: {
-    name: "Booopa | TokoCPS.Store",
-    phone: 085864582161,
-    online: true
+  1:{
+    name:"Booopa | TokoCPS.Store",
+    phone:formatWAPhone(ADMIN_1_WA),
+    online:true
   },
-  2: {
-    name: "WholeSale | TokoCPS.Store",
-    phone: 085765732905,
-    online: true
+  2:{
+    name:"WholeSale | TokoCPS.Store",
+    phone:formatWAPhone(ADMIN_2_WA),
+    online:true
   }
 };
 
-const PRICE_BGL = "Hubungi Admin";
-const PRICE_BLACK = "Hubungi Admin";
+const PRICE_BGL="Hubungi Admin";
+const PRICE_BLACK="Hubungi Admin";
+const DISCORD_INVITE="https://discord.gg/Te7ZRPKQz";
 
-const DISCORD_INVITE = "https://discord.gg/Te7ZRPKQz";
-
-document.getElementById("bglPrice").textContent = PRICE_BGL;
-document.getElementById("blackPrice").textContent = PRICE_BLACK;
-document.getElementById("discordJoinButton").href = DISCORD_INVITE;
+document.getElementById("bglPrice").textContent=PRICE_BGL;
+document.getElementById("blackPrice").textContent=PRICE_BLACK;
+document.getElementById("discordJoinButton").href=DISCORD_INVITE;
 
 // ===================================
 // STATUS DAN PILIHAN ADMIN
 // ===================================
 
-let selectedAdmin = 1;
+let selectedAdmin=1;
 
 function renderAdmins(){
   [1,2].forEach(id=>{
-    const admin = ADMINS[id];
-    const status = document.getElementById("adminStatus"+id);
-    const availability = document.getElementById("adminAvailability"+id);
-    const card = document.getElementById("adminCard"+id);
-    const check = document.getElementById("adminCheck"+id);
+    const admin=ADMINS[id];
+    const status=document.getElementById("adminStatus"+id);
+    const availability=document.getElementById("adminAvailability"+id);
+    const card=document.getElementById("adminCard"+id);
+    const check=document.getElementById("adminCheck"+id);
 
-    status.textContent = admin.online ? "● ONLINE" : "● OFFLINE";
-    status.className = "admin-status "+(admin.online ? "online" : "offline");
-
-    availability.textContent = admin.online ? "Tersedia" : "Tidak tersedia";
-    card.disabled = !admin.online;
-
+    status.textContent=admin.online?"● ONLINE":"● OFFLINE";
+    status.className="admin-status "+(admin.online?"online":"offline");
+    availability.textContent=admin.online?"Tersedia":"Tidak tersedia";
+    card.disabled=!admin.online;
     card.classList.toggle("active",selectedAdmin===id && admin.online);
-    check.style.display = selectedAdmin===id && admin.online ? "grid" : "none";
+    check.style.display=selectedAdmin===id && admin.online?"grid":"none";
   });
-
   updateSummary();
 }
 
@@ -550,7 +378,7 @@ function selectAdmin(id){
     alert("Admin sedang OFFLINE. Silakan pilih admin lain.");
     return;
   }
-  selectedAdmin = id;
+  selectedAdmin=id;
   renderAdmins();
 }
 
@@ -558,25 +386,18 @@ function selectAdmin(id){
 // POPUP PEMESANAN
 // ===================================
 
-const overlay = document.getElementById("orderOverlay");
-const sheet = document.getElementById("orderSheet");
+const overlay=document.getElementById("orderOverlay");
+const sheet=document.getElementById("orderSheet");
 
-let transaction = "Beli";
-let qtyBGL = 0;
-let qtyBLACK = 0;
+let transaction="Beli";
+let qtyBGL=0;
+let qtyBLACK=0;
 
 function openOrder(product){
   overlay.classList.add("show");
   document.body.classList.add("sheet-open");
-
-  if(product==="BGL"){
-    qtyBGL = 1;
-    qtyBLACK = 0;
-  }else if(product==="BLACK"){
-    qtyBGL = 0;
-    qtyBLACK = 1;
-  }
-
+  if(product==="BGL"){qtyBGL=1;qtyBLACK=0;}
+  else if(product==="BLACK"){qtyBGL=0;qtyBLACK=1;}
   updateQuantity();
   updateSummary();
 }
@@ -584,33 +405,27 @@ function openOrder(product){
 function closeOrder(){
   overlay.classList.remove("show");
   document.body.classList.remove("sheet-open");
+  sheet.style.transform="";
 }
 
 overlay.addEventListener("click",function(e){
-  if(e.target===overlay) closeOrder();
+  if(e.target===overlay)closeOrder();
 });
 
 function setTransaction(type){
-  transaction = type;
-
+  transaction=type;
   document.getElementById("buyChoice").classList.toggle("active",type==="Beli");
   document.getElementById("sellChoice").classList.toggle("active",type==="Jual");
-
-  document.getElementById("buyChoice").innerHTML =
+  document.getElementById("buyChoice").innerHTML=
     '<strong>🛒 Beli '+(type==="Beli"?'<span class="selected">✓</span>':'')+'</strong><span>Saya ingin membeli BGL atau BLACK</span>';
-
-  document.getElementById("sellChoice").innerHTML =
+  document.getElementById("sellChoice").innerHTML=
     '<strong>⇄ Jual '+(type==="Jual"?'<span class="selected">✓</span>':'')+'</strong><span>Saya ingin menjual BGL atau BLACK</span>';
-
   updateSummary();
 }
 
 function changeQty(item,amount){
-  if(item==="bgl"){
-    qtyBGL=Math.max(0,qtyBGL+amount);
-  }else{
-    qtyBLACK=Math.max(0,qtyBLACK+amount);
-  }
+  if(item==="bgl")qtyBGL=Math.max(0,qtyBGL+amount);
+  else qtyBLACK=Math.max(0,qtyBLACK+amount);
   updateQuantity();
   updateSummary();
 }
@@ -625,15 +440,14 @@ function updateSummary(){
   document.getElementById("sumBLACK").textContent=qtyBLACK;
   document.getElementById("sumType").textContent=transaction;
   document.getElementById("sumPayment").textContent=
-    document.getElementById("payment").value || "—";
-
+    document.getElementById("payment").value||"—";
   document.getElementById("sumAdmin").textContent=
     ADMINS[selectedAdmin].name.replace(" | TokoCPS.Store","")+
-    (ADMINS[selectedAdmin].online ? " (Online)" : " (Offline)");
+    (ADMINS[selectedAdmin].online?" (Online)":" (Offline)");
 }
 
 // ===================================
-// KONFIRMASI WHATSAPP
+// KONFIRMASI WHATSAPP - DIPERBAIKI
 // ===================================
 
 function submitOrder(){
@@ -656,24 +470,33 @@ function submitOrder(){
     return;
   }
 
-  if(!admin.phone || admin.phone.includes("GANTI_")){
-    alert("Nomor WhatsApp Admin "+selectedAdmin+" belum diatur oleh pemilik TOKOCPS.");
+  if(!admin.phone || admin.phone.length<10){
+    alert("Nomor WhatsApp Admin belum diatur dengan benar.");
     return;
   }
 
-  const message =
-    "Halo "+admin.name+", saya ingin "+transaction.toLowerCase()+
-    " melalui TOKOCPS.%0A%0A"+
-    "Blue Gem Lock (BGL): "+qtyBGL+"%0A"+
-    "Black Gem Lock (BLACK): "+qtyBLACK+"%0A"+
-    "Jenis transaksi: "+transaction+"%0A"+
-    "Metode pembayaran: "+payment+"%0A%0A"+
-    "Mohon informasi harga dan ketersediaan stok. Terima kasih.";
+  const message=[
+    "Halo "+admin.name+"!",
+    "",
+    "Saya ingin melakukan "+transaction.toLowerCase()+" melalui TOKOCPS.",
+    "",
+    "DETAIL PESANAN:",
+    "Blue Gem Lock (BGL): "+qtyBGL,
+    "Black Gem Lock (BLACK): "+qtyBLACK,
+    "",
+    "Jenis transaksi: "+transaction,
+    "Metode pembayaran: "+payment,
+    "Admin tujuan: "+admin.name,
+    "",
+    "Mohon informasi harga dan ketersediaan stok.",
+    "Terima kasih!"
+  ].join("\n");
 
-  window.open(
-    "https://wa.me/"+admin.phone+"?text="+message,
-    "_blank"
-  );
+  const whatsappURL=
+    "https://wa.me/"+admin.phone+"?text="+encodeURIComponent(message);
+
+  // Buka WhatsApp langsung ketika tombol diklik.
+  window.location.href=whatsappURL;
 }
 
 // ===================================
@@ -697,24 +520,16 @@ dragArea.addEventListener("pointermove",e=>{
   if(!dragging)return;
   const delta=e.clientY-dragStartY;
   dragCurrentY=delta;
-
-  if(delta>0){
-    sheet.style.transform="translateY("+delta+"px)";
-  }else{
-    sheet.style.transform="translateY(0)";
-  }
+  if(delta>0)sheet.style.transform="translateY("+delta+"px)";
+  else sheet.style.transform="translateY(0)";
 });
 
 function finishDrag(){
   if(!dragging)return;
   dragging=false;
   sheet.style.transition="transform .3s ease";
-
-  if(dragCurrentY>120){
-    closeOrder();
-  }else{
-    sheet.style.transform="translateY(0)";
-  }
+  if(dragCurrentY>120)closeOrder();
+  else sheet.style.transform="translateY(0)";
 }
 
 dragArea.addEventListener("pointerup",finishDrag);
@@ -770,7 +585,6 @@ aiSwipeKnob.addEventListener("pointerdown",e=>{
 
 aiSwipeKnob.addEventListener("pointermove",e=>{
   if(!aiDragging)return;
-
   const maxMove=aiSwipe.clientWidth-aiSwipeKnob.offsetWidth-18;
   aiCurrentX=Math.max(0,Math.min(maxMove,e.clientX-aiStartX));
   aiSwipeKnob.style.left=(7+aiCurrentX)+"px";
@@ -779,15 +593,11 @@ aiSwipeKnob.addEventListener("pointermove",e=>{
 aiSwipeKnob.addEventListener("pointerup",()=>{
   if(!aiDragging)return;
   aiDragging=false;
-
   const maxMove=aiSwipe.clientWidth-aiSwipeKnob.offsetWidth-18;
-
   if(aiCurrentX>=maxMove*.78){
     resetAISlider();
     document.getElementById("aiPanel").classList.add("show");
-  }else{
-    resetAISlider();
-  }
+  }else resetAISlider();
 });
 
 aiSwipeKnob.addEventListener("pointercancel",()=>{
@@ -819,17 +629,14 @@ function askAI(question){
 
 function sendAI(event){
   event.preventDefault();
-
   const input=document.getElementById("aiInput");
   const question=input.value.trim();
-
   if(!question)return;
 
   addMessage(question,"user");
   input.value="";
 
   let answer="Terima kasih sudah menghubungi TOKOCPS! Untuk informasi lebih lanjut, silakan hubungi admin kami.";
-
   const q=question.toLowerCase();
 
   if(q.includes("bgl")){
@@ -849,7 +656,6 @@ function sendAI(event){
 
 // Render status admin ketika halaman dimuat
 renderAdmins();
-
 </script>
 </body>
 </html>
