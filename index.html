@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -121,6 +122,25 @@ h1 span{color:#ffd34e}
 .qty-btn{width:40px;height:48px;border:0;border-radius:14px;background:white;color:#1e5ed4;font-size:24px;font-weight:bold}
 .qty-value{width:65px;height:48px;display:grid;place-items:center;border:2px solid #315fae;border-radius:14px;color:white;font-size:21px;font-weight:bold}
 .payment-select{width:100%;padding:15px;border:2px solid #315da8;border-radius:16px;background:#0d2454;color:white;font-size:15px;outline:none}
+
+/* FORM WORLD & OWNER */
+.sell-details{
+ display:none;margin-top:12px;padding:14px;
+ border:2px solid #4878cf;border-radius:20px;background:#102d68
+}
+.sell-details.show{display:block}
+.sell-details h4{font-size:15px;margin-bottom:12px;color:#ffd34e}
+.sell-field{margin-bottom:12px}
+.sell-field:last-child{margin-bottom:0}
+.sell-field label{display:block;margin-bottom:7px;font-size:13px;font-weight:800;color:#dce8ff}
+.sell-field input{
+ width:100%;padding:14px;border:2px solid #315da8;
+ border-radius:13px;outline:none;background:#0d2454;
+ color:white;font-size:14px
+}
+.sell-field input:focus{border-color:#62a0ff}
+.sell-field input::placeholder{color:#819bc9}
+
 .admin-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .admin-card{position:relative;display:flex;align-items:center;gap:9px;padding:12px 9px;border:2px solid #315da8;border-radius:20px;background:#0d2454;color:white;text-align:left;min-width:0}
 .admin-card.active{border:3px solid #62a0ff;background:#123778;box-shadow:0 0 12px #448cff55}
@@ -140,7 +160,7 @@ h1 span{color:#ffd34e}
 .summary-head h3{font-size:23px;margin-top:7px}
 .summary-body{padding:12px 18px}
 .summary-line{display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px dashed #c7d7f3;color:#52688f;font-weight:bold;font-size:14px}
-.summary-line strong{color:#10244b;text-align:right}
+.summary-line strong{color:#10244b;text-align:right;overflow-wrap:anywhere}
 .summary-total{font-size:13px;color:#607394;padding-top:12px;line-height:1.5}
 .order-submit{width:100%;padding:17px;border:0;border-radius:17px;background:#18c76a;color:white;font-size:16px;font-weight:900;box-shadow:0 5px 0 #07894a}
 .order-submit:active{transform:translateY(3px);box-shadow:none}
@@ -258,7 +278,7 @@ body.sheet-open{overflow:hidden}
     <div class="product-info">
      <div class="product-name">Blue Gem Lock</div>
      <div class="price" id="bglPrice">1.1K</div>
-     <div class="per">Beli · Jual <span id="bglSellPrice">950/BGL</span></div>
+     <div class="per">Beli/BGL · Jual <span id="bglSellPrice">950/BGL</span></div>
     </div>
    </div>
    <button class="buy" onclick="openOrder('BGL')">🛒 Beli BGL →</button>
@@ -343,6 +363,26 @@ body.sheet-open{overflow:hidden}
       <button class="qty-btn" onclick="changeQty('black',1)">+</button>
      </div>
     </div>
+
+    <!-- FORM WORLD & OWNER KHUSUS JUAL -->
+    <div class="sell-details" id="sellDetails">
+     <h4>📦 Informasi World</h4>
+
+     <div class="sell-field">
+      <label for="sellWorld">🌎 World</label>
+      <input type="text" id="sellWorld"
+       placeholder="Contoh: TOKOCPS"
+       autocomplete="off">
+     </div>
+
+     <div class="sell-field">
+      <label for="sellOwner">👤 Owner</label>
+      <input type="text" id="sellOwner"
+       placeholder="Masukkan nama owner world"
+       autocomplete="off">
+     </div>
+    </div>
+
    </div>
 
    <!-- STEP 3 -->
@@ -402,6 +442,8 @@ body.sheet-open{overflow:hidden}
      <div class="summary-line"><span>Blue Gem Lock</span><strong id="sumBGL">0</strong></div>
      <div class="summary-line"><span>Black Gem Lock</span><strong id="sumBLACK">0</strong></div>
      <div class="summary-line"><span>Jenis transaksi</span><strong id="sumType">Beli</strong></div>
+     <div class="summary-line"><span>World</span><strong id="sumWorld">—</strong></div>
+     <div class="summary-line"><span>Owner</span><strong id="sumOwner">—</strong></div>
      <div class="summary-line"><span>Harga BGL</span><strong id="sumPriceBGL">—</strong></div>
      <div class="summary-line"><span>Harga BLACK</span><strong id="sumPriceBLACK">—</strong></div>
      <div class="summary-line"><span>Estimasi total</span><strong id="sumTotal">0</strong></div>
@@ -412,7 +454,7 @@ body.sheet-open{overflow:hidden}
    </div>
 
    <button class="order-submit" onclick="submitOrder()">☏ Konfirmasi Pesanan →</button>
-   <div class="order-note">Pastikan jumlah produk dan admin sudah benar sebelum melanjutkan.</div>
+   <div class="order-note">Pastikan jumlah produk, World, Owner dan admin sudah benar sebelum melanjutkan.</div>
 
   </div>
  </section>
@@ -467,12 +509,8 @@ body.sheet-open{overflow:hidden}
 // PENGATURAN TOKOCPS
 // ===================================
 
-// Nomor admin harus berupa STRING agar angka 0 di depan tidak hilang.
 const ADMIN_1_WA = "085864582161";
 const ADMIN_2_WA = "085765732905";
-
-// Status admin: true = ONLINE, false = OFFLINE
-// Status ini manual karena website menggunakan GitHub Pages.
 
 const ADMINS = {
   1: {
@@ -488,9 +526,6 @@ const ADMINS = {
 };
 
 // HARGA TOKOCPS
-// Semua angka di bawah menggunakan satuan nilai harga yang sama.
-// BGL dan BLACK mengikuti harga transaksi Beli/Jual.
-
 const PRICE_BGL_BUY = 1100;
 const PRICE_BGL_SELL = 950;
 
@@ -603,6 +638,9 @@ function setTransaction(type){
   document.getElementById("sellChoice").innerHTML =
     '<strong>⇄ Jual '+(type==="Jual"?'<span class="selected">✓</span>':'')+'</strong><span>Saya ingin menjual BGL atau BLACK</span>';
 
+  // Form World dan Owner hanya muncul saat transaksi Jual
+  document.getElementById("sellDetails").classList.toggle("show",type==="Jual");
+
   updateSummary();
 }
 
@@ -636,6 +674,16 @@ function updateSummary(){
   document.getElementById("sumBLACK").textContent=qtyBLACK;
   document.getElementById("sumType").textContent=transaction;
 
+  document.getElementById("sumWorld").textContent =
+    transaction==="Jual"
+      ? (document.getElementById("sellWorld").value.trim() || "—")
+      : "—";
+
+  document.getElementById("sumOwner").textContent =
+    transaction==="Jual"
+      ? (document.getElementById("sellOwner").value.trim() || "—")
+      : "—";
+
   document.getElementById("sumPayment").textContent =
     document.getElementById("payment").value || "—";
 
@@ -653,6 +701,10 @@ function updateSummary(){
     formatPrice(total);
 }
 
+// Update ringkasan langsung saat World/Owner diketik
+document.getElementById("sellWorld").addEventListener("input",updateSummary);
+document.getElementById("sellOwner").addEventListener("input",updateSummary);
+
 // ===================================
 // KONFIRMASI WHATSAPP
 // ===================================
@@ -668,6 +720,27 @@ function submitOrder(){
   if(!payment){
     alert("Silakan pilih metode pembayaran.");
     return;
+  }
+
+  // Validasi khusus transaksi Jual
+  let world = "";
+  let owner = "";
+
+  if(transaction==="Jual"){
+    world = document.getElementById("sellWorld").value.trim();
+    owner = document.getElementById("sellOwner").value.trim();
+
+    if(!world){
+      alert("Silakan isi nama World terlebih dahulu.");
+      document.getElementById("sellWorld").focus();
+      return;
+    }
+
+    if(!owner){
+      alert("Silakan isi nama Owner terlebih dahulu.");
+      document.getElementById("sellOwner").focus();
+      return;
+    }
   }
 
   const admin=ADMINS[selectedAdmin];
@@ -701,6 +774,10 @@ function submitOrder(){
     "Subtotal BLACK: "+formatPrice(totalBLACK),
     "",
     "Jenis transaksi: "+transaction,
+    ...(transaction==="Jual" ? [
+      "World: "+world,
+      "Owner: "+owner
+    ] : []),
     "Metode pembayaran: "+payment,
     "Estimasi total: "+formatPrice(total),
     "",
