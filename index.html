@@ -1,264 +1,264 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#071229">
 <title>TOKOCPS | Marketplace</title>
-<link rel="stylesheet" href="style.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;color:white;min-height:100vh;background:radial-gradient(ellipse at 10% 5%,#254b9b66,transparent 40%),radial-gradient(ellipse at 90% 55%,#593bba33,transparent 40%),linear-gradient(145deg,#071229,#0b1d48,#080f29);background-attachment:fixed}
+button{font-family:inherit;cursor:pointer;transition:.2s}
+button:hover{filter:brightness(1.12)}
+.page{position:relative;z-index:1;width:100%;max-width:850px;margin:auto;padding:20px}
+.hero{padding:25px 22px 30px;border-radius:30px;background:radial-gradient(ellipse at 100% 0%,#638fff35,transparent 45%),linear-gradient(145deg,#1d4699,#123477 65%,#0c2868);border:1px solid #4675d0;box-shadow:0 9px 0 #081d4b,0 20px 50px #0007}
+.top-label{display:inline-flex;align-items:center;gap:10px;padding:10px 15px;border-radius:13px;color:#8ed2ff;background:white;font-size:12px;font-weight:900}
+.dot{width:10px;height:10px;background:#20c56b;border-radius:50%;box-shadow:0 0 12px #20c56b}
+h1{margin-top:24px;font-size:clamp(32px,7vw,48px);line-height:1.08}
+h1 span{color:#ffd34e}
+.subtitle{margin-top:16px;color:#d3e2ff;font-size:16px;line-height:1.5}
+.status-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin:27px 0 17px}
+.open-status{color:#8affbb;background:#0c774b55;border:1px solid #1ec879;border-radius:30px;padding:9px 13px;font-size:12px;font-weight:bold}
+.products{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.product{min-width:0;padding:16px;border-radius:24px;background:linear-gradient(145deg,#2855a9,#173c83);border:2px solid #4975c4;box-shadow:0 8px 0 #071b4b;position:relative}
+.product-head{display:flex;align-items:center;gap:12px}
+.product-icon{width:66px;height:66px;display:grid;place-items:center;flex-shrink:0;border-radius:17px;background:#102e68}
+.product-icon img{width:100%;height:100%;object-fit:contain;padding:5px}
+.product-info{flex:1;min-width:0}
+.product-name{font-size:14px;font-weight:800}
+.price{margin-top:7px;color:#ffd044;font-size:clamp(23px,5vw,34px);font-weight:1000}
+.per{font-size:12px;color:#d5e3ff}
+.buy{width:100%;margin-top:19px;padding:14px 8px;border:0;border-radius:14px;background:#ffd54f;color:#102d69;font-size:15px;font-weight:900;box-shadow:0 5px 0 #bd8b13}
+.buy:active{transform:translateY(3px);box-shadow:none}
+.footer{text-align:center;color:#a8bce5;font-size:12px;padding:25px 0}
+.section{margin-top:22px;padding:18px;border-radius:22px;background:linear-gradient(145deg,#1c478cdd,#12336fdd);border:1px solid #4b79c7}
+.section h2{margin-bottom:12px}
+.admin-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.admin-card{padding:13px;border:2px solid #315da8;border-radius:15px;background:#0d2454;color:white;text-align:left}
+.admin-card.active{border-color:#62a0ff;background:#123778}
+.order-overlay,.history-overlay{position:fixed;inset:0;z-index:3000;background:#020819d9;display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(10px)}
+.order-overlay.show,.history-overlay.show{display:flex}
+.order-sheet{width:100%;max-width:850px;height:92vh;max-height:95vh;background:linear-gradient(145deg,#102b60,#081b43);border:1px solid #4779d8;border-radius:28px 28px 0 0;overflow:auto;padding:20px}
+.sheet-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.sheet-head h2{font-size:21px}
+.close{border:0;border-radius:10px;padding:10px 14px;background:#fff;color:#1744a3;font-size:18px;font-weight:bold}
+.step-card{padding:15px;margin-bottom:14px;border:2px solid #4b79c7;border-radius:20px;background:linear-gradient(145deg,#1c478cdd,#12336fdd)}
+.step-card h3{font-size:16px;margin-bottom:12px}
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice{padding:13px;text-align:left;border:2px solid #315da8;border-radius:15px;background:#0d2454;color:white}
+.choice.active{border-color:#62a0ff;background:#123778}
+.item-row{display:flex;align-items:center;gap:9px;padding:10px;margin-top:10px;border:1px solid #315ba3;border-radius:15px;background:#0d2454}
+.item-icon{width:48px;height:48px;flex-shrink:0;border-radius:12px;overflow:hidden;background:#173e88}
+.item-icon img{width:100%;height:100%;object-fit:contain;padding:4px}
+.item-info{flex:1;min-width:0}
+.item-info small{display:block;margin-top:5px;color:#bfd2f5;font-size:11px}
+.quantity{display:flex;align-items:center;gap:5px}
+.qty-btn{width:32px;height:36px;border:0;border-radius:9px;background:white;color:#1e5ed4;font-size:20px}
+.qty-value{width:35px;text-align:center;font-weight:bold}
+.field-label{display:block;margin-top:12px;font-size:12px;font-weight:bold;color:#dbe7ff}
+.field-input{width:100%;padding:13px;border:2px solid #315da8;border-radius:12px;background:#0d2454;color:white;font-size:14px;margin-top:7px;outline:none}
+.field-input::placeholder{color:#91a9d5}
+.summary-card{background:#f1f5ff;color:#10244b;border-radius:17px;overflow:hidden;margin-bottom:14px}
+.summary-head{padding:14px;border-bottom:1px solid #d1def6}
+.summary-head small{color:#2464dc;font-weight:900}
+.summary-body{padding:12px 15px}
+.summary-line{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px dashed #c7d7f3;color:#52688f;font-size:13px}
+.summary-line strong{color:#10244b;text-align:right}
+.order-submit{width:100%;padding:16px;border:0;border-radius:13px;background:#18c76a;color:white;font-size:15px;font-weight:900}
+.order-note{text-align:center;font-size:11px;color:#b8cafa;padding:12px}
+.qris-image{display:block;width:100%;max-width:340px;max-height:430px;object-fit:contain;margin:15px auto;background:white;border-radius:15px;padding:8px}
+.qris-title{text-align:center;color:#ffd34e;font-size:20px;font-weight:900}
+.qris-amount{text-align:center;font-size:26px;font-weight:900;margin:12px 0}
+.order-id{text-align:center;font-size:12px;color:#c6d9ff;overflow-wrap:anywhere}
+.history-button{width:100%;margin-top:15px;padding:13px;border:1px solid #7199e9;border-radius:12px;background:#102b60;color:white;font-weight:bold}
+.history-item{padding:14px;margin:12px 0;border:1px solid #4779d8;border-radius:14px;background:#0d2454}
+.history-item p{font-size:13px;color:#d5e3ff;margin-top:6px}
+.status{display:inline-block;margin-top:9px;padding:6px 9px;border-radius:20px;background:#705d16;color:#ffe17a;font-size:11px;font-weight:bold}
+.status.success{background:#0c774b;color:#8affbb}
+.status.rejected{background:#702929;color:#ffaaaa}
+@media(max-width:440px){.page{padding:10px}.hero{padding:18px 14px}.products{gap:8px}.product{padding:10px}.product-icon{width:43px;height:43px}.price{font-size:20px}.buy{padding:11px 5px;font-size:12px}.order-sheet{height:94vh;padding:13px}.admin-list{gap:7px}.admin-card{padding:10px 7px;font-size:12px}}
+</style>
 </head>
-
 <body>
-
-<main class="page">
+<div class="page">
 <section class="hero">
- <div class="top-label"><span class="dot"></span>TOKOCPS STORE · INDONESIA</div>
- <h1>Lengkapi Kebutuhan<br><span>CPS Kamu Di Sini.</span></h1>
- <p class="subtitle">Marketplace BGL & BLACK untuk kebutuhan Growtopia kamu.</p>
-
- <div class="status-row">
-  <span class="price-title">Harga hari ini</span>
-  <span class="open-status">🟢 Toko buka · bisa pesan sekarang</span>
- </div>
-
- <div class="products">
-  <article class="product">
-   <div class="product-head">
-    <div class="product-icon"><img src="logo-black.png" alt="BLACK"></div>
-    <div class="product-info">
-     <div class="product-name">Black Gem Lock</div>
-     <div class="price" id="blackPrice">105.0K</div>
-     <div class="per">Beli · Jual <span id="blackSellPrice">97.0K</span></div>
-    </div>
-   </div>
-   <button class="buy" onclick="openOrder('BLACK')"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 3.5h2.6l2.3 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 1.9-1.5l1.6-6.6H6.1"/><circle cx="9.6" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg> Beli BLACK <svg class="ico ico-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12h14.5M13 5.5l6.5 6.5-6.5 6.5"/></svg></button>
-  </article>
-
-  <article class="product">
-   <div class="product-head">
-    <div class="product-icon"><img src="logo-bgl-black.png" alt="BGL"></div>
-    <div class="product-info">
-     <div class="product-name">Blue Gem Lock</div>
-     <div class="price" id="bglPrice">1.1K</div>
-     <div class="per">Beli/BGL · Jual <span id="bglSellPrice">950/BGL</span></div>
-    </div>
-   </div>
-   <button class="buy" onclick="openOrder('BGL')"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 3.5h2.6l2.3 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 1.9-1.5l1.6-6.6H6.1"/><circle cx="9.6" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg> Beli BGL <svg class="ico ico-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12h14.5M13 5.5l6.5 6.5-6.5 6.5"/></svg></button>
-  </article>
- </div>
-
- <div class="ai-banner" id="aiSwipe">
-  <div class="ai-swipe-knob" id="aiSwipeKnob"><svg class="ico ico-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12h14.5M13 5.5l6.5 6.5-6.5 6.5"/></svg></div>
-  <div class="ai-label">
-   <strong>GESER UNTUK CHAT<br>TOKOCPS AI</strong>
-   <small>Geser bulatan ke kanan</small>
-  </div>
-  <span class="ai-arrow">✦</span>
- </div>
+<div class="top-label"><span class="dot"></span> TRUSTED CPS MARKETPLACE</div>
+<h1>WELCOME TO<br><span>TOKOCPS</span></h1>
+<p class="subtitle">Marketplace Blue Gem Lock dan Black Gem Lock. Transaksi mudah, aman, dan dibantu admin.</p>
+<div class="status-row"><span class="open-status">● ADMIN ONLINE</span><span style="color:#d3e2ff;font-size:12px">TOKOCPS STORE</span></div>
+<div class="products">
+<article class="product">
+<div class="product-head">
+<div class="product-icon"><img src="logo-bgl-black.png" alt="BGL"></div>
+<div class="product-info"><div class="product-name">BLUE GEM LOCK</div><div class="price">1.1K</div><div class="per">per 1 BGL</div></div>
+</div>
+<button class="buy" onclick="openOrder('BGL')">BELI BGL ↗</button>
+</article>
+<article class="product">
+<div class="product-head">
+<div class="product-icon"><img src="logo-black.png" alt="BLACK"></div>
+<div class="product-info"><div class="product-name">BLACK GEM LOCK</div><div class="price">105K</div><div class="per">per 1 BLACK</div></div>
+</div>
+<button class="buy" onclick="openOrder('BLACK')">BELI BLACK ↗</button>
+</article>
+</div>
+<button class="history-button" onclick="showHistory()">📦 RIWAYAT PESANAN</button>
 </section>
-
-<!-- DISCORD DEVELOPER -->
-<section class="dev-section" id="discordDeveloper">
- <div class="dev-title">DISCORD DEVELOPER</div>
- <p class="dev-sub">Hubungi developer TOKOCPS di Discord</p>
- <div class="dev-list">
-  <a class="dev-card" href="https://discord.com/users/1290216319265931326" target="_blank" rel="noopener noreferrer" aria-label="Buka profil Discord Booopa">
-   <img class="dev-avatar" src="avatar-booopa.PNG" alt="Foto profil Booopa">
-   <div class="dev-info">
-    <div class="dev-name-row">
-     <span class="dev-name red">BOOOPA | B/S BGL</span>
-    </div>
-    <div class="dev-bio"><img src="icon-discord.PNG" alt="">tokocps.store</div>
-   </div>
-   <span class="dev-go" aria-hidden="true"><svg class="ico ico-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></span>
-  </a>
-
-  <a class="dev-card" href="https://discord.com/users/1334621055599251488" target="_blank" rel="noopener noreferrer" aria-label="Buka profil Discord Wholesale Store">
-   <img class="dev-avatar" src="avatar-wholesale.png" alt="Foto profil Wholesale Store">
-   <div class="dev-info">
-    <div class="dev-name-row">
-     <span class="dev-name green">Wholesale Store</span>
-    </div>
-    <div class="dev-bio"><img src="icon-discord.PNG" alt="">tokocps.store</div>
-   </div>
-   <span class="dev-go" aria-hidden="true"><svg class="ico ico-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></span>
-  </a>
- </div>
+<section class="section">
+<h2>Discord Developer</h2>
+<div class="admin-list">
+<a class="admin-card" href="https://discord.com/users/1290216319265931326" target="_blank" style="text-decoration:none">🟢 Booopa<br><small>@booopa</small></a>
+<a class="admin-card" href="https://discord.com/users/1334621055599251488" target="_blank" style="text-decoration:none">🔴 Wholesale<br><small>@wholesale</small></a>
+</div>
 </section>
+<div class="footer">© 2026 TOKOCPS STORE</div>
+</div>
 
-<div class="footer">© 2026 TOKOCPS · Marketplace CPS</div>
-</main>
+<div class="order-overlay" id="orderOverlay" onclick="if(event.target===this)closeOrder()">
+<div class="order-sheet">
+<div class="sheet-head"><h2 id="sheetTitle">Checkout TOKOCPS</h2><button class="close" onclick="closeOrder()">×</button></div>
 
-<!-- FORM ORDER -->
-<div class="order-overlay" id="orderOverlay">
-<section class="order-sheet" id="orderSheet">
-<header class="sheet-head">
- <div class="drag-area" id="dragArea"><div class="drag-handle"></div></div>
- <div class="sheet-heading">
-  <div class="wa-logo">☏</div>
-  <div class="sheet-title">
-   <small>TOKOCPS · WHATSAPP ORDER</small>
-   <h2>Beli & Jual dibantu Admin</h2>
-   <p>Isi detail transaksi dan admin akan membantu melalui WhatsApp.</p>
-  </div>
-  <button class="sheet-close" onclick="closeOrder()">×</button>
- </div>
-</header>
-
-<div class="sheet-content">
-
+<div id="checkoutForm">
 <div class="step-card">
- <div class="step-heading"><div class="step-number">01</div><div><h3>Pilih transaksi</h3><p>Pilih beli atau jual.</p></div></div>
- <div class="choice-grid">
-  <button class="choice active" id="buyChoice" onclick="setTransaction('Beli')"><strong><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 3.5h2.6l2.3 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 1.9-1.5l1.6-6.6H6.1"/><circle cx="9.6" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg> Beli ✓</strong><span>Membeli BGL atau BLACK</span></button>
-  <button class="choice" id="sellChoice" onclick="setTransaction('Jual')"><strong><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h15M15 4l4 4-4 4M20 16H5M9 12l-4 4 4 4"/></svg> Jual</strong><span>Menjual BGL atau BLACK</span></button>
- </div>
+<h3>1. Pilih Transaksi</h3>
+<div class="choice-grid">
+<button class="choice active" id="buyChoice" onclick="setTransaction('Beli')"><strong>🛒 Beli</strong><br><small>Beli item dari admin</small></button>
+<button class="choice" id="sellChoice" onclick="setTransaction('Jual')"><strong>💰 Jual</strong><br><small>Jual item ke admin</small></button>
 </div>
-
+</div>
 <div class="step-card">
- <div class="step-heading"><div class="step-number">02</div><div><h3>Item & Quantity</h3><p>Masukkan jumlah produk.</p></div></div>
- <div class="item-row">
-  <div class="item-icon"><img src="logo-bgl-black.png" alt="BGL"></div>
-  <div class="item-info"><strong>Blue Gem Lock</strong><small id="itemBGLPrice"></small></div>
-  <div class="quantity">
-   <button class="qty-btn" onclick="changeQty('bgl',-1)">−</button>
-   <div class="qty-value" id="qtyBGL">0</div>
-   <button class="qty-btn" onclick="changeQty('bgl',1)">+</button>
-  </div>
- </div>
- <div class="item-row">
-  <div class="item-icon"><img src="logo-black.png" alt="BLACK"></div>
-  <div class="item-info"><strong>Black Gem Lock</strong><small id="itemBLACKPrice"></small></div>
-  <div class="quantity">
-   <button class="qty-btn" onclick="changeQty('black',-1)">−</button>
-   <div class="qty-value" id="qtyBLACK">0</div>
-   <button class="qty-btn" onclick="changeQty('black',1)">+</button>
-  </div>
- </div>
+<h3>2. Jumlah Item</h3>
+<div class="item-row">
+<div class="item-icon"><img src="logo-bgl-black.png" alt="BGL"></div>
+<div class="item-info"><strong>Blue Gem Lock</strong><small id="priceBGL">Rp1.100 / item</small></div>
+<div class="quantity"><button class="qty-btn" onclick="changeQty('BGL',-1)">−</button><span class="qty-value" id="qtyBGL">0</span><button class="qty-btn" onclick="changeQty('BGL',1)">+</button></div>
 </div>
-
-<div class="step-card" id="sellDetails" style="display:none">
- <div class="step-heading"><div class="step-number">03</div><div><h3>Detail World & Owner</h3><p>Isi informasi world tempat item akan ditransaksikan.</p></div></div>
- <label class="field-label" for="world">🌎 Nama World</label>
- <input class="field-input" id="world" placeholder="Contoh: TOKOCPS" autocomplete="off">
- <label class="field-label" for="owner">👤 Owner World</label>
- <input class="field-input" id="owner" placeholder="Masukkan nama owner world" autocomplete="off">
+<div class="item-row">
+<div class="item-icon"><img src="logo-black.png" alt="BLACK"></div>
+<div class="item-info"><strong>Black Gem Lock</strong><small id="priceBLACK">Rp105.000 / item</small></div>
+<div class="quantity"><button class="qty-btn" onclick="changeQty('BLACK',-1)">−</button><span class="qty-value" id="qtyBLACK">0</span><button class="qty-btn" onclick="changeQty('BLACK',1)">+</button></div>
 </div>
-
+<div id="sellFields" style="display:none">
+<label class="field-label">World tempat transaksi</label><input class="field-input" id="world" placeholder="Contoh: TOKOCPS">
+<label class="field-label">Nama owner / GrowID</label><input class="field-input" id="owner" placeholder="Masukkan nama owner">
+</div>
+</div>
 <div class="step-card">
- <div class="step-heading"><div class="step-number" id="paymentStep">03</div><div><h3>Metode pembayaran</h3><p>Pilih metode pembayaran.</p></div></div>
- <select class="payment-select" id="payment" onchange="updateSummary()">
-  <option value="">Pilih metode pembayaran</option>
-  <option>QRIS</option><option>DANA</option><option>GoPay</option>
-  <option>OVO</option><option>Transfer Bank</option><option>Diskusi dengan Admin</option>
- </select>
+<h3>3. Pilih Admin</h3>
+<div class="admin-list">
+<button class="admin-card active" id="admin1" onclick="selectAdmin(1)">🟢 <b>Booopa</b><br><small>QRIS SehatCare</small></button>
+<button class="admin-card" id="admin2" onclick="selectAdmin(2)">🟢 <b>Wholesale</b><br><small>QRIS Wholesale</small></button>
 </div>
-
-<div class="step-card">
- <div class="step-heading"><div class="step-number" id="adminStep">04</div><div><h3>Pilih admin</h3><p>Pilih admin yang ingin dihubungi.</p></div></div>
- <div class="admin-list">
-  <button class="admin-card active" id="adminCard1" onclick="selectAdmin(1)">
-   <div class="admin-avatar">👤</div>
-   <div class="admin-info">
-    <div class="admin-name">Booopa | TokoCPS.Store <span class="verified">✓</span></div>
-    <div class="admin-status" id="adminStatus1"></div>
-   </div>
-   <span class="admin-check" id="adminCheck1">✓</span>
-  </button>
-  <button class="admin-card" id="adminCard2" onclick="selectAdmin(2)">
-   <div class="admin-avatar">👤</div>
-   <div class="admin-info">
-    <div class="admin-name">WholeSale | TokoCPS.Store <span class="verified">✓</span></div>
-    <div class="admin-status" id="adminStatus2"></div>
-   </div>
-   <span class="admin-check" id="adminCheck2" style="display:none">✓</span>
-  </button>
- </div>
 </div>
-
 <div class="summary-card">
- <div class="summary-head"><small>RINGKASAN TRANSAKSI</small><h3>Pesanan kamu</h3></div>
- <div class="summary-body">
-  <div class="summary-line"><span>BGL</span><strong id="sumBGL">0</strong></div>
-  <div class="summary-line"><span>BLACK</span><strong id="sumBLACK">0</strong></div>
-  <div class="summary-line"><span>Jenis transaksi</span><strong id="sumType">Beli</strong></div>
-  <div class="summary-line"><span>World</span><strong id="sumWorld">—</strong></div>
-  <div class="summary-line"><span>Owner</span><strong id="sumOwner">—</strong></div>
-  <div class="summary-line"><span>Harga BGL</span><strong id="sumPriceBGL">—</strong></div>
-  <div class="summary-line"><span>Harga BLACK</span><strong id="sumPriceBLACK">—</strong></div>
-  <div class="summary-line"><span>Estimasi total</span><strong id="sumTotal">0</strong></div>
-  <div class="summary-line"><span>Pembayaran</span><strong id="sumPayment">—</strong></div>
-  <div class="summary-line"><span>Admin</span><strong id="sumAdmin">Booopa</strong></div>
-  <div class="summary-total">Estimasi harga dapat berubah. Stok dan nominal akhir dikonfirmasi oleh admin.</div>
- </div>
+<div class="summary-head"><small>RINGKASAN PESANAN</small><h3>Detail Checkout</h3></div>
+<div class="summary-body">
+<div class="summary-line"><span>Jenis transaksi</span><strong id="sumType">Beli</strong></div>
+<div class="summary-line"><span>Jumlah BGL</span><strong id="sumBGL">0</strong></div>
+<div class="summary-line"><span>Jumlah BLACK</span><strong id="sumBLACK">0</strong></div>
+<div class="summary-line"><span>Admin</span><strong id="sumAdmin">Booopa</strong></div>
+<div class="summary-line"><span>Total pembayaran</span><strong id="sumTotal">Rp0</strong></div>
 </div>
-<button class="order-submit" onclick="submitOrder()">☏ Konfirmasi WhatsApp <svg class="ico ico-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12h14.5M13 5.5l6.5 6.5-6.5 6.5"/></svg></button>
-<div class="order-note">Pastikan seluruh informasi transaksi sudah benar.</div>
 </div>
-</section>
+<button class="order-submit" onclick="submitOrder()">LANJUTKAN PEMBAYARAN →</button>
+<p class="order-note">Pastikan jumlah dan admin sudah benar sebelum melanjutkan.</p>
 </div>
 
-<!-- DISCORD POPUP -->
-<div id="tokocpsDiscordPopup">
- <div class="discord-card">
-  <div style="font-size:40px;margin-bottom:12px">🎮</div>
-  <div class="discord-title">JOIN COMMUNITY TOKOCPS</div>
-  <p class="discord-description">Bergabung dengan komunitas TOKOCPS untuk mendapatkan informasi terbaru, stok, event dan giveaway.</p>
-  <a class="discord-join" id="discordJoinButton" href="#" target="_blank" rel="noopener noreferrer">JOIN DISCORD <svg class="ico ico-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 12h14.5M13 5.5l6.5 6.5-6.5 6.5"/></svg></a>
-  <button class="discord-later" onclick="closeDiscordPopup()">NANTI SAJA</button>
- </div>
+<div id="paymentPage" style="display:none">
+<div class="step-card">
+<div class="qris-title">SCAN QRIS UNTUK MEMBAYAR</div>
+<div class="qris-amount" id="paymentAmount">Rp0</div>
+<div class="order-id" id="paymentOrderId"></div>
+<img class="qris-image" id="qrisImage" src="" alt="QRIS Admin">
+<p style="text-align:center;color:#d5e3ff;font-size:13px;line-height:1.6">Scan QRIS menggunakan aplikasi pembayaran kamu. Setelah membayar, tekan tombol di bawah untuk mengirim konfirmasi kepada admin.</p>
+</div>
+<button class="order-submit" onclick="sendProof()">KIRIM KONFIRMASI KE WHATSAPP</button>
+<button class="history-button" onclick="showHistory()">LIHAT RIWAYAT PESANAN</button>
+<button class="history-button" onclick="backToCheckout()">KEMBALI KE CHECKOUT</button>
+<p class="order-note">Bukti pembayaran harus dilampirkan sendiri di chat WhatsApp. Pembayaran tidak diverifikasi otomatis.</p>
+</div>
+</div>
 </div>
 
-<!-- TOKOCPS AI -->
-<div class="ai-panel" id="aiPanel">
- <header class="ai-head">
-  <button onclick="toggleAIMenu()" aria-label="Menu">☰</button>
-  <div class="ai-head-info">
-   <strong>Tokocps AI</strong>
-   <small><span class="ai-online"></span>Online · siap membantu</small>
-  </div>
-  <button onclick="newAIChat()" aria-label="Chat baru">✎</button>
-  <button onclick="toggleAI()" aria-label="Tutup">×</button>
- </header>
-
- <div class="ai-welcome" id="aiWelcome">
-  <div class="ai-logo-large"><span>✦</span></div>
-  <h2 class="ai-greeting"><span>Selamat datang!</span><br>Mau transaksi apa hari ini?</h2>
-  <p class="ai-description">Tanya harga, hitung BGL · DL · WL, atau langsung beli & jual. Semua informasi mengikuti pengaturan harga TOKOCPS.</p>
-  <div class="ai-price-chips">
-   <div class="ai-chip">💎 Beli <b id="aiBuyPrice">1.1K</b></div>
-   <div class="ai-chip">💎 Jual <b class="green" id="aiSellPrice">950</b></div>
-   <div class="ai-chip">🔒 BLACK <b id="aiBlackPrice">105K</b></div>
-  </div>
-  <div class="ai-cards">
-   <button class="ai-card" onclick="aiAction('beli')"><div class="ai-card-icon">💎</div><strong>Beli BGL</strong><small>Checkout dengan harga dan stok terbaru</small></button>
-   <button class="ai-card" onclick="aiAction('jual')"><div class="ai-card-icon">🔷</div><strong>Jual BGL / BLACK</strong><small>Lihat estimasi payout dari admin</small></button>
-   <button class="ai-card" onclick="aiAction('kalkulator')"><div class="ai-card-icon">🟨</div><strong>Hitung BGL · DL · WL</strong><small>Konversi dan estimasi harga beli/jual</small></button>
-   <button class="ai-card" onclick="aiAction('aman')"><div class="ai-card-icon">🛡️</div><strong>Aman nggak?</strong><small>Tips transaksi aman di TOKOCPS</small></button>
-  </div>
-  <div class="ai-quick">
-   <button onclick="askAI('Cek stok')">Cek stok</button>
-   <button onclick="askAI('Metode pembayaran')">Metode pembayaran</button>
-   <button onclick="askAI('Cek pesanan')">Cek pesanan</button>
-   <button onclick="askAI('Tools Growtopia')">Tools Growtopia</button>
-   <button onclick="askAI('Panduan')">Panduan</button>
-  </div>
- </div>
-
- <div class="ai-chat-area" id="aiMessages">
-  <div class="ai-message bot">Halo! 👋 Selamat datang di TOKOCPS AI. Ada yang bisa saya bantu?</div>
- </div>
-
- <div class="ai-input-area">
-  <form class="ai-input-form" onsubmit="sendAI(event)">
-   <button type="button" class="ai-add" onclick="aiAction('menu')">+</button>
-   <input id="aiInput" placeholder="Tanya TOKOCPS AI..." autocomplete="off">
-   <button class="ai-send" type="submit">↑</button>
-  </form>
-  <div class="ai-disclaimer">TOKOCPS AI bisa keliru. Harga & stok selalu dikonfirmasi saat checkout.</div>
- </div>
+<div class="history-overlay" id="historyOverlay" onclick="if(event.target===this)closeHistory()">
+<div class="order-sheet">
+<div class="sheet-head"><h2>Riwayat Pesanan</h2><button class="close" onclick="closeHistory()">×</button></div>
+<div id="historyList"></div>
+<button class="history-button" onclick="closeHistory()">TUTUP</button>
+</div>
 </div>
 
-<script src="script.js"></script>
+<script>
+const ADMIN_1_WA="085864582161";
+const ADMIN_2_WA="085765732905";
+const ADMINS={
+1:{name:"Booopa",phone:ADMIN_1_WA,qris:"qris-booopa.png"},
+2:{name:"Wholesale",phone:ADMIN_2_WA,qris:"qris-wholesale.png"}
+};
+const PRICE={BGL:{buy:1100,sell:950},BLACK:{buy:105000,sell:97000}};
+let transaction="Beli",selectedAdmin=1,qty={BGL:0,BLACK:0},currentProduct="BGL",currentOrder=null;
+
+function rupiah(n){return "Rp"+Number(n).toLocaleString("id-ID")}
+function getTotal(){let mode=transaction==="Beli"?"buy":"sell";return qty.BGL*PRICE.BGL[mode]+qty.BLACK*PRICE.BLACK[mode]}
+function openOrder(product){
+ currentProduct=product;transaction="Beli";qty={BGL:product==="BGL"?1:0,BLACK:product==="BLACK"?1:0};selectedAdmin=1;
+ document.getElementById("orderOverlay").classList.add("show");
+ document.body.style.overflow="hidden";backToCheckout();updateSummary();
+}
+function closeOrder(){document.getElementById("orderOverlay").classList.remove("show");document.body.style.overflow=""}
+function setTransaction(type){
+ transaction=type;document.getElementById("buyChoice").classList.toggle("active",type==="Beli");document.getElementById("sellChoice").classList.toggle("active",type==="Jual");
+ document.getElementById("sellFields").style.display=type==="Jual"?"block":"none";
+ updateSummary();
+}
+function changeQty(item,amount){qty[item]=Math.max(0,Math.min(999,qty[item]+amount));updateSummary()}
+function selectAdmin(id){selectedAdmin=id;document.getElementById("admin1").classList.toggle("active",id===1);document.getElementById("admin2").classList.toggle("active",id===2);updateSummary()}
+function updateSummary(){
+ let mode=transaction==="Beli"?"buy":"sell";
+ document.getElementById("qtyBGL").textContent=qty.BGL;document.getElementById("qtyBLACK").textContent=qty.BLACK;
+ document.getElementById("priceBGL").textContent=rupiah(PRICE.BGL[mode])+" / item";
+ document.getElementById("priceBLACK").textContent=rupiah(PRICE.BLACK[mode])+" / item";
+ document.getElementById("sumType").textContent=transaction;
+ document.getElementById("sumBGL").textContent=qty.BGL;
+ document.getElementById("sumBLACK").textContent=qty.BLACK;
+ document.getElementById("sumAdmin").textContent=ADMINS[selectedAdmin].name;
+ document.getElementById("sumTotal").textContent=rupiah(getTotal());
+}
+function submitOrder(){
+ if(qty.BGL+qty.BLACK===0){alert("Pilih minimal satu item.");return}
+ if(transaction==="Jual"&&(!document.getElementById("world").value.trim()||!document.getElementById("owner").value.trim())){alert("Isi world dan nama owner terlebih dahulu.");return}
+ const admin=ADMINS[selectedAdmin],total=getTotal();
+ const id="CPS-"+Date.now().toString(36).toUpperCase();
+ currentOrder={id,createdAt:new Date().toISOString(),transaction,qty:{...qty},adminId:selectedAdmin,admin:admin.name,total,world:document.getElementById("world").value.trim(),owner:document.getElementById("owner").value.trim(),status:"Menunggu Pembayaran"};
+ const orders=JSON.parse(localStorage.getItem("tokocps_orders")||"[]");orders.unshift(currentOrder);localStorage.setItem("tokocps_orders",JSON.stringify(orders));
+ document.getElementById("checkoutForm").style.display="none";document.getElementById("paymentPage").style.display="block";
+ document.getElementById("sheetTitle").textContent="Pembayaran QRIS";
+ document.getElementById("paymentAmount").textContent=rupiah(total);
+ document.getElementById("paymentOrderId").textContent="ID Pesanan: "+id+" • Admin: "+admin.name;
+ document.getElementById("qrisImage").src=admin.qris;
+ document.getElementById("qrisImage").alt="QRIS "+admin.name;
+}
+function backToCheckout(){document.getElementById("checkoutForm").style.display="block";document.getElementById("paymentPage").style.display="none";document.getElementById("sheetTitle").textContent="Checkout TOKOCPS"}
+function sendProof(){
+ if(!currentOrder){alert("Pesanan tidak ditemukan.");return}
+ const admin=ADMINS[currentOrder.adminId];
+ const text=`Halo ${admin.name}, saya ingin konfirmasi pembayaran TOKOCPS.%0A%0AID Pesanan: ${currentOrder.id}%0ATransaksi: ${currentOrder.transaction}%0ABGL: ${currentOrder.qty.BGL}%0ABLACK: ${currentOrder.qty.BLACK}%0ATotal: ${rupiah(currentOrder.total)}%0A%0ASaya akan melampirkan bukti pembayaran di chat ini. Mohon dicek.`;
+ const orders=JSON.parse(localStorage.getItem("tokocps_orders")||"[]");
+ const found=orders.find(o=>o.id===currentOrder.id);
+ if(found){found.status="Menunggu Konfirmasi";localStorage.setItem("tokocps_orders",JSON.stringify(orders))}
+ window.open("https://wa.me/62"+admin.phone.replace(/^0/,"").replace(/\D/g,"")+"?text="+text,"_blank");
+}
+function showHistory(){
+ closeOrder();document.getElementById("historyOverlay").classList.add("show");document.body.style.overflow="hidden";
+ const orders=JSON.parse(localStorage.getItem("tokocps_orders")||"[]"),list=document.getElementById("historyList");
+ if(!orders.length){list.innerHTML="<p style='color:#c6d9ff;text-align:center;padding:25px'>Belum ada pesanan.</p>";return}
+ list.innerHTML=orders.map(o=>`<div class="history-item"><b>${escapeHTML(o.id)}</b><p>${escapeHTML(o.transaction)} • ${o.qty.BGL} BGL • ${o.qty.BLACK} BLACK</p><p>Admin: ${escapeHTML(o.admin)}</p><p>Total: <b>${rupiah(o.total)}</b></p><span class="status ${o.status==="Sukses"?"success":o.status==="Ditolak"?"rejected":""}">${escapeHTML(o.status)}</span><p style="margin-top:12px">Ubah status (lokal):</p><select class="field-input" onchange="updateStatus('${o.id}',this.value)"><option ${o.status==="Menunggu Pembayaran"?"selected":""}>Menunggu Pembayaran</option><option ${o.status==="Menunggu Konfirmasi"?"selected":""}>Menunggu Konfirmasi</option><option ${o.status==="Sukses"?"selected":""}>Sukses</option><option ${o.status==="Ditolak"?"selected":""}>Ditolak</option></select></div>`).join("");
+}
+function updateStatus(id,status){const orders=JSON.parse(localStorage.getItem("tokocps_orders")||"[]");const o=orders.find(x=>x.id===id);if(o){o.status=status;localStorage.setItem("tokocps_orders",JSON.stringify(orders));showHistory()}}
+function closeHistory(){document.getElementById("historyOverlay").classList.remove("show");document.body.style.overflow=""}
+function escapeHTML(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeOrder();closeHistory()}});
+</script>
 </body>
 </html>
