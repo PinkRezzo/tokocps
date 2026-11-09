@@ -9,6 +9,7 @@
 </head>
 <body>
 
+<!-- LOADING SCREEN -->
 <div class="loading-screen" id="loadingScreen">
   <div class="loader-logo">TOKOCPS</div>
   <div class="loader-line"><span></span></div>
@@ -20,6 +21,7 @@
 
 <div class="page">
 
+  <!-- HERO -->
   <section class="hero">
     <div class="top-label"><span class="dot"></span> TRUSTED CPS MARKETPLACE</div>
     <h1>WELCOME TO<br><span>TOKOCPS</span></h1>
@@ -112,6 +114,7 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <div class="footer">
     © 2026 TOKOCPS STORE
     <button class="admin-login-trigger" onclick="openAdminLogin()">ADMIN LOGIN</button>
@@ -154,9 +157,13 @@
 
     <div class="admin-welcome">
       <span>🟢</span>
-      <div><b>Admin aktif</b><small>Kelola produk marketplace kamu.</small></div>
+      <div>
+        <b>Admin aktif</b>
+        <small>Kelola produk marketplace kamu.</small>
+      </div>
     </div>
 
+    <!-- FORM TAMBAH / EDIT PRODUK -->
     <form id="productForm">
       <input type="hidden" id="editProductId">
 
@@ -184,10 +191,12 @@
       </div>
     </form>
 
+    <!-- DAFTAR PRODUK -->
     <div class="admin-product-heading">
       <h3>Daftar Produk</h3>
       <span id="adminProductCount">0 produk</span>
     </div>
+
     <div id="adminProductList" class="admin-product-list"></div>
 
     <button class="admin-logout" onclick="adminLogout()">LOGOUT ADMIN</button>
@@ -217,9 +226,13 @@
 
       <div class="step-card">
         <h3>2. Jumlah Item</h3>
+
         <div class="item-row">
           <div class="item-icon"><img src="logo-bgl-black.png" alt="BGL"></div>
-          <div class="item-info"><strong>Blue Gem Lock</strong><small id="priceBGL">Rp1.100 / item</small></div>
+          <div class="item-info">
+            <strong>Blue Gem Lock</strong>
+            <small id="priceBGL">Rp1.100 / item</small>
+          </div>
           <div class="quantity">
             <button class="qty-btn" onclick="changeQty('BGL',-1)">−</button>
             <span class="qty-value" id="qtyBGL">0</span>
@@ -229,7 +242,10 @@
 
         <div class="item-row">
           <div class="item-icon"><img src="logo-black.png" alt="BLACK"></div>
-          <div class="item-info"><strong>Black Gem Lock</strong><small id="priceBLACK">Rp105.000 / item</small></div>
+          <div class="item-info">
+            <strong>Black Gem Lock</strong>
+            <small id="priceBLACK">Rp105.000 / item</small>
+          </div>
           <div class="quantity">
             <button class="qty-btn" onclick="changeQty('BLACK',-1)">−</button>
             <span class="qty-value" id="qtyBLACK">0</span>
@@ -240,6 +256,7 @@
         <div id="sellFields" style="display:none">
           <label class="field-label" for="world">World tempat transaksi</label>
           <input class="field-input" id="world" placeholder="Contoh: TOKOCPS">
+
           <label class="field-label" for="owner">Nama owner / GrowID</label>
           <input class="field-input" id="owner" placeholder="Masukkan nama owner">
         </div>
@@ -254,7 +271,10 @@
       </div>
 
       <div class="summary-card">
-        <div class="summary-head"><small>RINGKASAN PESANAN</small><h3>Detail Checkout</h3></div>
+        <div class="summary-head">
+          <small>RINGKASAN PESANAN</small>
+          <h3>Detail Checkout</h3>
+        </div>
         <div class="summary-body">
           <div class="summary-line"><span>Jenis transaksi</span><strong id="sumType">Beli</strong></div>
           <div class="summary-line"><span>Jumlah BGL</span><strong id="sumBGL">0</strong></div>
@@ -268,6 +288,7 @@
       <p class="order-note">Pastikan jumlah dan admin sudah benar sebelum melanjutkan.</p>
     </div>
 
+    <!-- PAYMENT PAGE -->
     <div id="paymentPage" style="display:none">
       <div class="step-card">
         <div class="qris-title">SCAN QRIS UNTUK MEMBAYAR</div>
@@ -276,6 +297,7 @@
         <img class="qris-image" id="qrisImage" src="" alt="QRIS Admin">
         <p class="payment-description">Scan QRIS menggunakan aplikasi pembayaran kamu. Setelah membayar, tekan tombol di bawah untuk mengirim konfirmasi kepada admin.</p>
       </div>
+
       <button class="order-submit" onclick="sendProof()">KIRIM KONFIRMASI KE WHATSAPP</button>
       <button class="history-button" onclick="showHistory()">LIHAT RIWAYAT PESANAN</button>
       <button class="history-button" onclick="backToCheckout()">KEMBALI KE CHECKOUT</button>
@@ -287,7 +309,10 @@
 <!-- HISTORY OVERLAY -->
 <div class="history-overlay" id="historyOverlay" onclick="if(event.target===this)closeHistory()">
   <div class="order-sheet">
-    <div class="sheet-head"><h2>Riwayat Pesanan</h2><button class="close" onclick="closeHistory()">×</button></div>
+    <div class="sheet-head">
+      <h2>Riwayat Pesanan</h2>
+      <button class="close" onclick="closeHistory()">×</button>
+    </div>
     <div id="historyList"></div>
     <button class="history-button" onclick="closeHistory()">TUTUP</button>
   </div>
