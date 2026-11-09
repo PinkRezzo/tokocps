@@ -751,3 +751,318 @@ document.getElementById("adminDashboard").addEventListener("click",event=>{
 document.addEventListener("DOMContentLoaded",()=>{
   renderMarketplace();
 });
+
+
+// =====================================
+// TOKOCPS ADMIN TABS + PRICE MANAGER
+// =====================================
+
+const PRICE_KEY = "tokocps_product_prices";
+
+// Load harga tersimpan
+function loadSavedPrices(){
+  try{
+    const saved = JSON.parse(localStorage.getItem(PRICE_KEY) || "null");
+
+    if(saved && typeof saved === "object"){
+      ["BGL","BLACK"].forEach(item=>{
+        ["buy","sell"].forEach(type=>{
+          const value = Number(saved[item]?.[type]);
+
+          if(Number.isFinite(value) && value > 0){
+            PRICE[item][type] = value;
+          }
+        });
+      });
+    }
+  }catch(error){
+    console.warn("Harga tersimpan tidak dapat dibaca.",error);
+  }
+}
+
+// Simpan harga
+function savePrices(){
+  try{
+    localStorage.setItem(PRICE_KEY,JSON.stringify(PRICE));
+    return true;
+  }catch(error){
+    alert("Harga gagal disimpan.");
+    return false;
+  }
+}
+
+// Format harga singkat untuk halaman utama
+function compactPrice(value){
+  const number = Number(value) || 0;
+
+  if(number >= 1000000){
+    return (number / 1000000).toFixed(number % 1000000 === 0 ? 0 : 1) + "M";
+  }
+
+  if(number >= 1000){
+    return (number / 1000).toFixed(number % 1000 === 0 ? 0 : 1) + "K";
+  }
+
+  return number.toLocaleString("id-ID");
+}
+
+// Update harga hero
+function updateHeroPrices(){
+  const prices = document.querySelectorAll(".price");
+
+  if(prices[0]){
+    prices[0].textContent = compactPrice(PRICE.BGL.buy);
+  }
+
+  if(prices[1]){
+    prices[1].textContent = compactPrice(PRICE.BLACK.buy);
+  }
+
+  if(typeof updateSummary === "function"){
+    updateSummary();
+  }
+}
+
+// Membuat tab dashboard admin
+function setupAdminTabs(){
+  const panel = document.querySelector("#adminDashboard .admin-panel, #adminDashboard .dashboard-panel");
+
+  if(!panel) return;
+
+  // Hindari membuat tab berulang kali
+  if(panel.querySelector(".admin-tabs")) return;
+
+  const form = document.getElementById("productForm");
+  const heading = panel.querySelector(".admin-product-heading");
+  const list = document.getElementById("adminProductList");
+
+  if(!form || !heading || !list) return;
+
+  const welcome = panel.querySelector(".admin-welcome");
+
+  const tabs = document.createElement("div");
+  tabs.className = "admin-tabs";
+
+  tabs.innerHTML = `
+    <button type="button" class="admin-tab active" data-tab="add">
+      + Tambah Produk
+    </button>
+    <button type="button" class="admin-tab" data-tab="price">
+      Harga
+    </button>
+    <button type="button" class="admin-tab" data-tab="manage">
+      Kelola Produk
+    </button>
+  `;
+
+  const addPane = document.createElement("div");
+  addPane.className = "admin-tab-pane active";
+  addPane.id = "adminTabAdd";
+
+  const pricePane = document.createElement("div");
+  pricePane.className = "admin-tab-pane";
+  pricePane.id = "adminTabPrice";
+
+  const managePane = document.createElement("div");
+  managePane.className = "admin-tab-pane";
+  managePane.id = "adminTabManage";
+
+  // Masukkan elemen lama ke tab masing-masing
+  form.parentNode.insertBefore(addPane,form);
+  addPane.appendChild(form);
+
+  const manageAnchor = heading.parentNode;
+  manageAnchor.insertBefore(managePane,heading);
+  managePane.appendChild(heading);
+  managePane.appendChild(list);
+
+  // Buat tampilan pengaturan harga
+  pricePane.innerHTML = `
+    <h3 class="admin-form-title">Pengaturan Harga</h3>
+
+    <p class="admin-price-description">
+      Atur harga beli dan harga jual BGL serta BLACK.
+      Perubahan akan langsung diterapkan pada halaman utama
+      dan ringkasan checkout.
+    </p>
+
+    <div class="price-manager-card">
+      <div class="price-manager-title">
+        <span>💎</span> BLUE GEM LOCK (BGL)
+      </div>
+
+      <label class="field-label" for="priceBGLBuy">
+        Harga Beli BGL
+      </label>
+      <input
+        class="field-input"
+        id="priceBGLBuy"
+        type="number"
+        min="1"
+        step="1"
+        placeholder="Contoh: 1100"
+      >
+
+      <label class="field-label" for="priceBGLSell">
+        Harga Jual BGL
+      </label>
+      <input
+        class="field-input"
+        id="priceBGLSell"
+        type="number"
+        min="1"
+        step="1"
+        placeholder="Contoh: 950"
+      >
+    </div>
+
+    <div class="price-manager-card">
+      <div class="price-manager-title">
+        <span>🖤</span> BLACK GEM LOCK
+      </div>
+
+      <label class="field-label" for="priceBLACKBuy">
+        Harga Beli BLACK
+      </label>
+      <input
+        class="field-input"
+        id="priceBLACKBuy"
+        type="number"
+        min="1"
+        step="1"
+        placeholder="Contoh: 105000"
+      >
+
+      <label class="field-label" for="priceBLACKSell">
+        Harga Jual BLACK
+      </label>
+      <input
+        class="field-input"
+        id="priceBLACKSell"
+        type="number"
+        min="1"
+        step="1"
+        placeholder="Contoh: 97000"
+      >
+    </div>
+
+    <button type="button" class="price-save-button" id="savePriceButton">
+      SIMPAN PERUBAHAN HARGA
+    </button>
+
+    <p class="price-manager-note">
+      Harga menggunakan satuan Rupiah. Contoh: 1100 berarti Rp1.100.
+    </p>
+  `;
+
+  panel.insertBefore(tabs,welcome ? welcome.nextSibling : panel.firstChild);
+
+  const logout = panel.querySelector(".admin-logout") ||
+                 panel.querySelector("button[onclick='adminLogout()']");
+
+  if(logout){
+    panel.insertBefore(pricePane,logout);
+  }else{
+    panel.appendChild(pricePane);
+  }
+
+  panel.insertBefore(managePane,pricePane);
+
+  // Fungsi berpindah tab
+  tabs.querySelectorAll(".admin-tab").forEach(button=>{
+    button.addEventListener("click",()=>{
+      const target = button.dataset.tab;
+
+      tabs.querySelectorAll(".admin-tab").forEach(tab=>{
+        tab.classList.toggle("active",tab === button);
+      });
+
+      addPane.classList.toggle("active",target === "add");
+      pricePane.classList.toggle("active",target === "price");
+      managePane.classList.toggle("active",target === "manage");
+    });
+  });
+
+  // Isi harga saat tab dibuat
+  fillPriceInputs();
+
+  // Simpan harga
+  document.getElementById("savePriceButton").addEventListener("click",()=>{
+    const values = {
+      BGL:{
+        buy:Number(document.getElementById("priceBGLBuy").value),
+        sell:Number(document.getElementById("priceBGLSell").value)
+      },
+      BLACK:{
+        buy:Number(document.getElementById("priceBLACKBuy").value),
+        sell:Number(document.getElementById("priceBLACKSell").value)
+      }
+    };
+
+    const valid = Object.values(values).every(item=>
+      Number.isFinite(item.buy) &&
+      Number.isFinite(item.sell) &&
+      item.buy > 0 &&
+      item.sell > 0
+    );
+
+    if(!valid){
+      alert("Semua harga harus diisi dengan angka lebih dari 0.");
+      return;
+    }
+
+    PRICE.BGL = values.BGL;
+    PRICE.BLACK = values.BLACK;
+
+    if(!savePrices()) return;
+
+    updateHeroPrices();
+
+    alert("Harga BGL dan BLACK berhasil diperbarui!");
+  });
+}
+
+// Isi input pengaturan harga
+function fillPriceInputs(){
+  const fields = {
+    priceBGLBuy:PRICE.BGL.buy,
+    priceBGLSell:PRICE.BGL.sell,
+    priceBLACKBuy:PRICE.BLACK.buy,
+    priceBLACKSell:PRICE.BLACK.sell
+  };
+
+  Object.entries(fields).forEach(([id,value])=>{
+    const input = document.getElementById(id);
+
+    if(input){
+      input.value = value;
+    }
+  });
+}
+
+// Override dashboard agar tab selalu disiapkan
+const originalOpenAdminDashboard = openAdminDashboard;
+
+openAdminDashboard = function(){
+  if(!adminLoggedIn) return;
+
+  setupAdminTabs();
+
+  document.getElementById("adminDashboard").classList.add("show");
+  document.body.style.overflow = "hidden";
+
+  renderAdminProducts();
+  fillPriceInputs();
+  updateHeroPrices();
+};
+
+// Load harga ketika website dibuka
+loadSavedPrices();
+updateHeroPrices();
+
+// Pastikan marketplace diperbarui
+document.addEventListener("DOMContentLoaded",()=>{
+  loadSavedPrices();
+  updateHeroPrices();
+  renderMarketplace();
+});
