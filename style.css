@@ -708,4 +708,130 @@ h1 span{color:#ffd34e;text-shadow:0 0 20px #ffd34e55}
     font-size:9px;
   }
 }
+/* =====================================
+   ADMIN DASHBOARD TABS
+===================================== */
+
+.admin-tabs{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:8px;
+ margin-bottom:18px;
+ padding:6px;
+ border-radius:14px;
+ background:#071a3c;
+ border:1px solid #315ba3;
+}
+
+.admin-tab{
+ padding:12px 5px;
+ border:1px solid transparent;
+ border-radius:10px;
+ background:transparent;
+ color:#a9caff;
+ font-size:12px;
+ font-weight:900;
+}
+
+.admin-tab:hover{
+ background:#173d7d;
+}
+
+.admin-tab.active{
+ color:white;
+ background:linear-gradient(135deg,#2878df,#1648a0);
+ border-color:#62c4ff;
+ box-shadow:0 0 15px #168dff55;
+}
+
+.admin-tab-pane{
+ display:none;
+ animation:adminPaneIn .3s ease;
+}
+
+.admin-tab-pane.active{
+ display:block;
+}
+
+@keyframes adminPaneIn{
+ from{
+  opacity:0;
+  transform:translateY(8px);
+ }
+ to{
+  opacity:1;
+  transform:translateY(0);
+ }
+}
+
+/* PRICE MANAGER */
+
+.admin-price-description{
+ margin-bottom:15px;
+ color:#b9d2ff;
+ font-size:12px;
+ line-height:1.6;
+}
+
+.price-manager-card{
+ margin-bottom:13px;
+ padding:15px;
+ border:1px solid #4779d8;
+ border-radius:16px;
+ background:linear-gradient(145deg,#153b7c,#0b2454);
+}
+
+.price-manager-title{
+ display:flex;
+ align-items:center;
+ gap:10px;
+ margin-bottom:12px;
+ font-size:16px;
+ font-weight:900;
+}
+
+.price-manager-title span{
+ color:#ffd34e;
+}
+
+.price-manager-card .field-label{
+ margin-top:10px;
+}
+
+.price-save-button{
+ width:100%;
+ margin-top:12px;
+ padding:14px;
+ border:0;
+ border-radius:12px;
+ background:linear-gradient(90deg,#18c76a,#52e69a);
+ color:#062c1a;
+ font-weight:1000;
+}
+
+.price-save-button:hover{
+ box-shadow:0 0 20px #18c76a88;
+}
+
+.price-manager-note{
+ margin-top:12px;
+ color:#9fcaff;
+ font-size:11px;
+ line-height:1.6;
+}
+
+@media(max-width:440px){
+ .admin-tabs{
+  gap:4px;
+  padding:4px;
+ }
+
+ .admin-tab{
+  padding:11px 3px;
+  font-size:10px;
+ }
+
+ .price-manager-card{
+  padding:12px;
+ }
 }
